@@ -1,4 +1,4 @@
-# QueroBemEstar
+# Ingressou
 
 ![Logo](./docs/assets/logo.png)
 
