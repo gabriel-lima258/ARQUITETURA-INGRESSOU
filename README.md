@@ -1,6 +1,6 @@
 # QueroBemEstar
 
-![Logo](./docs/assets/logo.png)
+![Logo](./docs/assets/logoBack.png)
 
 QueroBemEstar é uma plataforma que incentiva hábitos alimentares saudáveis por meio da combinação de saúde, gamificação e socialização. Nela, os usuários podem participar de competições voltadas à preparação de receitas fitness e acompanhar sua ingestão calórica de forma prática e consciente. A proposta é tornar o cuidado com a alimentação mais acessível e envolvente, criando uma experiência divertida, colaborativa e competitiva que estimula a adoção de um estilo de vida equilibrado e sustentável..
 
