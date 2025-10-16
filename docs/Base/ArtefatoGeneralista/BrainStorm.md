@@ -1,136 +1,157 @@
-# Brainstorming
+# Brainstorming — Ingressou
 
-> Versão: 1.0  
-> Data: Outubro de 2025  
-> Autor: Gabriel Lima  
-> Projeto: Ingressou — Plataforma Web de Venda e Gestão de Ingressos
+> **Versão:** 1.1  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos
 
 ---
 
-## 📑 Sumário
+## Sumário
 
-* [Introdução](#Introdução)
-* [Objetivos](#Objetivos)
-* [Metodologia](#Metodologia)
-* [Mapa Mental](#Mapa-Mental)
-* [Quadro de Insights](#Quadro-de-Insights)
-* [Conclusão](#Conclusão)
-* [Bibliografia](#Bibliografia)
-* [Histórico de versão](#Histórico-de-versão)
+* [Introdução](#introdução)
+* [Objetivos](#objetivos)
+* [Metodologia](#metodologia)
+* [Mapa Mental](#mapa-mental)
+* [Quadro de Insights](#quadro-de-insights)
+  * [Modelo de Negócio](#modelo-de-negócio)
+  * [Produto e Funcionalidades](#produto-e-funcionalidades)
+  * [Usuários e Personas](#usuários-e-personas)
+  * [Experiência e Interface (UX/UI)](#experiência-e-interface-uxui)
+  * [Regras e Conformidade](#regras-e-conformidade)
+  * [Diferenciais Estratégicos](#diferenciais-estratégicos)
+* [Síntese dos Padrões e Direcionamentos](#síntese-dos-padrões-e-direcionamentos)
+* [Caminho Estratégico Inicial](#caminho-estratégico-inicial)
+* [Conclusão](#conclusão)
+* [Bibliografia](#bibliografia)
+* [Histórico de versão](#histórico-de-versão)
+
+---
 
 ## Introdução
 
-O brainstorming, ou "tempestade de ideias", é uma técnica amplamente utilizada em processos criativos e de levantamento de requisitos com o propósito de estimular a geração espontânea de ideias em um ambiente livre de julgamentos. Com isso, no artigo [The Journey of Brainstorming](https://www.regent.edu/journal/journal-of-transformative-innovation/the-history-of-brainstorming-alex-osborn/) [1](#ref1), segundo Osborn (1953), criador do método, a principal função do brainstorming é “**estimular o pensamento criativo e permitir a exploração de diferentes possibilidades de solução para um determinado problema**”¹. Atualmente, essa prática é aplicada tanto em contextos colaborativos quanto individuais no desenvolvimento de softwares, uma vez que servem como ferramenta para ampliar a compreensão sobre o escopo de um projeto e antecipar potenciais funcionalidades, oportunidades e desafios.
+O brainstorming é uma técnica para **gerar e organizar ideias** sem julgamentos, útil para **explorar escopo, oportunidades e riscos** no início de projetos. Inspirado em Osborn (1953), seu objetivo é **estimular o pensamento criativo** e ampliar alternativas de solução.
 
-Desse modo, neste projeto, um brainstorming foi realizado na fase inicial para explorar as ideias iniciais sobre as funcionalidades, os conteúdos e as experiências que a plataforma poderá oferecer aos seus usuários. 
+Neste artefato, registramos o brainstorming inicial do **Ingressou**, já **adaptado** às decisões recentes do projeto:
 
-## Objetivos
-
-O principal objetivo deste artefato é registrar e organizar as ideias geradas durante a sessão de brainstorming. Dessa maneira, a intenção é identificar possíveis funcionalidades, temas de conteúdo e experiências interativas que possam compor o escopo do sistema do site de astronomia. Além disso, busca-se utilizar esse brainstorming como um ponto de partida para a elicitação de requisitos e para a construção de uma visão mais clara do produto.
-
-## Metodologia
-
-A metodologia adotada para a realização desta etapa do projeto baseou-se na elaboração de um **mapa mental**, feito por meio da ferramenta [Draw.io](https://app.diagrams.net/), contendo as principais categorias e sugestões identificadas para o desenvolvimento da plataforma **Ingressou**. Para isso, foram utilizadas referências em sites e projetos já consolidados nas áreas de educação, divulgação científica e atividades lúdicas, como Khan Academy, Racha Cuca, Astronomia no Zênite e o programa audiovisual Um Minuto no Museu, entre outros. 
-
-## Mapa Mental
-
-Abaixo, há o mapa mental criado:
-
-**Observação:** Para analisar o brainstorming de forma ampliada e em seus detalhes, clique com botão direito na imagem e abra em nova aba e ela será aberta, a qual lhe permitirá explorá-lo com um zoom.
-
-<div align="center">
-    Figura 1: Mapa Mental Brainstorming
-    <br>
-    <img src="assets/ArtefatosGeneralistas/brainstorming.png">
-    <br>
-     <b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
-    <br>
-</div>
-
-
-##  Quadro de Insights
-
-Para organizar os principais tópicos elencados no mapa mental, o quadro abaixo foi desenvolvido com o objetivo de agrupar as ideias de forma visual e temática, o que facilita a identificação de padrões, de oportunidades e de possíveis direções para o desenvolvimento da **Ingressou**.
+- **Eventos criados exclusivamente pelo Administrador**.  
+- **Lotes** encerram pelo **primeiro limite atingido** (tempo *ou* quantidade).  
+- **Cupons de influenciadores** para o comprador (sem cashback ao usuário).  
+- **Cashback financeiro destinado ao Produtor** (saldo no painel, abatimento de taxas/campanhas).  
+- Uso de **mensageria/filas** para jobs assíncronos e **cache** para alto desempenho.
 
 ---
 
-## Modelo de Negócio
+## Objetivos
 
-| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
-|--------------------------|--------------------------------------------|-----------------------------------|
-| - Taxa de 8% por venda de ingresso. <br> - Cashback de 2% no primeiro evento. <br> - Split automático de repasse ao produtor. <br> - Suporte a diferentes tipos de eventos (shows, palestras, igrejas, teatros). <br> - Venda de produtos extras (mentorias, workshops, pacotes). | - Falta de transparência em taxas e repasses nas plataformas atuais. <br> - Mercado desatendido para eventos pequenos e locais. <br> - Cashbacks e benefícios fidelizam o público. | - Manter modelo sustentável e competitivo. <br> - Posicionar a Ingressou como **acessível e justa** para produtores. <br> - Criar **planos diferenciados** (básico, premium, corporativo). |
+- Registrar ideias e **agrupar temas** que compõem o MVP e evoluções.  
+- **Alinhar** visão de produto aos **requisitos** e **regras de negócio** recém-definidas.  
+- Servir de **base** para elicitação, priorização (MVP) e roadmap.
 
+---
 
-## Produto e Funcionalidades
+## Metodologia
 
-| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
-|--------------------------|--------------------------------------------|-----------------------------------|
-| - Cadastro de eventos e lotes. <br> - Tipos de ingressos (inteira, meia, VIP, cortesia). <br> - Pagamentos via PIX, crédito e débito. <br> - Check-in com QR Code antifraude. <br> - Painel do produtor com relatórios e estatísticas. <br> - Histórico de compras e cashback. | - Usuários e produtores valorizam **simplicidade e autonomia**. <br> - Automação e confiabilidade são essenciais. <br> - Check-in rápido evita filas e fraudes. | - Focar o MVP no fluxo essencial: **criar → vender → validar**. <br> - Incluir automações (e-mails, WhatsApp, controle de estoque). |
+- Sessão de **brainstorming individual** e **benchmarking setorial** (plataformas de ingressos e pagamentos).  
+- Organização por **mapa mental** (Draw.io) e consolidação em **Quadro de Insights**.  
+- Integração das **decisões arquiteturais** (mensageria, cache) e de **governança** (admin cria eventos).
 
-## Usuários e Personas
+---
 
-| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
-|--------------------------|--------------------------------------------|-----------------------------------|
-| - **Produtor:** quer vender fácil e receber rápido. <br> - **Usuário:** busca confiança e agilidade (PIX, QR, cashback). <br> - **Staff:** precisa de check-in rápido e offline. <br> - **Admin:** precisa monitorar fraudes e finanças. | - Todos valorizam **transparência, automação e simplicidade**. <br> - Há insatisfação com plataformas complexas e caras. | - Projetar fluxos claros e minimalistas por perfil. <br> - Criar dashboards personalizados (produtor, usuário, admin). |
+## Mapa Mental
 
-## Experiência e Interface (UX/UI)
-
-| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
-|--------------------------|--------------------------------------------|-----------------------------------|
-| - Interface intuitiva e leve (web). <br> - Páginas de evento com imagem e categorias. <br> - Checkout em poucos cliques. <br> - Envio automatizado de QR Code por e-mail e WhatsApp. <br> - PWA com modo offline. | - Expectativa por experiência moderna e fluida. <br> - Integração com WhatsApp e carteiras digitais aumenta engajamento. | - Criar identidade visual jovem, vibrante e brasileira. <br> - UX responsiva com microinterações e feedbacks claros. |
-
-## Regras e Conformidade
-
-| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
-|--------------------------|--------------------------------------------|-----------------------------------|
-| - LGPD: consentimento e segurança dos dados. <br> - Meia-entrada: validação de documentos no check-in. <br> - Política de reembolso configurável. <br> - Emissão automática de NFS-e sobre a taxa. | - Usuários valorizam proteção de dados e clareza nas regras. <br> - Produtores precisam de segurança jurídica e fiscal. | - Implementar processos automáticos de emissão fiscal. <br> - Criar políticas claras e acessíveis no checkout. |
-
-## Diferenciais Estratégicos
-
-| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
-|--------------------------|--------------------------------------------|-----------------------------------|
-| - Cashback promocional. <br> - Antifraude com QR dinâmico. <br> - Split de pagamento automático. <br> - Comunicação via e-mail e WhatsApp. <br> - Plataforma aberta a produtores de qualquer porte. | - Fidelização por recompensa financeira. <br> - Potencial de democratização de eventos locais. | - Fortalecer o branding em torno de **confiança, tecnologia e acessibilidade**. <br> - Criar campanhas de aquisição e retenção personalizadas. |
+> **Observação:** Para visualizar em detalhes, clique com o botão direito na imagem e abra em nova aba para dar zoom.
 
 <div align="center">
-    <br>
-     <b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
-    <br>
+  Figura 1: Mapa Mental — Brainstorming Ingressou
+  <br>
+  <img src="assets/ArtefatosGeneralistas/brainstorming.png" alt="Mapa Mental do Brainstorming da Ingressou">
+  <br>
+  <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 </div>
+
+---
+
+## Quadro de Insights
+
+> O quadro agrupa tópicos do mapa mental em **seis eixos**, destacando **insights**, **oportunidades** e **direcionamentos** já **compatíveis** com as regras atualizadas do projeto.
+
+### Modelo de Negócio
+
+| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
+|---|---|---|
+| - **Taxa de 8%** sobre cada ingresso. <br> - **Cashback ao Produtor** (ex.: **2%** do líquido configurável) como incentivo. <br> - **Split automático** e repasse D+X. <br> - Suporte a múltiplos segmentos: **shows, palestras, teatro, igrejas, conferências**. <br> - Possibilidade de **venda de produtos** vinculados ao evento (mentorias, workshops, pacotes). | - Produtores valorizam **transparência** de taxas e **previsibilidade** de repasses. <br> - Há espaço para **pequenos e médios** organizadores. <br> - Incentivos financeiros ao **produtor** (cashback) favorecem adesão e retenção. | - Tornar **visível** no painel a composição de preço, taxas, split e saldo de cashback. <br> - Oferecer **planos** por porte (básico, premium, corporativo). <br> - **Política de cashback** configurável por contrato. |
+
+### Produto e Funcionalidades
+
+| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
+|---|---|---|
+| - **Admin cria/pública** eventos. <br> - **Lotes** com **janela de venda** e **quantidade máxima**; **encerra pelo primeiro limite**. <br> - Tipos de ingresso: **inteira, meia, VIP, cortesia**. <br> - **Checkout** com **PIX** e **cartão** (3DS/antifraude). <br> - **Cupom de influenciador** no checkout (percentual/fixo, vigência, limites). <br> - **Cashback do Produtor** no financeiro do painel (saldo/uso). <br> - **QR Code** antifraude e **check-in** online/offline. <br> - **Painel do Produtor** com vendas, repasses, relatórios CSV. | - Fluxo essencial: **publicar → vender → validar**. <br> - **Automação** reduz suporte (e-mails/WhatsApp, lembretes, confirmação, estorno). <br> - **Mensageria** evita gargalos; **cache** acelera páginas populares. | - MVP com foco em **conversão** (checkout claro, termos e resumo financeiro). <br> - **Filas** para e-mails/WhatsApp, webhooks, geração de QR e exportações. <br> - **Cache** (Redis) para listagens e páginas públicas de eventos. |
+
+### Usuários e Personas
+
+| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
+|---|---|---|
+| - **Usuário Comprador:** quer **agilidade, clareza** e **segurança**; usa **PIX**; aplica **cupom** (não recebe cashback). <br> - **Produtor:** precisa de **métricas em tempo real**, **previsibilidade** de repasse e **incentivo** (cashback). <br> - **Staff (Check-in):** validação **rápida** e **offline**. <br> - **Administrador:** **cria eventos**, define **lotes**, cuida de **políticas**, **cupons**, **fraudes**. | - Todos valorizam **simplicidade** e **transparência**. <br> - Produtores demandam **governança** e **confiabilidade**. | - Fluxos **separados por perfil**. <br> - **Dashboards** específicos (produtor/admin) com **indicadores práticos**. |
+
+### Experiência e Interface (UX/UI)
+
+| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
+|---|---|---|
+| - **UI responsiva** (mobile-first). <br> - Páginas de evento com **banner, descrição, locais, datas, lotes** e CTA claro. <br> - **Checkout** em poucos passos e **resumo** transparente (itens, taxas, total). <br> - **Envio automatizado** de ingresso por e-mail/WhatsApp. <br> - **PWA** para check-in. | - **Conversão** depende de clareza e velocidade. <br> - WhatsApp e carteiras digitais **aumentam confiança**. | - **Microfeedbacks** (loading, sucesso, erro). <br> - **Templates** consistentes e acessíveis (WCAG 2.1 AA). |
+
+### Regras e Conformidade
+
+| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
+|---|---|---|
+| - **LGPD**: consentimento, finalidade, exclusão sob demanda. <br> - **Meia-entrada**: **flag digital** e verificação no check-in. <br> - **Política de reembolso**: configurável e aplicada no checkout. <br> - **NFS-e**: emissão sobre **taxa da plataforma**. | - Clareza jurídica **reduz chargeback** e suporte. | - **Termos e políticas** visíveis no checkout. <br> - **Auditoria** de ações críticas (criar/publicar/cancelar/validar). |
+
+### Diferenciais Estratégicos
+
+| **Insights Principais** | **Padrões e Oportunidades Identificadas** | **Direcionamento para o Projeto** |
+|---|---|---|
+| - **Cashback para Produtor** (não ao usuário). <br> - **Cupons de influenciadores** para usuário (atribuição de vendas). <br> - **Antifraude** (QR assinado; anti-replay). <br> - **Split** automático e **mensageria** resiliente. <br> - **Cache** para alta performance. | - Produtor engaja com incentivos financeiros e **visibilidade de métricas**. | - **Painel financeiro** do produtor com **saldo de cashback**, **extratos** e **opções de uso** (abatimento de taxa/campanhas). |
 
 ---
 
 ## Síntese dos Padrões e Direcionamentos
 
-1. **Facilidade e agilidade** são valores centrais para todos os usuários.  
-2. **Segurança e transparência** são fundamentais para a credibilidade do sistema.  
-3. **Cashback e automação** podem gerar diferenciais competitivos.  
-4. **Arquitetura modular** permitirá escalar o produto de forma sustentável.  
-5. **UX responsiva e inclusiva** é essencial para adoção rápida.
+1. **Governança:** **Administrador** centraliza a **criação/publicação** de eventos.  
+2. **Oferta e demanda:** **Lotes** encerram por **tempo** ou **quantidade** — o que vier primeiro.  
+3. **Comercial:** **Cupom de influenciador** direcionado ao comprador; **cashback** como **incentivo ao produtor**.  
+4. **Arquitetura:** **Mensageria** para tarefas assíncronas críticas (webhooks, e-mails/WhatsApp, QR, exportações) e **cache** para leituras quentes.  
+5. **Conversão & UX:** Checkout **rápido e transparente**; **páginas de evento** enxutas; **PWA** de check-in.  
+6. **Conformidade & confiança:** **LGPD, auditoria, antifraude** e **políticas claras** no checkout.
 
 ---
 
 ## Caminho Estratégico Inicial
 
-- Foco do MVP: fluxo completo de **criação → venda → validação**.  
-- Prioridades técnicas: segurança, automação e UX fluida.  
-- Evolução futura: revenda de ingressos, afiliados e white-label.  
-- Identidade: **Ingressou — “Seu rolê começa aqui.”**
+- **MVP** orientado ao fluxo **publicar (admin) → vender (checkout) → validar (check-in)**.  
+- **Infra e performance:** mensageria (RabbitMQ/Kafka/SQS), cache (Redis), observabilidade (OTel/Sentry).  
+- **Financeiro:** split, repasses e **cashback do produtor** visível e auditável.  
+- **Crescimento:** aquisição por **influenciadores** (cupons e atribuição de vendas).  
+- **Roadmap pós-MVP:** **revenda/transferência**, **assentos visuais**, **Wallets**, **white-label**.
 
 ---
 
 ## Conclusão
 
-Ao se colocar as ideias iniciais em um mapa mental e em um quadro de insights, foi possível visualizar de forma estruturada os principais elementos que podem compor o  projeto proposto. Assim, essa abordagem favoreceu a identificação de temas recorrentes, de algumas das funcionalidades desejadas e verificar oportunidades de inovação.
+O brainstorming, **ajustado às decisões recentes**, consolidou uma visão de produto **coerente, enxuta e escalável**:  
+governança por **Administrador**, **lotes** com suspensão por **tempo/quantidade**, **cupons** focados no comprador, **cashback** para **produtor**, e arquitetura com **mensageria** e **cache** para garantir **confiabilidade e desempenho**.
 
 ---
 
 ## Bibliografia
 
 <a name="ref1"></a>  
-[1] BESANT, Hanisha. *The journey of brainstorming*. *Journal of Transformative Innovation*, [S.l.], v. 2, n. 1, 2016. Disponível em: <https://www.regent.edu/journal/journal-of-transformative-innovation/the-history-of-brainstorming-alex-osborn/>. Acesso em: 4 abr. 2025.
+[1] BESANT, Hanisha. *The journey of brainstorming*. *Journal of Transformative Innovation*, v. 2, n. 1, 2016. Disponível em: <https://www.regent.edu/journal/journal-of-transformative-innovation/the-history-of-brainstorming-alex-osborn/>. Acesso em: 4 abr. 2025.
+
+---
 
 ## Histórico de versão
 
 | Versão | Alteração | Responsável | Data |
-| - | - | - | - |
-| 1.0 | Elaboração do documento| Gabriel Lima | 15/10/2025 |
+|---:|---|---|---|
+| 1.0 | Elaboração do documento | Gabriel Lima | 15/10/2025 |
+| 1.1 | **Adequação às regras atualizadas** (admin cria eventos; lotes por tempo/quantidade; cupom de influenciador; cashback para produtor; mensageria e cache) | Gabriel Lima | 16/10/2025 |

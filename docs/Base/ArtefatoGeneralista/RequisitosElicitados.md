@@ -1,13 +1,13 @@
-# Requisitos Elicitados
+# Requisitos Elicitados — Ingressou
 
-> Versão: 1.0  
-> Data: Outubro de 2025  
-> Autor: Gabriel Lima  
-> Projeto: Ingressou — Plataforma Web de Venda e Gestão de Ingressos
+> **Versão:** 1.2  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos
 
 ---
 
-## 📑 Sumário
+## Sumário
 
 * [Introdução](#introdução)
 * [Visão Geral](#visão-geral)
@@ -26,258 +26,223 @@
 
 ## Introdução
 
-O levantamento e a organização dos requisitos são etapas fundamentais no desenvolvimento do projeto Ingressou.  
-Este documento apresenta, de forma estruturada e compreensível, os requisitos funcionais e não funcionais que orientam a construção da plataforma.
-
-Os requisitos foram reunidos por meio de brainstorming, análises de benchmarking com plataformas semelhantes (por exemplo, Sympla) e pela identificação das necessidades de produtores de eventos, compradores e equipes de check-in.
-
-O objetivo é garantir um entendimento claro e validável das funcionalidades essenciais e das regras de negócio, oferecendo uma base sólida para o desenvolvimento incremental do MVP e suas futuras evoluções.
+Este documento consolida os requisitos funcionais e não funcionais do Ingressou.  
+A versão 1.2 aplica as seguintes decisões: **eventos são criados exclusivamente pelo Administrador**, **lotes encerram pelo primeiro limite atingido (tempo ou quantidade)**, **checkout aceita cupom de influenciador**, uso de **mensageria** e **cache** e, principalmente, **cashback destinado ao produtor (não ao usuário comprador)**.
 
 ---
 
 ## Visão Geral
 
-O Ingressou é uma plataforma web que conecta produtores de eventos e usuários finais, permitindo a criação, venda e validação de ingressos digitais em todo o Brasil.
-
-A solução busca ser moderna, segura e intuitiva, garantindo:
-- Experiência fluida de compra e check-in.
-- Pagamentos instantâneos (PIX e cartão).
-- Transparência nos repasses financeiros.
-- Controle antifraude com QR Codes únicos.
-- Incentivos como cashback.
+Plataforma que conecta administradores e produtores a usuários finais para venda e validação de ingressos em todo o Brasil, com pagamentos via PIX e cartão, QR Code antifraude, cupons de influenciadores e cashback financeiro para produtores.
 
 ---
 
 ## Objetivos do Projeto
 
-- Desenvolver um sistema completo de emissão, venda e gestão de ingressos digitais.  
-- Oferecer pagamentos via PIX e cartões de forma segura e automatizada.  
-- Garantir transparência e rapidez nos repasses aos produtores.  
-- Fornecer controle antifraude e QR Codes assinados.  
-- Promover cashback para incentivar retenção de usuários.  
-- Atender múltiplos tipos de eventos: shows, palestras, teatros, igrejas e conferências.
+- Emitir, vender e gerenciar ingressos digitais com segurança e desempenho.  
+- Oferecer pagamentos via PIX e cartões com split e repasses transparentes.  
+- Garantir antifraude (QR assinado) e check-in confiável.  
+- Adotar mensageria e cache para robustez, escalabilidade e performance.  
+- Potencializar aquisição via cupons de influenciadores.  
+- Incentivar oferta de eventos via **cashback ao produtor**.
 
 ---
 
 ## Personas
 
-### 🎟️ Usuário Comprador
-- Busca praticidade e segurança na compra de ingressos.  
-- Prefere pagamentos rápidos e confiáveis (PIX, cartão).  
-- Valoriza cashback, suporte imediato e QR Codes válidos.  
-
-### 🧑‍💻 Produtor de Evento
-- Deseja autonomia para criar e publicar eventos.  
-- Precisa acompanhar vendas, repasses e lotes em tempo real.  
-- Busca relatórios financeiros e métricas de desempenho.  
-
-### 🧾 Staff (Equipe de Check-in)
-- Responsável pela entrada e validação de ingressos.  
-- Necessita de uma interface ágil e com modo offline.  
-- Dev
+**Usuário Comprador** — compra rápida via PIX/cartão, quer confirmação imediata e QR confiável.  
+**Produtor de Evento** — acompanha vendas, repasses, lotes e check-ins; beneficia-se de cashback no painel.  
+**Staff (Check-in)** — valida ingressos com baixa latência, inclusive offline.  
+**Administrador** — cria/publica eventos, define lotes, políticas, cupons e parâmetros do sistema.
 
 ---
 
 ## Escopo do Sistema
 
-### Escopo Incluído (MVP)
-- Cadastro e login de usuários e produtores.
-- Criação e gerenciamento de eventos e lotes.
-- Venda de ingressos online.
-- Pagamento via PIX e cartão.
-- Emissão automática de QR Codes antifraude.
-- Painel do produtor com relatórios de vendas e repasses.
-- Cashback de 2% no primeiro evento do usuário.
-- Check-in via web (validação de QR).
-- Envio de comprovante via e-mail e WhatsApp.
-- Painel administrativo (monitoramento e auditoria).
+### Incluído (MVP)
+- Autenticação e perfis (usuário, produtor, admin).  
+- **Criação/publicação de eventos pelo Administrador.**  
+- Lotes por evento, com janela de venda e quantidade.  
+- Vendas online; pagamentos via PIX e cartão.  
+- Emissão de QR Code antifraude.  
+- Painel do produtor (vendas, repasses, relatórios).  
+- **Cupom de influenciador** no checkout.  
+- **Cashback financeiro para o produtor**.  
+- Check-in via web (online/offline).  
+- Mensageria para e-mails/WhatsApp/webhooks/exports.  
+- Cache para páginas, listagens e estatísticas.  
+- Painel administrativo.
 
-### Escopo Futuro (fora do MVP)
-- Revenda/transferência de ingressos (marketplace P2P).
-- Programa de afiliados e influenciadores.
-- Mapa de assentos/setorização visual.
-- Aplicativo mobile nativo e carteiras (Apple/Google Wallet).
-- White-label para grandes produtores.
+### Futuro
+- Marketplace P2P (revenda/transferência).  
+- Assentos/setorização visual.  
+- App nativo; Apple/Google Wallet.  
+- White-label.
 
 ---
 
 # Requisitos Funcionais
 
-Os requisitos a seguir foram organizados por **módulos de funcionalidades** para garantir clareza, rastreabilidade e precisão no desenvolvimento do sistema.
+> Organização por módulos. Itens atualizados ou novos foram incorporados.
 
----
+## 1. Usuário e Autenticação
 
-## 1. Módulo de Usuário e Autenticação
+| ID   | Requisito            | Descrição                                                                                         | Prioridade |
+|------|----------------------|---------------------------------------------------------------------------------------------------|------------|
+| RF01 | Cadastro de Usuário  | Nome, e-mail, CPF, telefone e senha; confirmação por OTP enviado ao e-mail antes de ativação.    | Alta       |
+| RF02 | Login                | Autenticação por e-mail e senha; em erro exibir “Credenciais inválidas”.                         | Alta       |
+| RF03 | Sessão JWT           | Gerar JWT (expira em 1h) e refresh token (7 dias).                                                | Alta       |
+| RF04 | Recuperação de Senha | Redefinição via link enviado por e-mail; link expira em 30 minutos.                              | Média      |
+| RF05 | Edição de Perfil     | Atualização de dados pessoais (exceto CPF) mediante autenticação.                                | Média      |
 
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF01 | Cadastro de Usuário | O sistema deve permitir o cadastro de um novo usuário mediante o preenchimento obrigatório de nome completo, e-mail válido, CPF, telefone e senha. O sistema deve enviar um código de verificação (OTP) por e-mail para confirmar o cadastro antes de ativar a conta. | Alta |
-| RF02 | Login de Usuário | O sistema deve permitir o login por e-mail e senha válidos. Em caso de erro, deve exibir mensagem “Credenciais inválidas”. | Alta |
-| RF03 | Autenticação e Sessão | Após o login, o sistema deve gerar um token JWT com expiração de 1 hora e um token de atualização (refresh token) com validade de 7 dias. | Alta |
-| RF04 | Recuperação de Senha | O sistema deve permitir a recuperação de senha via link enviado por e-mail válido. O link deve expirar em 30 minutos. | Média |
-| RF05 | Edição de Perfil | O usuário deve poder atualizar suas informações pessoais (exceto CPF) mediante autenticação válida. | Média |
+## 2. Produtor (Perfil e Painel)
 
----
+| ID   | Requisito             | Descrição                                                                                          | Prioridade |
+|------|-----------------------|----------------------------------------------------------------------------------------------------|------------|
+| RF06 | Cadastro de Produtor  | CNPJ/CPF, razão social, chave PIX e aceite dos termos.                                             | Alta       |
+| RF07 | Verificação           | Validar CNPJ ativo/CPF válido (KYC básico).                                                        | Alta       |
+| RF08 | Painel do Produtor    | Exibir métricas de vendas, check-ins, repasses e **saldo de cashback** em tempo quase real.       | Alta       |
+| RF09 | Relatórios CSV        | Exportar por evento/lote com bruto, taxas, descontos, líquido e repasses.                         | Alta       |
 
-## 2. Módulo de Produtor de Eventos
+## 3. Eventos (Criados pelo Administrador)
 
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF06 | Cadastro de Produtor | O sistema deve permitir o cadastro de produtores de eventos mediante CNPJ (ou CPF), razão social, chave PIX e aceite digital dos termos de serviço. | Alta |
-| RF07 | Verificação de Produtor | O sistema deve validar a identidade do produtor mediante verificação de documento fiscal (CNPJ ativo ou CPF válido). | Alta |
-| RF08 | Painel do Produtor | O produtor deve ter acesso a um painel com métricas em tempo real de vendas, status de ingressos e valores a repassar. | Alta |
-| RF09 | Relatórios Financeiros | O painel deve permitir exportação em formato CSV contendo: nome do evento, lote, número de ingressos vendidos, valor bruto, taxa de serviço e valor líquido. | Alta |
+| ID   | Requisito                   | Descrição                                                                                                                                 | Prioridade |
+|------|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| RF10 | Criação de Evento (Admin)   | Somente Administrador cria eventos com: nome, descrição, banner, local, cidade/UF, datas de início/fim, categoria e status (rascunho/publicado/encerrado). | Alta       |
+| RF11 | Edição/Exclusão (Admin)     | Edição/remoção permitidas em rascunho. Após publicar, apenas campos não críticos (ex.: descrição, banner).                               | Alta       |
+| RF12 | Publicação (Admin)          | Publicar somente se houver pelo menos 1 lote válido (ver Módulo 4).                                                                      | Alta       |
+| RF13 | Página Pública do Evento    | Exibir evento publicado com nome, descrição, imagem, local, data e botão “Comprar”.                                                      | Alta       |
 
----
+## 4. Lotes e Ingressos
 
-## 3. Módulo de Eventos
+| ID   | Requisito                        | Descrição                                                                                                                        | Prioridade |
+|------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------|
+| RF14 | Criação de Lotes (Admin)         | Lote com nome, preço, quantidade total, janela de venda (início/fim) e status.                                                  | Alta       |
+| RF15 | Encerramento de Lote por Limite  | Encerrar automaticamente quando qualquer limite ocorrer primeiro: esgotar quantidade **ou** atingir o fim da janela de venda.   | Alta       |
+| RF16 | Tipos de Ingressos               | Inteira, meia, VIP, cortesia; sempre vinculados a um lote.                                                                       | Alta       |
+| RF17 | Limite por CPF                   | Máximo de 5 ingressos por CPF por evento (configurável).                                                                         | Alta       |
+| RF18 | Política de Meia-entrada         | Exigir declaração digital e registrar flag para verificação no check-in.                                                         | Média      |
 
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF10 | Criação de Evento | O sistema deve permitir ao produtor criar eventos com os seguintes campos obrigatórios: nome, descrição, imagem (banner), local, cidade/UF, data e horário de início e fim, categoria (show, palestra, teatro, igreja, etc.) e status (rascunho, publicado ou encerrado). | Alta |
-| RF11 | Edição e Exclusão de Evento | O sistema deve permitir que o produtor edite ou exclua eventos enquanto estiverem em status de “rascunho”. Após publicado, somente campos descritivos podem ser alterados. | Alta |
-| RF12 | Publicação de Evento | O sistema deve permitir ao produtor publicar um evento apenas se houver pelo menos um lote de ingresso ativo e configurado. | Alta |
-| RF13 | Visualização Pública | O sistema deve exibir os eventos publicados em página pública com nome, descrição, imagem, local, data, tipo e botão “Comprar”. | Alta |
+## 5. Pagamentos, Cupons e Checkout
 
----
+| ID   | Requisito                | Descrição                                                                                                                                                          | Prioridade |
+|------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| RF19 | Checkout                 | Exibir resumo de itens, quantidades, taxas e total antes do pagamento.                                                                                             | Alta       |
+| RF20 | Termos e Políticas       | Exigir aceite dos termos de uso e política de reembolso antes do pagamento.                                                                                        | Alta       |
+| RF21 | Pagamento via PIX        | Gerar QR dinâmico; reservar itens por 10 minutos; confirmação via webhook do PSP; expirada a reserva, liberar estoque.                                            | Alta       |
+| RF22 | Pagamento via Cartão     | Processar via gateway homologado (ex.: Pagar.me) com 3DS/antifraude; tratar callbacks assíncronos.                                                                 | Alta       |
+| RF23 | Confirmação de Pagamento | Ao confirmar, pedido “Pago” e liberação de emissão dos ingressos.                                                                                                  | Alta       |
+| RF24 | Falha no Pagamento       | Em falha/cancelamento, cancelar pedido e liberar reserva/estoque.                                                                                                  | Alta       |
+| RF25 | Cupom de Influenciador   | Aplicar código por evento/lote, com valor fixo ou percentual, vigência, limite de uso, acúmulo configurável com outras promoções e registro de atribuição ao influenciador. | Alta       |
 
-## 4. Módulo de Lotes e Ingressos
+## 6. Ingressos e QR Code
 
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF14 | Criação de Lotes | O produtor deve poder criar um ou mais lotes para o evento, definindo nome (Lote 1, 2, etc.), preço unitário, quantidade total e período de venda. | Alta |
-| RF15 | Esgotamento de Lote | O sistema deve automaticamente marcar o lote como “esgotado” quando atingir o limite de ingressos vendidos. | Alta |
-| RF16 | Tipos de Ingressos | O produtor deve poder criar ingressos do tipo inteira, meia-entrada, VIP ou cortesia, vinculados a um lote. | Alta |
-| RF17 | Limite por CPF | O sistema deve restringir a compra de no máximo 5 ingressos por CPF para o mesmo evento. | Alta |
-| RF18 | Política de Meia-Entrada | O sistema deve exigir declaração digital de estudante/beneficiário e registrar flag para verificação no check-in. | Média |
+| ID   | Requisito         | Descrição                                                                                   | Prioridade |
+|------|-------------------|-----------------------------------------------------------------------------------------------|------------|
+| RF26 | Emissão           | Após pagamento, gerar ingresso digital com ID único e QR Code assinado digitalmente.         | Alta       |
+| RF27 | Validade          | QR Code expira após o primeiro uso validado.                                                 | Alta       |
+| RF28 | Reenvio           | Permitir reenvio de ingresso por e-mail mediante autenticação.                               | Média      |
+| RF29 | Envio Automático  | Enviar e-mail e WhatsApp com ingresso quando o pagamento for confirmado.                     | Alta       |
 
----
+## 7. Check-in e Validação
 
-## 5. Módulo de Pagamentos e Checkout
+| ID   | Requisito            | Descrição                                                                                 | Prioridade |
+|------|----------------------|-------------------------------------------------------------------------------------------|------------|
+| RF30 | Validação            | Ler QR (câmera/leitor) e retornar status: válido/duplicado/expirado.                      | Alta       |
+| RF31 | Registro             | Logar data, hora, operador e dispositivo da validação.                                    | Alta       |
+| RF32 | Modo Offline         | Validar ingressos offline com sincronização posterior.                                    | Média      |
+| RF33 | Relatórios Check-in  | Exibir total de entradas validadas e exportar CSV.                                        | Média      |
 
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF19 | Checkout de Compra | O sistema deve exibir um resumo da compra com itens, quantidades, valores, taxa de serviço e total antes do pagamento. | Alta |
-| RF20 | Termos e Política | O usuário deve aceitar os termos de uso e política de reembolso antes de confirmar a compra. | Alta |
-| RF21 | Pagamento via PIX | O sistema deve gerar QR Code dinâmico do PSP parceiro e reservar o ingresso por 10 minutos até confirmação automática. Após o prazo, a reserva expira. | Alta |
-| RF22 | Pagamento via Cartão | O sistema deve processar pagamentos via gateway homologado (ex: Pagar.me), com autenticação 3DS e verificação antifraude. | Alta |
-| RF23 | Confirmação de Pagamento | Após confirmação do pagamento, o sistema deve mudar o status do pedido para “Pago” e liberar o ingresso. | Alta |
-| RF24 | Falha no Pagamento | Em caso de falha ou cancelamento, o pedido deve ser cancelado e a reserva liberada. | Alta |
+## 8. Financeiro do Produtor e Cashback
 
----
+| ID   | Requisito              | Descrição                                                                                                                                         | Prioridade |
+|------|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| RF34 | Cálculo de Cashback    | Calcular automaticamente **2% de cashback** sobre o **valor líquido** das vendas do produtor por evento (parâmetro configurável).               | Média      |
+| RF35 | Registro de Cashback   | Creditar o valor na **conta financeira do produtor** como saldo de repasse adicional; exibir no painel por evento/período, com extrato detalhado. | Média      |
+| RF36 | Uso do Cashback        | Permitir ao produtor **abater taxas da plataforma** ou **destinar a campanhas promocionais** (ex.: destaque/push do evento) usando o saldo.     | Baixa      |
 
-## 6. Módulo de Ingressos e QR Code
+## 9. Administração
 
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF25 | Emissão de Ingressos | Após o pagamento confirmado, o sistema deve gerar um ingresso digital com ID único, código alfanumérico e QR Code assinado digitalmente. | Alta |
-| RF26 | Validade do Ingresso | Cada QR Code deve ter validade única e expirar após o primeiro uso validado. | Alta |
-| RF27 | Reenvio de Ingresso | O usuário deve poder solicitar reenvio do ingresso por e-mail autenticado. | Média |
-| RF28 | Envio Automático | O sistema deve enviar e-mail e mensagem WhatsApp automáticos com o ingresso após pagamento confirmado. | Alta |
-
----
-
-## 7. Módulo de Check-in e Validação
-
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF29 | Validação de Ingressos | O sistema deve permitir a leitura do QR Code via câmera ou leitor e validar seu status (válido, duplicado, expirado). | Alta |
-| RF30 | Registro de Check-in | O sistema deve registrar data, hora e operador que validou o ingresso. | Alta |
-| RF31 | Modo Offline | O sistema deve permitir validação offline com sincronização posterior ao servidor central. | Média |
-| RF32 | Relatórios de Check-in | O produtor deve visualizar a quantidade total de entradas validadas e exportar relatório CSV. | Média |
-
----
-
-## 8. Módulo de Cashback
-
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF33 | Cálculo de Cashback | O sistema deve calcular automaticamente 2% de cashback sobre o valor total da compra do primeiro evento do usuário. | Média |
-| RF34 | Registro de Cashback | O valor de cashback deve ser armazenado no saldo de “Carteira do Usuário”. | Média |
-| RF35 | Utilização de Cashback | O usuário deve poder aplicar o saldo disponível em novas compras até o limite total. | Baixa |
-
----
-
-## 9. Módulo de Administração
-
-| ID | Requisito | Descrição Detalhada | Prioridade |
-|----|------------|---------------------|-------------|
-| RF36 | Painel Administrativo | O administrador deve visualizar lista de usuários, produtores, eventos e vendas. | Alta |
-| RF37 | Auditoria de Operações | O sistema deve registrar logs detalhados de criação, edição, cancelamento e validação de ingressos. | Alta |
-| RF38 | Gerenciamento de Fraudes | O admin deve poder bloquear usuários ou eventos suspeitos. | Alta |
-| RF39 | Parâmetros de Sistema | O admin deve poder configurar taxas, cashback, limites e mensagens institucionais. | Média |
+| ID   | Requisito          | Descrição                                                                                              | Prioridade |
+|------|--------------------|--------------------------------------------------------------------------------------------------------|------------|
+| RF37 | Painel Admin       | Listar usuários, produtores, eventos, vendas, cupons e cashback de produtores.                        | Alta       |
+| RF38 | Auditoria          | Registrar logs de criar/editar/publicar/cancelar/validar; trilha completa com usuário e timestamp.    | Alta       |
+| RF39 | Fraudes            | Bloquear usuários ou eventos suspeitos.                                                                | Alta       |
+| RF40 | Parâmetros Globais | Configurar taxas, regras de cashback do produtor, limites, cupons de influenciador e mensagens padrão. | Média      |
 
 ---
 
 # Requisitos Não Funcionais
 
-| ID | Requisito Não Funcional | Descrição | Categoria |
-|----|--------------------------|------------|------------|
-| RNF01 | Desempenho | O sistema deve processar requisições em até 2 segundos em 90% das operações (P90). | Performance |
-| RNF02 | Disponibilidade | O sistema deve garantir disponibilidade mínima de 99,5% mensal. | Confiabilidade |
-| RNF03 | Segurança de Conexão | Todo o tráfego deve ser feito via HTTPS (TLS 1.2 ou superior). | Segurança |
-| RNF04 | Proteção de Dados | Dados sensíveis devem ser criptografados com AES-256 e acessos auditados. | Segurança |
-| RNF05 | Autenticação JWT | Tokens de sessão devem expirar em 1 hora, e refresh tokens em 7 dias. | Segurança |
-| RNF06 | Antifraude QR | QR Codes devem ser gerados com assinatura digital única (JWT com nonce). | Segurança |
-| RNF07 | Escalabilidade | O sistema deve suportar crescimento de usuários sem impacto perceptível no desempenho. | Arquitetura |
-| RNF08 | Portabilidade | A interface deve ser responsiva e compatível com dispositivos móveis. | Usabilidade |
-| RNF09 | Acessibilidade | O sistema deve seguir padrões WCAG 2.1 nível AA. | Usabilidade |
-| RNF10 | Persistência | Banco de dados PostgreSQL com backup diário e retenção mínima de 30 dias. | Infraestrutura |
-| RNF11 | Observabilidade | Logs, métricas e tracing devem seguir padrões OpenTelemetry e Sentry. | Engenharia |
-| RNF12 | Compatibilidade | O sistema deve funcionar corretamente nos navegadores Chrome, Firefox, Edge e Safari (últimas duas versões). | Usabilidade |
-| RNF13 | LGPD | O sistema deve cumprir a Lei Geral de Proteção de Dados (Lei 13.709/2018), garantindo consentimento e exclusão sob demanda. | Conformidade |
+| ID    | Requisito                    | Descrição                                                                                                                                     | Categoria       |
+|-------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| RNF01 | Desempenho                   | P90 ≤ 2s nas operações do usuário e do painel.                                                                                                | Performance     |
+| RNF02 | Disponibilidade              | Disponibilidade mensal ≥ 99,5% (MVP).                                                                                                         | Confiabilidade  |
+| RNF03 | Segurança de Trânsito        | HTTPS (TLS 1.2+) com HSTS e CSP.                                                                                                             | Segurança       |
+| RNF04 | Proteção de Dados            | Criptografia at rest (AES-256); segredos em cofre; RBAC por perfis.                                                                          | Segurança       |
+| RNF05 | JWT Seguro                   | JWT expira em 1h; refresh em 7 dias; rotação e revogação de tokens.                                                                          | Segurança       |
+| RNF06 | Antifraude QR                | Assinatura digital (JWT + nonce) com verificação anti-replay.                                                                                | Segurança       |
+| RNF07 | Escalabilidade               | Horizontalização com containers e auto-scale para picos de tráfego.                                                                          | Arquitetura     |
+| RNF08 | Responsividade               | Mobile-first; PWA para módulo de check-in.                                                                                                    | Usabilidade     |
+| RNF09 | Acessibilidade               | Conformidade WCAG 2.1 AA.                                                                                                                     | Usabilidade     |
+| RNF10 | Persistência                 | PostgreSQL; backup diário; retenção ≥ 30 dias; testes periódicos de restauração.                                                              | Infraestrutura  |
+| RNF11 | Observabilidade              | Logs estruturados, métricas e tracing (OpenTelemetry/Sentry).                                                                                 | Engenharia      |
+| RNF12 | Compatibilidade              | Suporte às duas últimas versões de Chrome, Firefox, Edge e Safari.                                                                            | Usabilidade     |
+| RNF13 | LGPD                         | Consentimento, portabilidade e exclusão sob demanda (Lei 13.709/2018).                                                                        | Conformidade    |
+| RNF14 | Mensageria/Filas             | Broker (RabbitMQ/Kafka/SQS) para jobs assíncronos: e-mails/WhatsApp, webhooks de pagamento, geração de QR, exportações; idempotência; retries; DLQ. | Arquitetura     |
+| RNF15 | Cache                        | Redis para páginas públicas, listagens, estatísticas agregadas e disponibilidade de lotes; invalidação por evento/lote.                       | Performance     |
+| RNF16 | Idempotência de Pagamentos   | Webhooks e criação de pedidos idempotentes com chave de deduplicação.                                                                         | Engenharia      |
 
 ---
 
 # Regras de Negócio
 
-| ID | Regra de Negócio | Descrição |
-|----|------------------|------------|
-| RB01 | Taxa de Plataforma | A plataforma deve reter 8% do valor de cada ingresso vendido. |
-| RB02 | Cashback | O cashback de 2% aplica-se apenas à primeira compra do usuário. |
-| RB03 | Limite por CPF | Um mesmo CPF não pode adquirir mais de 5 ingressos por evento. |
-| RB04 | Reserva PIX | A reserva expira em 10 minutos se o pagamento não for confirmado. |
-| RB05 | Estorno | Estornos são permitidos até 7 dias antes do evento, conforme política. |
-| RB06 | Meia-Entrada | A meia-entrada só é válida mediante documento comprobatório no check-in. |
-| RB07 | Split de Pagamento | O sistema deve dividir automaticamente o valor entre plataforma e produtor. |
-| RB08 | Nota Fiscal | A Ingressou deve emitir NFS-e apenas sobre o valor de sua taxa de serviço. |
-| RB09 | Política de Privacidade | Todos os usuários devem aceitar os termos e políticas de uso antes de efetuar compras. |
-| RB10 | Check-in Único | Cada ingresso (QR Code) pode ser validado apenas uma vez. Tentativas repetidas devem ser bloqueadas. |
+| ID    | Regra                        | Descrição                                                                                                                    |
+|-------|------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| RB01  | Taxa da Plataforma           | 8% sobre cada ingresso vendido.                                                                                              |
+| RB02  | Cashback do Produtor         | 2% do valor líquido de vendas (parâmetro) é revertido como saldo de cashback para o produtor e exibido no painel financeiro.|
+| RB03  | Limite por CPF               | Máximo de 5 ingressos por CPF por evento (configurável).                                                                     |
+| RB04  | Reserva PIX                  | Reserva expira em 10 minutos sem confirmação do pagamento.                                                                   |
+| RB05  | Estorno                      | Estornos permitidos até 7 dias antes do evento, conforme política.                                                           |
+| RB06  | Meia-entrada                 | Válida mediante comprovação no check-in.                                                                                     |
+| RB07  | Split/Repasses               | Repasses automáticos D+X conforme contrato e KYC.                                                                            |
+| RB08  | Nota Fiscal                  | Emissão de NFS-e apenas sobre a taxa de serviço da plataforma.                                                               |
+| RB09  | Termos/Privacidade           | Aceite obrigatório dos termos de uso e política de privacidade (LGPD).                                                       |
+| RB10  | Check-in Único               | Cada ingresso (QR Code) pode ser validado uma única vez; tentativas repetidas são bloqueadas.                                |
+| RB11  | Lote por Tempo/Quantidade    | O lote encerra pelo primeiro limite atingido: esgotamento da quantidade ou término da janela de venda.                       |
+| RB12  | Cupom de Influenciador       | Usuário pode aplicar cupom de influenciador no checkout; desconto percentual ou fixo; vigência e limites configuráveis.      |
+| RB13  | Criação de Evento            | Somente o Administrador cria e publica eventos; produtores não criam eventos.                                                |
 
 ---
 
 ## Critérios de Aceitação
 
-- Publicação de evento: produtor cria evento com lotes e publica; status e estoque atualizam corretamente.  
-- Compra concluída: usuário paga (PIX/cartão) e recebe comprovante + QR por e-mail/WhatsApp.  
-- Validação única: QR é aceito na primeira leitura e recusado nas seguintes (anti-replay).  
-- Cashback: 2% creditado automaticamente no primeiro evento e exibido em “Carteira”.  
-- Relatórios: produtor exporta CSV com vendas por lote/período e visualiza métricas no dashboard.  
-- Logs/Auditoria: ações críticas (criação, cancelamento, check-in) constam em trilha de auditoria.
+- **Publicação de evento (Admin):** publicar somente com ao menos 1 lote válido; páginas públicas ficam acessíveis após publicação.  
+- **Encerramento de lote:** ao vender a última unidade **ou** atingir a hora final da janela, o lote muda para “esgotado” e sai do checkout.  
+- **Cupom de influenciador:** aplicar desconto quando código válido; registrar atribuição ao influenciador; respeitar vigência e limites.  
+- **PIX com reserva:** se o webhook não confirmar em 10 minutos, o pedido volta para “cancelado” e as unidades retornam ao estoque.  
+- **Cashback do produtor:** ao encerrar o período do evento, calcular 2% do líquido (ou parâmetro) e creditar no saldo financeiro do produtor; refletir no painel e extrato.  
+- **Mensageria:** e-mails/WhatsApp, geração de QR e exportações são enfileirados; com retries e DLQ; requests síncronos não bloqueiam.  
+- **Cache:** respostas de eventos populares retornam com baixa latência; alterações invalidam caches afetados.
 
 ---
 
 ## Requisitos Futuros e Extensões
 
-- Integração com Google/Apple Wallet.  
-- Revenda e transferência segura de ingressos.  
-- Programa de afiliados e influenciadores.  
-- Aplicativo mobile (React Native ou Flutter).  
-- White-label para grandes organizadores.
+- Apple/Google Wallet, app nativo, afiliados/influenciadores avançado, marketplace P2P e assentos visuais.
 
 ---
 
 ## Considerações Finais
 
-O projeto **Ingressou** busca revolucionar o mercado de eventos digitais no Brasil, aliando **tecnologia, confiança e experiência fluida**.  
-Este documento consolida os requisitos essenciais para a **fase de desenvolvimento do MVP**, servindo como guia de referência técnica e estratégica para toda a equipe.
-
-> “Ingressou — seu rolê começa aqui.” 🎫
+A versão 1.2 alinha governança (Admin cria eventos), políticas comerciais (cupom de influenciador), operação de vendas (lote por tempo/quantidade), arquitetura (mensageria e cache) e modelo de incentivo focado no **produtor** via **cashback financeiro**.
 
 ---
 
 ## Histórico de Versão
 
-| Versão | Alteração                                   | Responsável  | Data       |
-|--------|---------------------------------------------|--------------|------------|
-| 1.0    | Elaboração inicial do Documento de Requisitos | Gabriel Lima | 15/10/2025 |
+| Versão | Alteração                                                                                                     | Responsável  | Data       |
+|-------:|---------------------------------------------------------------------------------------------------------------|--------------|------------|
+| 1.0    | Elaboração inicial                                                                                            | Gabriel Lima | 15/10/2025 |
+| 1.1    | Eventos por Admin; lotes por tempo/quantidade; cupom de influenciador; mensageria e cache                     | Gabriel Lima | 16/10/2025 |
+| 1.2    | Cashback alterado para produtor; remoção de qualquer cashback do usuário; ajustes em escopo, RF, RNF e regras | Gabriel Lima | 16/10/2025 |

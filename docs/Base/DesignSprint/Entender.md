@@ -133,12 +133,6 @@ Para verificar o benchmarking das plataformas analisadas por categoria:
 
 ---
 
-## 👤 Questionário 
-
-- **Objetivo**: Obter dados e informações sobre os ponteciais usuários, como a faixa etária mais frequênte, grau de de ensino e outras informações.
-
-- Para acessar os dados e resultados do questionário, clique em [Questionário](Base/IniciativaExtra/Questionário.md) 
-
 ## ⚙️ Pesquisa sobre o perfil do usuário
 
 - **Objetivo:** Ajudar a compreender quem é o público alvo da plataforma.
@@ -147,33 +141,43 @@ Para verificar o benchmarking das plataformas analisadas por categoria:
 
 ## 📋 5W + 2H
 
- - **Objetivo**: Levantar as informações essenciais sobre o projeto por meio de sete perguntas-chave — What, Why, Where, When, Who, How e How much.
+ - **Objetivo:** Estruturar o escopo por meio de sete perguntas-chave (**What, Why, Where, When, Who, How, How much**).
+- **Benefícios:** Organizou premissas, objetivos, público-alvo e opções de implementação.
+- **Artefato:** [5W+2H](Base/ArtefatoGeneralista/5W2H.md)
 
-O 5W + 2H auxiliou na estruturação e na clareza do escopo inicial,uma queve ofereceu uma visão ampla dos principais aspectos do projeto. Além disso, ajudou a identificar o propósito do projeto, seus objetivos, público-alvo e possíveis formas de implementação.
 
- Para acessar o artefato do 5W + 2H, clique aqui: [5W+2H](Base/ArtefatoGeneralista/5W2H.md)
+ ## Diretrizes para o Projeto após esta Fase
 
- ## Ideais Para o Projeto Após Essa Fase
+Com base nos achados, o produto deve priorizar:
 
-Após a aplicação das técnicas da fase Entender, o projeto ganhou novas direções e camadas de significado. Passou-se a idealizar uma plataforma interativa e educativa, voltada para entusiastas da astronomia de diferentes níveis, com trilhas de aprendizagem gamificadas, recursos acessíveis, fórum de dúvidas, calendário astronômico e divulgação de eventos e promoções da área. 
+1. **Governança clara:** **Administrador** cria/publica eventos; produtores acompanham vendas e finanças.  
+2. **Gestão de lotes robusta:** Lote encerra pelo **primeiro limite** atingido (**tempo** ou **quantidade**).  
+3. **Comercial e marketing:** **Cupom de influenciador** para o comprador, com **atribuição de vendas**; **cashback** como **incentivo ao produtor** (saldo no painel).  
+4. **Arquitetura resiliente:** **Mensageria** (e-mails/WhatsApp, webhooks, geração de QR, exportações) e **cache** (páginas/listagens/estoque agregado).  
+5. **Experiência de compra:** **Checkout rápido**, resumo financeiro transparente e comunicados automáticos (confirmação, lembrete, pós-evento).  
+6. **Conformidade e confiança:** **LGPD**, **meia-entrada**, **auditoria** de ações críticas e **antifraude** (QR assinado, anti-replay).
+
+---
 
 ## Compreensão com Base nos Objetivos Definidos
 
-<center>
+<div align="center">
 
-**Tabela 1:** Compreensão geral.
+**Tabela 1 — Síntese de compreensão**
 
-| Objetivo                                                                 | Compreensão referente ao projeto                                                                 |
-|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Reunir o máximo de informações sobre o contexto do projeto               | Foram realizadas atividades como brainstorming, rich picture e benchmarking para levantar dados iniciais e pontos-chave. |
-| Alinhar o entendimento                                                   | Foram elecadas diferentes visões e conhecimentos, o que proporcionou a geração de mais ideias. |
-| Identificar as necessidades dos usuários                                 | Foram consideradas as dores, interesses e comportamentos do público-alvo, a partir de referências e análises. |
-| Compreender os principais desafios que o projeto pode encontrar          | Problemas como engajamento, acessibilidade e diferenciação foram mapeados como obstáculos potenciais. |
-| Mapear concorrentes e soluções similares já existentes                   | O benchmarking permitiu identificar pontos fortes e fracos de plataformas similares.                |
+| Objetivo | Compreensão referente ao projeto |
+|---|---|
+| Reunir o máximo de informações sobre o contexto do projeto | Foram realizados **brainstorming**, **rich picture** e **benchmarking**, levantando dados iniciais e pontos-chave. |
+| Alinhar o entendimento | Foram **elencadas** diferentes visões e conhecimentos, gerando novas ideias e hipóteses de solução. |
+| Identificar as necessidades dos usuários | Consideraram-se dores, interesses e comportamentos do público-alvo a partir de referências e análises. |
+| Compreender os principais desafios do projeto | **Engajamento**, **acessibilidade**, **conversão** e **diferenciação** foram mapeados como desafios. |
+| Mapear concorrentes e soluções similares | O benchmarking evidenciou pontos fortes e fracos de plataformas similares, orientando decisões do MVP. |
 
-<b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+<b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
-</center>
+</div>
+
+---
 
 ## Bibliografia
 

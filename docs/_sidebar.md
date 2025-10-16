@@ -39,8 +39,7 @@
       - [1.5.1.4 Benchmarking:Check-In](Base/IniciativaExtra/Benchmarking/checkin.md)
       - [1.5.1.5 Benchmarking:Comunicação](Base/IniciativaExtra/Benchmarking/comunicacao.md)
       - [1.5.1.6 Benchmarking:Cashback](Base/IniciativaExtra/Benchmarking/cashback.md)
-    - [1.5.2 Perfil do Usuário: Questionário](Base/IniciativaExtra/Questionário.md)
-    - [1.5.3 Analise de Documento: Usuário](Base/IniciativaExtra/AnalisePerfil.md)
-    - [1.5.4 Ferramentas](Base/IniciativaExtra/Ferramentas.md)
+    - [1.5.2 Analise de Documento: Usuário](Base/IniciativaExtra/AnalisePerfil.md)
+    - [1.5.3 Ferramentas](Base/IniciativaExtra/Ferramentas.md)
    
   

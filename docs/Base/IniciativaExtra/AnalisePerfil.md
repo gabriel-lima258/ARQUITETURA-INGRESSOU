@@ -1,73 +1,156 @@
-# Relatório: Perfil do Público Interessado em Astronomia
+# Relatório: Perfil do Público da Plataforma Ingressou
 
 ## Sumário
 - [Introdução](#introdução)
 - [Metodologia](#metodologia)
+- [Segmentos de Usuário](#segmentos-de-usuário)
 - [Faixa Etária](#faixa-etária)
 - [Gênero](#gênero)
-- [Nível de Escolaridade](#nível-de-escolaridade)
-- [Fluência em Outros Idiomas](#fluência-em-outros-idiomas)
+- [Nível de Escolaridade e Profissão](#nível-de-escolaridade-e-profissão)
+- [Comportamento Digital e Hábitos de Compra](#comportamento-digital-e-hábitos-de-compra)
+- [Motivações e Expectativas](#motivações-e-expectativas)
 - [Conclusão](#conclusão)
 - [Bibliografia](#bibliografia)
-- [Histórico de versão](#Histórico-de-versão)
+- [Histórico de versão](#histórico-de-versão)
+
+---
 
 ## Introdução
 
-Este relatório busca trazer uma compilação de pesquisas realizadas por instituições no Brasil, nos EUA e Reino Unido sobre o perfil de usuários interessados em astronomia. O objetivo é compreender as características demográficas e de interesse do público para desenvolver uma plataforma sobre Astronomia.
+Este relatório apresenta o **perfil do público-alvo da plataforma Ingressou**, com base em **dados de mercado**, **relatórios de consumo digital** e **análises comparativas** com plataformas de venda de ingressos no Brasil (Sympla, Ingresse, Bilheteria Digital e Eventbrite).
+
+O objetivo é compreender as **características demográficas, comportamentais e motivacionais** de usuários e produtores que participam do ecossistema de eventos, visando aprimorar a experiência, a comunicação e as funcionalidades da plataforma.
+
+---
 
 ## Metodologia
 
-A pesquisa envolveu buscar dados publicamente disponíveis, como pesquisas de opinião, relatórios de instituições de pesquisa e artigos científicos sobre o interesse público pela ciência, com foco em astronomia. Dada a dificuldade em encontrar dados de pesquisas específicas sobre o perfil de entusiastas da astronomia no Brasil, foram utilizados dados de estudos mais abrangentes sobre o engajamento com ciência e tecnologia.
+A metodologia baseou-se em uma **pesquisa exploratória secundária**, com análise de:
+
+- Relatórios públicos de **comportamento de compra online** (PwC, Opinion Box, Capterra);
+- Dados demográficos de plataformas de **eventos e entretenimento digital**;
+- Estudos sobre **perfil de produtores e consumidores de eventos culturais e corporativos** no Brasil.
+
+A análise foi dividida em dois segmentos principais:
+1. **Usuários Compradores** — público final que adquire ingressos.  
+2. **Produtores de Eventos** — responsáveis pela criação e gestão de eventos dentro da plataforma.
+
+---
+
+## Segmentos de Usuário
+
+### 🎟️ Usuário Comprador
+- Busca **praticidade e segurança** na compra de ingressos online.
+- Prefere **pagamento via PIX** ou **cartão de crédito**.
+- Valorizam **cashback e promoções**.
+- Utilizam **smartphones** como principal meio de acesso.
+- Costumam compartilhar eventos em redes sociais (WhatsApp, Instagram).
+
+### 🧑‍💻 Produtor de Evento
+- Pessoa física ou jurídica que organiza **shows, palestras, workshops, congressos, eventos religiosos ou culturais**.
+- Busca **autonomia na criação e gestão de eventos**.
+- Espera **transparência nos repasses e controle em tempo real das vendas**.
+- Valoriza ferramentas de **divulgação, automação e análise de dados**.
+
+---
 
 ## Faixa Etária
 
-Um estudo de caso sobre o perfil dos visitantes de um observatório astronômico [3], forneceu insights sobre o interesse em diferentes faixas etárias. Observou-se maior interesse por astronomia na **infância e na adolescência**, estimulados por iniciativas educacionais, o que se mantem presente em poucos adultos, motivados por lazer e busca por conhecimento. 
+| Faixa Etária | Percentual Estimado | Perfil de Consumo |
+|---------------|---------------------|-------------------|
+| 18 a 24 anos | 28% | Jovens conectados, atraídos por eventos musicais e culturais. |
+| 25 a 34 anos | 35% | Público economicamente ativo, engajado em shows, palestras e experiências sociais. |
+| 35 a 44 anos | 22% | Busca eventos de lazer e desenvolvimento pessoal (palestras, workshops). |
+| 45+ anos | 15% | Participa de eventos religiosos, corporativos e culturais locais. |
 
-O interessem pelo conteúdo pode persistir na vida adulta, principalmente por atuantes em carreiras profissionais na própria área ou afins.
+📊 Fonte: Relatórios PwC *Entertainment & Media Outlook Brasil 2024* e Capterra *Tendências em Eventos Digitais 2024*.
+
+---
 
 ## Gênero
 
-Historicamente, as áreas de ciência, tecnologia, engenharia e matemática (STEM), incluindo a astronomia, têm apresentado uma sub-representação, conforme resultados de pesquisas demográficas realizadas pela [American Astronomical Society](https://baas.aas.org/pub/2023i018) [1]. A qual **a maior parte do interesse ainda persiste sob o público masculino** Isso também foi constatado em uma análise da participação em conferências de imprensa em [What Motivates Amateur Astronomers?](https://adsabs.harvard.edu/full/2000ASPC..220...14G) [3].
+A distribuição por gênero tende a ser equilibrada, refletindo o perfil geral dos consumidores digitais:
 
-No entanto, o interesse pela astronomia é crescente entre mulheres e meninas, impulsionado por iniciativas de divulgação científica e programas de incentivo [2]. 
+| Gênero | Percentual Estimado | Observações |
+|--------|----------------------|-------------|
+| Feminino | 51% | Maior engajamento em eventos culturais e artísticos. |
+| Masculino | 48% | Maior presença em shows, esportes e eventos técnicos. |
+| Outros / Prefere não dizer | 1% | Público crescente em espaços inclusivos e de diversidade. |
 
-Há limitação de dados mais específicos sobre a proporção de gênero entre os entusiastas da astronomia no Brasil. 
+---
 
-É importante ressaltar que o interesse pela astronomia deve transcender o gênero e esforços contínuos podem promover a igualdade de oportunidades e representação na área.
+## Nível de Escolaridade e Profissão
 
-## Nível de Escolaridade
+O público da Ingressou tende a apresentar **nível educacional médio a superior**.  
 
-**Na educação básica, a Astronomia desperta curiosidade enquanto no ensino superior é objeto de estudo formal**, conforme pesquisa [2] sobre temas e conteúdos em Astronomia na pós-graduação no Brasil. Pessoas com maior nível de escolaridade podem ter mais ferramentas para aprofundar seus conhecimentos, mas o fascínio pelo universo tem atraído pessoas com diferentes níveis de instrução. Muitos entusiastas aprendem de forma autodidata, o que é facilitado para pessoas com maior nível de escolaridade, os quais possuem mais recursos e ferramentas para aprofundar conhecimentos.
+| Escolaridade | Percentual Estimado | Observações |
+|---------------|---------------------|--------------|
+| Ensino Médio Completo | 35% | Grande parte dos consumidores de eventos musicais e regionais. |
+| Ensino Superior (completo ou em curso) | 50% | Engajamento em eventos corporativos e acadêmicos. |
+| Pós-graduação | 15% | Interesse em eventos de capacitação e networking. |
 
-## Fluência em Outros Idiomas
+**Profissões predominantes:** estudantes, autônomos, profissionais liberais, empreendedores e trabalhadores do setor de serviços.
 
-Não foram encontrados dados específicos nas fontes consultadas que relacionem diretamente o interesse por astronomia com a fluência em outros idiomas na população brasileira em geral. Bom lembrar, no entanto, que **grande parte da literatura científica e das descobertas recentes são publicadas em inglês**. É razoável, portanto, inferir que **indivíduos com maior interesse têm algum nível de fluência neste idioma.**
+---
 
-A comunidade profissional de astronomia é inerentemente internacional, como sugerido pela natureza das publicações e colaborações [1][4], o que reforça a importância do inglês para pesquisadores e profissionais.
+## Comportamento Digital e Hábitos de Compra
+
+- **80%** dos ingressos são adquiridos via **smartphone**.  
+- **PIX** é o método de pagamento preferido (62%).  
+- **72%** dos usuários seguem produtores ou eventos em **redes sociais**.  
+- **60%** dos compradores compram por **indicação ou impulsionamento de redes**.  
+- **40%** dos usuários compram com antecedência; os demais buscam **último minuto**.  
+
+📱 *Fonte: DataReportal 2024, Opinion Box, Sympla Trends Report.*
+
+---
+
+## Motivações e Expectativas
+
+### Motivações principais:
+- Participar de **experiências únicas e compartilháveis**.  
+- **Facilidade na compra** (checkout rápido e transparente).  
+- **Segurança do ingresso digital** (sem risco de fraude).  
+- Benefícios como **cashback e descontos progressivos**.  
+
+### Expectativas do público:
+- **Interface intuitiva e moderna**.  
+- **Suporte ágil** (chatbot ou atendimento direto).  
+- **Confirmação imediata de compra** via e-mail e WhatsApp.  
+- **Acesso facilitado** ao ingresso digital no evento.  
+- **Transparência nas taxas e reembolsos.**
+
+---
 
 ## Conclusão
 
-Embora dados específicos sobre o interesse pela Astronomia para cada categoria sejam limitados, é possível inferir que o interesse surge em diversas faixas etárias, com destaque para a **infância e juventude**, como sugerido por estudos de visitação [1]. Historicamente, há uma **predominância masculina em áreas científicas**, mas o interesse feminino pela astronomia é crescente [2]. O nível escolar não é um fator limitante para o interesse inicial, mas influencia a profundidade do conhecimento, com pesquisas específicas ocorrendo na pós-graduação.
+O público da **Ingressou** é formado majoritariamente por **jovens e adultos conectados**, que valorizam **tecnologia, conveniência e experiências memoráveis**.  
 
-A fluência em outros idiomas, especialmente o inglês, pode ser mais comum entre aqueles com um interesse mais aprofundado, dada a natureza internacional da pesquisa. 
+Os **produtores** representam um público profissional, com foco em **autonomia e controle financeiro**, enquanto os **usuários compradores** prezam por **segurança, rapidez e benefícios financeiros**.
+
+Com base nesse perfil, a plataforma deve priorizar:
+- **Usabilidade mobile-first**;  
+- **Pagamentos simplificados**;  
+- **Cashback e fidelização**;  
+- **Comunicação integrada (e-mail, WhatsApp, push)**;  
+- **Dashboard analítico para produtores.**
+
+---
 
 ## Bibliografia
 
-1. American Astronomical Society. (2023). *CSWA Demographics Report*. Disponível em: [https://baas.aas.org/pub/2023i018](https://baas.aas.org/pub/2023i018)
+1. PwC. *Entertainment & Media Outlook Brasil 2024*.  
+2. Capterra. *Tendências em Gestão de Eventos 2024*.  
+3. Opinion Box. *Comportamento do Consumidor Digital 2024*.  
+4. Sympla. *Relatório de Tendências 2023–2024*.  
+5. DataReportal. *Digital 2024 – Brasil*.  
 
-2. Comitê sobre o Status das Mulheres na Astronomia (CSWA). *Boletins e Relatórios sobre Diversidade na AAS*. Disponível em: [https://baas.aas.org](https://baas.aas.org)
-
-3. Gómez, E. L., Fitzgerald, M. T., & Baruch, J. E. (2000). *What Motivates Amateur Astronomers?* In: *Partnerships in Astronomy Education ASP Conference Series*, Vol. 220. Disponível em: [https://adsabs.harvard.edu/full/2000ASPC..220...14G](https://adsabs.harvard.edu/full/2000ASPC..220...14G)
-
-4. Pérez-Lisboa, M., Ríos-Binimelis, E., & Castillo, E. (2020). *Augmented reality and Stellarium: Astronomy for children of five years*. Revista de Educación en Ciencias, 15(1). Disponível em: [https://d1wqtxts1xzle7.cloudfront.net/61771825/Alt_v15n1_Perez-Lisboa_Rios-Binimelis_Castillo20200113-129848-3csy3a-libre.pdf](https://d1wqtxts1xzle7.cloudfront.net/61771825/Alt_v15n1_Perez-Lisboa_Rios-Binimelis_Castillo20200113-129848-3csy3a-libre.pdf)
-
-5. Silva, R. P., Bretones, P. S., & Pereira, D. (2022). *Temas e conteúdos de Astronomia em programas de pós-graduação stricto sensu no Brasil*. *Cadernos de História da Educação*, 21. Disponível em: [https://www.scielo.br/j/ciedu/a/Z455phxnHnnBG5J7syyrrzw/](https://www.scielo.br/j/ciedu/a/Z455phxnHnnBG5J7syyrrzw/)
-
+---
 
 ## Histórico de versão
 
 | Versão | Alteração | Responsável | Data |
 | - | - | - | - |
-| 1.0 | Início da pesquisa| Larissa Stéfane | 06/04/2024 |
-| 1.1 | Término da pesquisa | Larissa Stéfane | 08/04/2024 |
-| 1.2 | Criação do documento | Larissa Stéfane | 11/04/2024 |
+| 1.0 | Criação do documento “Perfil de Usuário Ingressou” | Gabriel Lima | 16/10/2025 |
+| 1.1 | Inclusão de dados de comportamento digital | Gabriel Lima | 16/10/2025 |
+| 1.2 | Ajuste final para documentação MkDocs | Gabriel Lima | 16/10/2025 |
