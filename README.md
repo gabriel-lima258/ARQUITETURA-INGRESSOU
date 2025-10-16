@@ -1,6 +1,6 @@
 # Ingressou
 
-![Logo](./docs/assets/logoBack.png)
+![Logo](./docs/assets/logoBack.jpeg)
 
 O **Ingressou** é uma plataforma web desenvolvida para **venda e gestão de ingressos de eventos** em todo o Brasil.  
 Seu propósito é oferecer uma experiência moderna, segura e prática tanto para **usuários** que compram ingressos quanto para **produtores de eventos** que organizam e gerenciam suas vendas.
