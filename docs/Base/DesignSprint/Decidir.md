@@ -1,86 +1,112 @@
 # Design Sprint – Decisão (Decision)
 
-## Sumário
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos
 
-- [Introdução](#Introdução)
-- [Objetivos](#Objetivos)
-- [Metodologia](#Metodologia)
-- [Storyboard](#Storyboard)
-- [Conclusão](#conclusão)
-- [Bibliografia](#bibliografia)
-- [Histórico de Versão](#histórico-de-versão)
+---
 
-## Introdução
+## 🎯 Objetivo
 
-A etapa de **Decisão (Decision)** do Design Sprint tem como objetivo selecionar a melhor solução entre as ideias geradas anteriormente, e construir um **Storyboard** detalhado. Com base nisso e no artigo [Storyboard: por que ele é essencial para a sua estratégia de Marketing Digital?
-](https://rockcontent.com/br/blog/storyboard/), o storyboard funciona como uma narrativa visual que permite prever e organizar a jornada do usuário de forma clara e objetiva, o que possibilita a antecipação de falhas e facilita a comunicação da proposta.
+Representar visualmente, em sequência narrativa, o **fluxo principal de interação do usuário** dentro do sistema **Ingressou**, desde a descoberta de um evento até o check-in no dia do show.
 
-## Objetivos
+O storyboard orienta a próxima fase do Design Sprint (**Decidir**), servindo como base para a prototipação de telas de alta fidelidade.
 
-Com base no vídeo [Guia do Storyboad: Como, onde e por que fazer?](https://www.youtube.com/watch?v=Uhf4Kv-aVyM), os principais objetivos ao executar esta etapa são:
+---
 
-- Elaborar um storyboard para comunicar a solução apresentada no [Rich Picture](Base/ArtefatoGeneralista/RichPicture.md);
-- Estruturar o fluxo principal de interação da plataforma;
-- Analisar como o Storyboard pode guiar a criação do protótipo;
-- Garantir coesão e clareza na experiência do usuário.
+## 📑 Estrutura das Cenas
 
-## Metodologia
+Cada cena apresenta:
+- **Título** – O momento da jornada.  
+- **Contexto visual** – O que aparece na tela / ambiente.  
+- **Ação do usuário** – O que ele faz.  
+- **Resposta do sistema** – O que acontece após a ação.  
+- **Objetivo da cena** – O propósito dessa etapa.
 
-Como este projeto está sendo desenvolvido individualmente, foi realizada uma análise criteriosa das ideias propostas na etapa anterior. Assim, a seleção da solução baseou-se em critérios como viabilidade técnica, clareza de navegação, relevância para o público-alvo e alinhamento com os objetivos educacionais da plataforma **Galáxia Conectada**.
+---
 
-A partir dessa decisão, foi construído um **Storyboard** que representa a jornada de uma usuária na plataforma, desde o primeiro acesso até a conclusão de uma atividade interativa. 
+## 🧩 Cenas do Storyboard
 
-O storyboard foi elaborado utilizando a ferramenta **Figma**.
+### 🖥️ Cena 1 — Descoberta do Evento
 
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Tela inicial da plataforma, com eventos em destaque e filtros por cidade e data. |
+| **Ação do usuário** | O usuário pesquisa “Festival de Brasília” e clica no evento desejado. |
+| **Resposta do sistema** | Página do evento é carregada com banner, descrição, datas e ingressos disponíveis. |
+| **Objetivo** | Permitir que o usuário encontre facilmente o evento de interesse. |
 
-## Storyboard
+---
 
-O Storyboard desenvolvido apresenta as principais telas e interações da plataforma **Galáxia Conectada**, com foco em:
+### 🎟️ Cena 2 — Escolha do Ingresso
 
-1. **Trilha de Aprendizado:** Tela com módulos educacionais organizados por temas e níveis de dificuldade.
-2. **Jogo Educativo:** Demonstração de uma das atividades lúdicas que reforçam o aprendizado de forma interativa.
-3. **Fórum de Dúvidas:** Espaço para troca de conhecimento entre usuários e entusiastas de astronomia.
-6. **Notícias:** Onde notícias e pesquisas científicas serão publicadas.
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Página do evento com seções: “Lotes disponíveis”, “Local”, “Descrição” e botão “Comprar ingresso”. |
+| **Ação do usuário** | Seleciona o lote “2º Lote – R$120” e clica em “Comprar”. |
+| **Resposta do sistema** | Sistema adiciona o ingresso ao carrinho e exibe o resumo da compra. |
+| **Objetivo** | Demonstrar o comportamento da seleção de lotes e transparência no preço. |
 
-### Apresentação do Storyboard
+---
 
-Abaixo, nas figuras 1 e 2 se encontram o Storyboard :
+### 💳 Cena 3 — Checkout e Pagamento
 
-<div align="center">
-    Figura 1: Storyboard parte 1
-    <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1-T02-_G9_GalaxiaConectada_Entrega01/refs/heads/main/docs/Base/Imagens/Screenshot%20from%202025-04-11%2017-19-49.png"  width="900">
-    <br>
-     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
-    <br>
-</div>
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Tela de checkout com formulário de dados pessoais, campo para cupom de influenciador e métodos de pagamento (PIX / Cartão). |
+| **Ação do usuário** | Insere o cupom “@JOAOSHOW” e paga via PIX. |
+| **Resposta do sistema** | Sistema valida o cupom, aplica o desconto e gera QR Code de pagamento com tempo limite de 10 minutos. |
+| **Objetivo** | Garantir experiência de compra simples e segura, com comunicação clara de taxa e tempo de reserva. |
 
+---
 
-<div align="center">
-    Figura 2: Storyboard parte 2
-    <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1-T02-_G9_GalaxiaConectada_Entrega01/refs/heads/main/docs/Base/Imagens/Screenshot%20from%202025-04-11%2017-20-11.png"  width="900">
-    <br>
-     <b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
-    <br>
-</div>
+### 📩 Cena 4 — Confirmação e Envio do Ingresso
 
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Tela de sucesso com mensagem “Pagamento confirmado!” e botões “Ver ingressos” e “Compartilhar no WhatsApp”. |
+| **Ação do usuário** | Clica em “Ver ingressos”. |
+| **Resposta do sistema** | Sistema exibe QR Code do ingresso e envia cópia por e-mail e WhatsApp. |
+| **Objetivo** | Reforçar segurança e rastreabilidade; automatizar comunicação pós-compra. |
 
-## Conclusão
+---
 
-A etapa de Decisão permitiu definir a direção visual e funcional da plataforma **Galáxia Conectada**. O Storyboard elaborado servirá como uma base para o desenvolvimento do protótipo.
-## Bibliografia
+### 📱 Cena 5 — Check-in no Evento (PWA)
 
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Tela do staff no modo PWA, com câmera ativada e contador de ingressos validados. |
+| **Ação do usuário (staff)** | Escaneia o QR Code do participante. |
+| **Resposta do sistema** | Exibe alerta “✅ Ingresso válido” e registra a hora e operador. |
+| **Objetivo** | Agilizar a entrada e garantir antifraude via assinatura digital do QR. |
 
-Bibliografia
+---
 
-[1] RODRIGUES, Lorrana. Guia do Storyboard: como, onde e por que fazer? YouTube, 25 fev. 2021. Disponível em: https://www.youtube.com/watch?v=Uhf4Kv-aVyM. Acesso em: 11 abr. 2025.
-[2] ROCK CONTENT. Storyboard: por que ele é essencial para a sua estratégia de Marketing Digital? Rock Content, 27 maio 2021. Disponível em: https://rockcontent.com/br/blog/storyboard/. Acesso em: 11 abr. 2025.
+### 💼 Cena 6 — Painel do Produtor
 
-[2] 3PM3. O que é Design Sprint e como aplicar o método para testar e validar ideias. PM3, 10 mar. 2025. Disponível em: https://pm3.com.br/blog/design-sprint/. Acesso em: 10 abr. 2025.
-## Histórico de versão
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Dashboard com métricas de vendas, gráficos de desempenho por lote e saldo de cashback. |
+| **Ação do usuário** | O produtor acessa “Relatórios” e visualiza o repasse financeiro. |
+| **Resposta do sistema** | Mostra extrato do evento e saldo atualizado. |
+| **Objetivo** | Demonstrar controle e transparência para o produtor. |
+
+---
+
+### 🧮 Cena 7 — Painel do Administrador
+
+| Elemento | Descrição |
+|-----------|------------|
+| **Contexto visual** | Painel administrativo com cards de eventos, status (rascunho, publicado, encerrado) e configurações de cashback e taxas. |
+| **Ação do usuário (Admin)** | Cria novo evento, define lotes e publica. |
+| **Resposta do sistema** | Evento é disponibilizado no catálogo público e começa a gerar vendas. |
+| **Objetivo** | Reforçar a centralização da governança e a regra “Admin cria e publica eventos”. |
+
+---
+
+## 📘 Histórico de Versão
 
 | Versão | Alteração | Responsável | Data |
 | - | - | - | - |
-| 1.0 | Elaboração do Storyboard| Larissa Stéfane | 09/04/2024 |
-| 1.1 | Elaboração do documento | Larissa Stéfane | 11/04/2024 |
+| 1.0 | Criação do Storyboard do fluxo principal | Gabriel Lima | 16/10/2025 |

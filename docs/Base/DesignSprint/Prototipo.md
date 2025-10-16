@@ -3,125 +3,183 @@
 ## Sumário
 
 - [Introdução](#introdução)
-- [Sobre o Protótipo](#Sobre-o-Protótipo)
-- [Objetivos](#Objetivos)
-- [Metodologia](#Metodologia)
+- [Sobre o Protótipo](#sobre-o-protótipo)
+- [Objetivos](#objetivos)
+- [Metodologia](#metodologia)
 - [Ferramentas Utilizadas](#ferramentas-utilizadas)
 - [Protótipo de Alta Fidelidade](#protótipo-de-alta-fidelidade)
-- [Acessar o Protótipo por Link](#Acessar-o-Protótipo-por-Link)
+- [Acessar o Protótipo por Link](#acessar-o-protótipo-por-link)
 - [Funcionalidades Simuladas](#funcionalidades-simuladas)
-- [Explicação do Protótipo](#Explicação-do-Protótipo)
-- [Conclusão](#Conclusão)
+- [Explicação do Protótipo](#explicação-do-protótipo)
+- [Conclusão](#conclusão)
 - [Preparação para os Testes](#preparação-para-os-testes)
 - [Bibliografia](#bibliografia)
 - [Histórico de Versão](#histórico-de-versão)
 
+---
+
 ## Introdução
 
-A etapa de **Prototipação**, segundo o que é Design Sprint e como aplicar o método para testar e validar ideias](https://pm3.com.br/blog/design-sprint/), é o momento em que a ideia, os esboços e as decisões anteriores se transformam em algo tangível. 
+A etapa de **Prototipação** do Design Sprint representa o momento em que as ideias e decisões das fases anteriores se transformam em algo **visual, navegável e interativo**.  
+De acordo com [O que é Design Sprint e como aplicar o método para testar e validar ideias](https://pm3.com.br/blog/design-sprint/), essa fase tem como principal propósito **materializar o conceito do produto**, permitindo que stakeholders e usuários compreendam o fluxo real do sistema antes da implementação técnica.
 
-##  Sobre o Protótipo
+---
 
-O protótipo de alta fidelidade, segundo o artigo [Prototipagem de alta fidelidade: o que é, quando, por que e como usar?
-](https://medium.com/somos-tera/prototipagem-de-alta-fidelidade-635d745b662b) [2](#ref1), é uma das etapas mais importantes no processo de design centrado no usuário, pois permite simular de forma realista a experiência que o público terá com a plataforma. Sendo assim, esse tipo de protótipo visa representar com precisão a aparência, o comportamento e a navegação do produto final, o que faz com que ele seja essencial para validações mais próximas da realidade e testes de usabilidade mais robustos. [1](#ref1)
+## Sobre o Protótipo
+
+O protótipo de alta fidelidade do projeto **Ingressou** foi criado para **simular de forma realista** a experiência de uso da plataforma de **venda e gestão de ingressos de eventos**.  
+Conforme o artigo [Prototipagem de alta fidelidade: o que é, quando, por que e como usar?](https://medium.com/somos-tera/prototipagem-de-alta-fidelidade-635d745b662b), esse tipo de prototipagem é essencial para testes de usabilidade, pois reproduz fielmente o **layout, comportamento e interações** da interface final.
+
+---
 
 ## Objetivos
 
-A elaboração do protótipo de alta fidelidade tem como principal objetivo simular de forma realista a aparência, o comportamento e a experiência de uso da plataforma Galáxia Conectada, uma vez que permite uma visualização próxima do produto final. Com isso, busca-se:
+A construção do protótipo teve como objetivos principais:
 
-- Validar as decisões de design centradas no usuário;
-- Testar a navegabilidade;
-- Garantir a coerência visual e funcional das interfaces;
-- Antecipar possíveis ajustes antes da fase de desenvolvimento. 
+- Validar os fluxos de **compra, gestão e administração** dos eventos;  
+- Garantir **usabilidade e clareza visual** nas interações;  
+- Representar os **três tipos de usuários** do sistema (comprador, produtor e administrador);  
+- Testar a **consistência visual e funcional** entre as telas;  
+- Antecipar **ajustes e melhorias** antes da etapa de codificação.
+
+---
 
 ## Metodologia
 
-O protótipo de alta fidelidade foi desenvolvido por meio da plataforma [Figma](https://www.figma.com/), uma ferramenta amplamente utilizada para design de interfaces e prototipação. Assim, a sua construção foi guiada pelos princípios de design centrado no usuário e fundamentada nas referências levantadas durante a etapa de [benchmarking](Base/ElicitacaoRequisitos/Benchmarking/Benchmarking.md), que incluiu a análise de portais educacionais, sites de divulgação científica e plataformas interativas. 
+O protótipo foi desenvolvido com base nos artefatos anteriores — **Rich Picture**, **Brainstorming**, **5W2H** e **Benchmarking** — que serviram como guias de requisitos e inspiração visual.  
+A modelagem das telas seguiu o princípio do **design centrado no usuário**, com foco em:
 
-A partir dessas inspirações e das ideias geradas na concepção da ideia, foram definidas a estrutura visual, os elementos de navegação e a organização dos principais componentes da plataforma.
+- Navegação simples e fluida;  
+- Estrutura hierárquica clara;  
+- Feedback visual em cada ação;  
+- Layout responsivo e coerente com a identidade da marca.
+
+---
 
 ## Ferramentas Utilizadas
 
-A construção do protótipo foi realizada utilizando a ferramenta:
+- **Visily AI:** ferramenta principal de prototipação, utilizada para gerar automaticamente telas completas a partir de prompts textuais detalhados, incluindo fluxos de usuário e identidade visual.  
+- **Figma:** usado para ajustes finos, simulações de transição e interatividade.  
+- **IA de geração de imagens:** aplicada na criação de banners, ícones e ilustrações.
 
-- **Figma**: Ferramenta de design colaborativo, ideal para prototipação de interfaces com alta fidelidade, permitindo simulações de cliques, transições e navegação realista.
-
-Outras ferramentas de apoio:
-- **IA geradores de imagens**: Para a criação de imagens ilustrativas usadas no protótipo.
-
+---
 
 ## Protótipo de Alta Fidelidade
 
-O protótipo contempla as principais telas da plataforma **Galáxia Conectada**, incluindo:
+O protótipo do **Ingressou** abrangeu todos os fluxos e personas do sistema:
 
-- **Tela Inicial** com destaques e navegação principal;
-- **Trilhas Educativas** com módulos e progresso do usuário;
-- **Fórum de Discussões** com tópicos e interações;
-- **Seção de Jogos Educativos** com desafios astronômicos;
-- **Calendário de Eventos Astronômicos**;
-- **Promoções Astronômicas** para engajar a comunidade.
+### 🟢 Fluxo do Comprador
+- **Página inicial:** catálogo de eventos com filtros por cidade, categoria e data;  
+- **Página do evento:** banner, descrição, local e botão “Comprar Ingresso”;  
+- **Checkout:** campo para cupom de influenciador e opções de pagamento (PIX e cartão);  
+- **Tela de sucesso:** confirmação de pagamento e acesso ao ingresso;  
+- **Ingresso digital:** QR Code antifraude e botão “Compartilhar via WhatsApp”;  
+- **Login e cadastro:** autenticação simples e moderna.
 
+### 🟠 Fluxo do Produtor
+- **Dashboard:** métricas de vendas, gráficos e resumo financeiro;  
+- **Cadastro de evento:** formulário com nome, descrição, local, data e banner;  
+- **Lotes de ingressos:** configuração de preço, quantidade e validade;  
+- **Relatórios:** exportação de dados e visualização de cashback;  
+- **Configurações pessoais:** atualização de dados e chave PIX.
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/6jc45Cu044RUGGaUGMKWTk/Gal%C3%A1xia-Conectada?node-id=1-2&embed-host=share" allowfullscreen></iframe>
+### 🔵 Fluxo do Administrador
+- **Dashboard geral:** visão consolidada de usuários, eventos e volume de vendas;  
+- **Gerenciamento de eventos:** aprovação, edição e desativação;  
+- **Controle de lotes:** acompanhamento centralizado dos status (“ativo”, “esgotado”, “encerrado”);  
+- **Configurações da plataforma:** definição de taxas, cashback e cupons de influenciadores;  
+- **Gestão de usuários:** listagem e edição de perfis administrativos.
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+---
 
-#### Acessar o Protótipo por Link
+### Visualização do Protótipo
 
-🔗 [Link para o protótipo no Figma](https://www.figma.com/proto/6jc45Cu044RUGGaUGMKWTk/Gal%C3%A1xia-Conectada?node-id=1-2&t=xdfJTnFkYCdwDLQS-1)
+O artefato contém **telas completas e responsivas**, que podem ser exploradas de forma navegável e realista.  
+As telas contemplam desde o **login inicial** até os **painéis administrativos** e **fluxos de compra**.
 
+<a href="assets/DesignSprint/Prototype/prototipo.pdf" target="_blank">
+  <img src="assets/DesignSprint/Prototype/prototipo.pdf" alt="Abrir PDF" width="1000">
+</a>
+
+<div align="center">
+    <br>
+     <b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+    <br>
+</div>
+
+---
+
+## Acessar o Protótipo por Link
+
+🔗 [Acesse o protótipo no Visily](https://app.visily.ai/projects/33df5006-96df-46fc-9056-dc41e86a27a6/boards/2271263/presenter?flowId=4394d4e2-94bd-4ebf-84fd-c69a74eb943f&play-mode=Prototype)
+
+---
 
 ## Funcionalidades Simuladas
 
-Para uma experiência mais realista, o protótipo simula interações como:
+O protótipo reproduz visualmente as principais funcionalidades do sistema **Ingressou**, incluindo:
 
-- Cliques nos menus e cards;
-- Feedback visual individual para ações do usuário;
-- Estrutura de comentários no fórum (não funcional, mas visualmente representada);
-- Mudança de páginas.
+- Compra de ingressos com cupom de influenciador;  
+- Geração de QR Code antifraude;  
+- Controle financeiro e relatórios para produtores;  
+- Criação de eventos e lotes administrados pelo painel interno;  
+- Fluxos de login, cadastro e configuração de perfis;  
+- Simulação de navegação e interatividade entre as telas.
 
+> ⚠️ **Nota:** Trata-se de uma simulação visual navegável, sem dados reais ou backend funcional.
 
-> ⚠️ *Importante:* O protótipo não contém dados reais nem funcionalidades completas, sendo apenas uma simulação visual navegável.
+---
 
-##  Explicação do Protótipo
+## Explicação do Protótipo
 
-Para apresentar o protótipo de alta fidelidade do projeto com mais clareza, foi optado por gravar um vídeo demonstrativo como forma de tornar a comunicação das ideias mais clara, dinâmica e interativa. Por meio da gravação, é possível navegar pela interface enquanto são explicadas, em tempo real, as decisões relacionadas ao design, à usabilidade e à acessibilidade que orientaram o desenvolvimento da plataforma.
+Foi gravado um **vídeo demonstrativo** apresentando a navegação, interações e lógica de usabilidade.  
+Durante o vídeo, são explicadas as decisões de design relacionadas a:
 
-Assim, é possível demonstrar com precisão as funcionalidades interativas do protótipo, como menus, fluxos de navegação, transições entre páginas e simulações do uso pelos usuários. 
+- Hierarquia visual e contraste de cores;  
+- Organização modular das telas;  
+- Feedback de ações do usuário;  
+- Transições e microinterações que simulam o uso real.
 
-<iframe width="1321" height="743" src="https://www.youtube.com/embed/GiIuzLF-TCo" title="PRotótipo de Alta Fidelidade do &quot;Galáxia Conectada&quot;. - Projeto de Desenho e Arquitetura de Software." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1321" height="743" src="https://www.youtube.com/embed/xszTK-rpjbc" title="Protótipo de Alta Fidelidade - Ingressou" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+<div align="center">
+    <br>
+     <b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+    <br>
+</div>
+
+---
 
 ## Conclusão
 
-A elaboração e apresentação do protótipo de alta fidelidade representaram uma etapa fundamental no processo de concepção do projeto **Galáxia Conectada**, isso porque, através da simulação visual e interativa das funcionalidades planejadas, foi possível consolidar ideias, validar escolhas de design e proporcionar uma visão mais clara da experiência que será oferecida aos usuários.
+A etapa de prototipação consolidou a identidade visual e os fluxos de interação da plataforma **Ingressou**.  
+O resultado é uma representação fiel do sistema, permitindo validar **usabilidade, consistência e estética** antes da implementação final.  
+A partir deste protótipo, a equipe poderá prosseguir com testes de usuários e ajustes direcionados.
+
+---
 
 ## Preparação para os Testes
 
-O protótipo está pronto para ser utilizado na próxima etapa do Design Sprint – **Testar (Test)**. Será selecionada uma usuária representativa do público-alvo para explorar o protótipo, com o objetivo de identificar:
+O protótipo está pronto para ser utilizado na fase **Testar (Test)** do Design Sprint, onde serão avaliados:
 
-- Dificuldades de uso ou navegação;
-- Percepção de valor e engajamento;
-- Sugestões de melhoria;
-- Funcionalidades mais intuitivas e atrativas.
+- Dificuldades de uso e entendimento dos fluxos;  
+- Clareza dos elementos de interface;  
+- Eficiência na jornada do usuário;  
+- Sugestões de melhoria e percepção geral da experiência.
 
+---
 
 ## Bibliografia
 
-<a name="ref1"></a>  
-[1] ROSA, Ângela. Protótipo: entenda o que é, tipos, exemplos e como fazer na prática! SoftDesign, 20 dez. 2024. Disponível em: https://softdesign.com.br/blog/prototipo-baixa-e-alta-fidelidade/#O-que-e-um-prototipo-nbsp. Acesso em: 10 abr. 2025.
+[1] ROSA, Ângela. *Protótipo: entenda o que é, tipos, exemplos e como fazer na prática!* SoftDesign, 2024.  
+[2] TERA. *Prototipagem de alta fidelidade: o que é, quando, por que e como usar?* Medium, 2020.  
+[3] KNAPP, Jake. *Sprint: o método usado no Google para testar e aplicar novas ideias em apenas cinco dias.* Intrínseca, 2016.
 
-
-<a name="ref2"></a>  
-[2] TERA. Prototipagem de alta fidelidade: o que é, quando, por que e como usar? Medium, 23 mar. 2020. Disponível em: https://medium.com/somos-tera/prototipagem-de-alta-fidelidade-635d745b662b. Acesso em: 10 abr. 2025.
-
-<a name="ref3"></a>  
-[3]  KNAPP, Jake. *Sprint: o método usado no Google para testar e aplicar novas ideias em apenas cinco dias*. Intrínseca, 2016.
+---
 
 ## Histórico de Versão
 
 | Versão | Alteração | Responsável | Data |
-|--------|-----------|-------------|------|
-| 1.0    | Elaboração do protótipo | Larissa Stéfane | 10/04/2025 |
-| 1.1    | Criação do artefato da etapa de Prototipação | Larissa Stéfane | 11/04/2025 |
+|--------|------------|--------------|------|
+| 1.0 | Elaboração do protótipo | Gabriel Lima | 16/10/2025 |
+| 1.1 | Atualização do fluxo e adaptação ao projeto Ingressou | Gabriel Lima | 16/10/2025 |

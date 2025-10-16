@@ -1,9 +1,9 @@
 # Design Sprint – Esboçar (Sketch)
 
-**Versão:** 1.0  
-**Data:** Outubro de 2025  
-**Autor:** Gabriel Lima  
-**Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos
 
 ---
 
