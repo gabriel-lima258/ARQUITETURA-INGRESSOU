@@ -37,4 +37,6 @@ docsify serve ./docs
   <table style="width: 100%;">
     <tr>
       <td align="center"><a href="https://github.com/gabriel-lima258"><img style="border-radius: 50%; height: 100px; width: 100px;" src="https://github.com/gabriel-lima258.png"/><br /><sub><b>Gabriel Lima</b></sub></a></td>
+    </tr>
+  </table>
 </center>
