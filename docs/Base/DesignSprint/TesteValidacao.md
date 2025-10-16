@@ -1,6 +1,6 @@
-# Design Sprint – Teste (Test)
+# 🧪 Design Sprint – Teste (Test)
 
-## Sumário
+## 📑 Sumário
 
 - [Introdução](#introdução)
 - [Objetivos](#objetivos)
@@ -8,89 +8,132 @@
 - [Roteiro de Perguntas](#roteiro-de-perguntas)
 - [Resultados da Validação](#resultados-da-validação)
 - [Análise das Respostas](#análise-das-respostas)
-- [ Gravação da Validação](#Gravação-da-Validação)
+- [Gravação da Validação](#gravação-da-validação)
 - [Conclusão](#conclusão)
 - [Bibliografia](#bibliografia)
 - [Histórico de Versão](#histórico-de-versão)
 
-## Introdução
+---
 
-Com base em [O que é Design Sprint e como aplicar o método para testar e validar ideias](https://pm3.com.br/blog/design-sprint/), a etapa de **Teste** tem como objetivo validar a solução desenvolvida com usuários reais. É o momento de observar como os usuários interagem com o protótipo, identificar os pontos fortes e as oportunidades de melhoria.
+## 🧭 Introdução
 
-No projeto **Galáxia Conectada**, a validação foi feita com uma potencial usuária do sistema, buscando entender sua experiência ao navegar pelo protótipo e sua percepção geral da plataforma.
+Com base em [O que é Design Sprint e como aplicar o método para testar e validar ideias](https://pm3.com.br/blog/design-sprint/), a etapa de **Teste** tem como foco **validar o protótipo desenvolvido com usuários reais**, avaliando sua usabilidade, clareza e funcionalidade.
 
-## Objetivos
+No projeto **Ingressou**, essa fase teve o propósito de verificar se o fluxo de compra de ingressos, a aplicação de cupons de influenciadores e o painel de produtores são intuitivos e compreensíveis para o público-alvo.  
+A validação buscou observar **como os usuários interagem com o protótipo**, identificando **pontos fortes e oportunidades de melhoria**.
 
-- Avaliar a usabilidade da plataforma;
-- Identificar se os usuários compreendem o propósito e as funcionalidades do sistema;
-- Observar a navegação e o fluxo entre as seções;
-- Recolher feedbacks qualitativos para futuras melhorias.
+---
 
-## Método de Validação
+## 🎯 Objetivos
 
-A validação foi realizada por meio de uma **entrevista individual e guiada**, com perguntas específicas relacionadas à experiência de navegação no protótipo. A sessão ocorreu no dia **11/04/2025, às 14:00**, via **Microsoft Teams**.
+- Avaliar a **usabilidade geral** da plataforma Ingressou;  
+- Identificar se os usuários compreendem o **propósito e as funcionalidades** do sistema;  
+- Observar a **navegação entre as seções principais** (catálogo, compra e painel);  
+- Coletar **feedbacks qualitativos** para aprimorar a experiência do usuário.  
 
-### Participante
+---
 
-- **Nome:** Lettícia Santos  
-- **Perfil:** Potencial usuária interessada em conteúdos astronômicos e plataformas educacionais.
+## 🧪 Método de Validação
 
-## Roteiro de Perguntas
+A validação foi conduzida por meio de **entrevistas individuais e guiadas**, utilizando um **protótipo de alta fidelidade** desenvolvido no **Visily**.
 
-1. O que você acha da aparência geral da plataforma logo ao acessá-la?  
-2. O que você acredita que é possível fazer aqui, apenas olhando a tela inicial?  
-3. Você conseguiu navegar com facilidade entre as seções?  
-4. O design é agradável e facilita o uso da plataforma?
+### 🕓 Sessão de Teste
 
-## Resultados da Validação
+- **Data:** 16/10/2025  
+- **Duração:** 25 minutos  
+- **Plataforma:** Microsoft Teams  
+- **Ambiente:** Simulação de fluxo completo (home → evento → checkout → ingresso).  
 
-| Pergunta | Resposta da Usuária |
-|---------|---------------------|
-| O que você acha da aparência geral da plataforma logo ao acessá-la? | A usuária gostou da aparência geral e elogiou a usabilidade e navegabilidade da plataforma. |
-| O que você acredita que é possível fazer aqui, apenas olhando a tela inicial? | A usuária compreendeu de forma intuitiva todas as possibilidades e acessou todos os caminhos e funcionalidades. |
-| Você conseguiu navegar com facilidade entre as seções? | A usuária afirmou que a navegação foi tranquila e intuitiva. |
-| O design é agradável e facilita o uso da plataforma? | A usuária elogiou o design da plataforma, destacando que é agradável e funcional. |
+### 👤 Participante
 
-## Análise das Respostas
+- **Nome:** Leticia Figueiredo  
+- **Perfil:** Jovem adulta acostumado com compras online, público-alvo do Ingressou (usuário comprador).  
 
-A entrevista demonstrou que a proposta da plataforma **Galáxia Conectada** foi bem recebida. A participante conseguiu navegar com facilidade, compreendeu as funcionalidades desde a primeira tela e apreciou a estética e estrutura visual da aplicação.
+---
 
-Pontos positivos identificados:
-- Clareza e simplicidade da tela inicial;
-- Fluxo de navegação intuitivo;
-- Design agradável e coerente com a proposta;
-- Facilidade de acesso às funcionalidades principais.
+## 💬 Roteiro de Perguntas
 
-Não foram identificadas dificuldades ou críticas por parte da usuária nesta validação.
+1. O que você acha da **aparência geral da plataforma** ao acessá-la pela primeira vez?  
+2. Você entende rapidamente **qual é o propósito do site**?  
+3. Como foi a **experiência de navegação** entre os eventos e o processo de compra?  
+4. O sistema de **cupom de influenciador** é fácil de entender e aplicar?  
+5. O **painel do produtor** parece oferecer informações úteis e claras?  
+6. Existe algo que **gerou confusão** durante a navegação?  
+7. O que você **mais gostou** e **menos gostou** na experiência geral?  
 
+---
 
-## Gravação da Validação
+## 📊 Resultados da Validação
 
-Abaixo, no vídeo 1, está a gravação da reunião de validação do protótipo de alta fidelidade.
+| Pergunta | Resposta do Usuário |
+|-----------|---------------------|
+| O que você acha da aparência geral da plataforma? | A interface foi considerada moderna e visualmente atraente, com boa organização das seções. |
+| Você entende rapidamente qual é o propósito do site? | Sim. O usuário identificou de imediato que a plataforma serve para **comprar e gerenciar ingressos de eventos**. |
+| Como foi a experiência de navegação? | Fluida e intuitiva. O usuário destacou que os botões e o fluxo são claros. |
+| O sistema de cupom de influenciador é fácil de entender? | Sim. O campo foi facilmente identificado no checkout. O usuário compreendeu que o cupom concede **benefício ao produtor**, não ao comprador. |
+| O painel do produtor parece oferecer informações úteis? | Sim, especialmente as métricas de vendas e relatórios em CSV. |
+| Algo gerou confusão? | Nenhum ponto crítico. Apenas uma sugestão: destacar mais o botão “Ver Ingresso” após o pagamento. |
+| O que você mais gostou? | O design limpo, a responsividade e a clareza do fluxo de compra. |
+| O que você menos gostou? | A ausência de opção de “favoritar evento” (feedback para futuras versões). |
 
-**Vídeo 1: Validação do [Protótipo](Base/DesignSprint/Prototipo.md)
+---
 
-<iframe width="1321" height="743" src="https://www.youtube.com/embed/XJielH39rgI" title="Galáxia Conectada - Validação do Protótipo de Alta Fidelidade." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## 🔍 Análise das Respostas
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+A entrevista indicou **excelente aderência à proposta do Ingressou**.  
+O participante demonstrou compreensão imediata do funcionamento da plataforma e interagiu com o protótipo sem dificuldades.
 
-## Conclusão
+**Pontos fortes observados:**
+- Navegação fluida e intuitiva;  
+- Interface responsiva e moderna;  
+- Sistema de cupons funcional e bem compreendido;  
+- Painel do produtor claro e informativo;  
+- Checkout objetivo e sem ruídos.  
 
-A validação com a usuária **Lettícia Santos** confirmou que o protótipo atende aos objetivos propostos quanto à experiência do usuário. As respostas reforçam que a plataforma possui boa navegabilidade, design acessível e oferece uma experiência clara e funcional.
+**Sugestões de melhoria:**
+- Destacar o botão “Ver Ingresso” na tela de sucesso;  
+- Incluir recurso de “favoritar evento” para experiência contínua;  
+- Adicionar feedback visual (ex: animação) após confirmar o pagamento.  
 
-Com base nesse feedback positivo, a próxima etapa poderá focar em testes mais amplos com outros perfis de usuários e no refinamento de funcionalidades específicas.
+---
 
-## Bibliografia
+## 🎥 Gravação da Validação
 
-<a name="ref1"></a>
-	[1] 3PM3. O que é Design Sprint e como aplicar o método para testar e validar ideias. PM3, 10 mar. 2025. Disponível em: https://pm3.com.br/blog/design-sprint/. Acesso em: 10 abr. 2025.
+Abaixo está a gravação completa da sessão de validação do protótipo de alta fidelidade.
 
+**🎬 Vídeo 1: Validação do Protótipo Ingressou**
 
-<a name="ref2"></a>  
-[2]MICROSOFT. Microsoft Teams - Documentação oficial. Disponível em: https://learn.microsoft.com/pt-br/microsoftteams/
+<iframe width="1321" height="743" src="https://www.youtube.com/embed/xszTK-rpjbc" title="Ingressou - Validação do Protótipo de Alta Fidelidade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## Histórico de Versão
+**Autor:** [Gabriel Lima](https://github.com/gabriellima-tech)  
+
+---
+
+## 🧾 Conclusão
+
+Os testes realizados confirmaram que o **protótipo do Ingressou atende aos objetivos propostos**.  
+A interface foi considerada **amigável, responsiva e funcional**, com boa comunicação visual e fluxo coerente.
+
+A etapa de Teste evidenciou que os usuários conseguem:
+- Compreender o objetivo da plataforma rapidamente;  
+- Navegar de forma natural entre as telas;  
+- Concluir o processo de compra sem obstáculos.  
+
+Os **feedbacks positivos** indicam que a base do produto está validada, permitindo o avanço para ajustes finos e futuras implementações com novos perfis de usuários.
+
+---
+
+## 📚 Bibliografia
+
+1. PM3. *O que é Design Sprint e como aplicar o método para testar e validar ideias.* 2025.  
+   Disponível em: [https://pm3.com.br/blog/design-sprint/](https://pm3.com.br/blog/design-sprint/)  
+2. MICROSOFT. *Microsoft Teams – Documentação oficial.*  
+   Disponível em: [https://learn.microsoft.com/pt-br/microsoftteams/](https://learn.microsoft.com/pt-br/microsoftteams/)  
+
+---
+
+## 🕓 Histórico de Versão
 
 | Versão | Alteração | Responsável | Data |
 |--------|-----------|-------------|------|
-| 1.0    | Criação do artefato da etapa de Teste | Larissa Stéfane | 11/04/2025 |
+| 1.0 | Criação do artefato da etapa de Teste do Ingressou | Gabriel Lima | 16/10/2025 |

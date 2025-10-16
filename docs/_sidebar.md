@@ -4,7 +4,7 @@
 - [Projetos](/docs/Projeto/Projeto.md)
 
 - **Base**
-  - [1. Desenho de Software (Base)](/docs/Base/1.Base.md)
+  - [1. Desenho de Software (Base)](/Base/1.Base.md)
     
  * 1.1. Design Sprint
     - [1.1.1 Entender(Unpack)](Base/DesignSprint/Entender.md)
@@ -26,20 +26,14 @@
     - [1.3.1 Metodologia + BPMN](Base/ModelagemBPMN/AbordagemMetodologica.md)
     - [1.3.2 BPMN no Projeto](Base/ModelagemBPMN/BPMN.md) 
 
-   * 1.4 Participações - Base 
-    - [1.4. Participações - Base](Base/ParticipacoesBase/ParticipacoesBase01.md)
+  * 1.4. Iniciativas Extras - Base
 
-
-  * 1.5. Iniciativas Extras - Base
-
-    * [1.5.1 Benchmarking](Base/IniciativaExtra/Benchmarking/Benchmarking.md)
-      - [1.5.1.1 Benchmarking:Vendas](Base/IniciativaExtra/Benchmarking/venda.md)
-      - [1.5.1.2 Benchmarking:Gestão](Base/IniciativaExtra/Benchmarking/gestao.md)
-      - [1.5.1.3 Benchmarking:Pagamentos](Base/IniciativaExtra/Benchmarking/pagamento.md)
-      - [1.5.1.4 Benchmarking:Check-In](Base/IniciativaExtra/Benchmarking/checkin.md)
-      - [1.5.1.5 Benchmarking:Comunicação](Base/IniciativaExtra/Benchmarking/comunicacao.md)
-      - [1.5.1.6 Benchmarking:Cashback](Base/IniciativaExtra/Benchmarking/cashback.md)
-    - [1.5.2 Analise de Documento: Usuário](Base/IniciativaExtra/AnalisePerfil.md)
-    - [1.5.3 Ferramentas](Base/IniciativaExtra/Ferramentas.md)
-   
+    * [1.4.1 Benchmarking](Base/IniciativaExtra/Benchmarking/Benchmarking.md)
+      - [1.4.1.1 Benchmarking:Vendas](Base/IniciativaExtra/Benchmarking/venda.md)
+      - [1.4.1.2 Benchmarking:Gestão](Base/IniciativaExtra/Benchmarking/gestao.md)
+      - [1.4.1.3 Benchmarking:Pagamentos](Base/IniciativaExtra/Benchmarking/pagamento.md)
+      - [1.4.1.4 Benchmarking:Check-In](Base/IniciativaExtra/Benchmarking/checkin.md)
+      - [1.4.1.5 Benchmarking:Comunicação](Base/IniciativaExtra/Benchmarking/comunicacao.md)
+      - [1.4.1.6 Benchmarking:Cashback](Base/IniciativaExtra/Benchmarking/cashback.md)
+    - [1.4.2 Analise de Documento: Usuário](Base/IniciativaExtra/AnalisePerfil.md)
   
