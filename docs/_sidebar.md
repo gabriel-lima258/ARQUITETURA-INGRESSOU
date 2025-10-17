@@ -22,18 +22,14 @@
     - [1.2.6 Glossário](Base/ArtefatoGeneralista/glossario.md)
     - [1.2.7 Estimativas](Base/ArtefatoGeneralista/Estimativas.md)
 
-  * 1.3. Modelagem BPMN
-    - [1.3.1 Metodologia + BPMN](Base/ModelagemBPMN/AbordagemMetodologica.md)
-    - [1.3.2 BPMN no Projeto](Base/ModelagemBPMN/BPMN.md) 
+  * 1.3. Iniciativas Extras - Base
 
-  * 1.4. Iniciativas Extras - Base
-
-    * [1.4.1 Benchmarking](Base/IniciativaExtra/Benchmarking/Benchmarking.md)
-      - [1.4.1.1 Benchmarking:Vendas](Base/IniciativaExtra/Benchmarking/venda.md)
-      - [1.4.1.2 Benchmarking:Gestão](Base/IniciativaExtra/Benchmarking/gestao.md)
-      - [1.4.1.3 Benchmarking:Pagamentos](Base/IniciativaExtra/Benchmarking/pagamento.md)
-      - [1.4.1.4 Benchmarking:Check-In](Base/IniciativaExtra/Benchmarking/checkin.md)
-      - [1.4.1.5 Benchmarking:Comunicação](Base/IniciativaExtra/Benchmarking/comunicacao.md)
-      - [1.4.1.6 Benchmarking:Cashback](Base/IniciativaExtra/Benchmarking/cashback.md)
-    - [1.4.2 Analise de Documento: Usuário](Base/IniciativaExtra/AnalisePerfil.md)
+    * [1.3.1 Benchmarking](Base/IniciativaExtra/Benchmarking/Benchmarking.md)
+      - [1.3.1.1 Benchmarking:Vendas](Base/IniciativaExtra/Benchmarking/venda.md)
+      - [1.3.1.2 Benchmarking:Gestão](Base/IniciativaExtra/Benchmarking/gestao.md)
+      - [1.3.1.3 Benchmarking:Pagamentos](Base/IniciativaExtra/Benchmarking/pagamento.md)
+      - [1.3.1.4 Benchmarking:Check-In](Base/IniciativaExtra/Benchmarking/checkin.md)
+      - [1.3.1.5 Benchmarking:Comunicação](Base/IniciativaExtra/Benchmarking/comunicacao.md)
+      - [1.3.1.6 Benchmarking:Cashback](Base/IniciativaExtra/Benchmarking/cashback.md)
+    - [1.3.2 Analise de Documento: Usuário](Base/IniciativaExtra/AnalisePerfil.md)
   
