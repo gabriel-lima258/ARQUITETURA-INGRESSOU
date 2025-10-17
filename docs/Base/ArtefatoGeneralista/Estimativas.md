@@ -33,29 +33,79 @@ A estimativa de custo, tempo e esforço do MVP do Ingressou baseou-se em duas t�
 
 | Item                                           | Cálculo              | Valor (R$)    |
 | ---------------------------------------------- | -------------------- | ------------- |
-| **Mão de obra MVP** (3 devs × 44 dias × R$400) | 3 × 44 × 400         | R$ 52.800     |
+| **Mão de obra MVP** (3 devs × 45 dias × R$400) | 3 × 45 × 400         | R$ 52.800     |
 | **Margem de risco (10%)**                      | 10% de R$ 52.800     | R$ 5.280      |
-| **Infraestrutura AWS (6 meses)**               | R$ 800/mês         | R$ 4.800      |
+| **Infraestrutura AWS (6 meses)**               | R$ 800/mês           | R$ 4.800      |
 | **Designer + Gestão leve (fixo)**              | Valor estimado       | R$ 2.000      |
-| **Manutenção pós-MVP (1 dev por 3 meses)**     | 3 × 22 dias × R$ 400 | R$ 23.500     |
-|                                                | **Total estimado:**  | **R$ 92.280** |
+| **Manutenção pós-MVP (1 dev por 3 meses)**     | 3 × 22 dias × R$ 400 | R$ 26.400     |
+|                                                | **Total estimado:**  | **R$ 92.480** |
 
 ---
 
-## 🗓️ Cronograma por Semanas (MVP - 2 meses)
+## 🗓️ Cronograma Detalhado por Dias (MVP - 2 meses úteis)
 
-| Semana | Atividades                                                             | Responsáveis | Entregáveis                                        |
-| ------ | ---------------------------------------------------------------------- | ------------ | -------------------------------------------------- |
-| **1**  | Kickoff, arquitetura, setup AWS, CI/CD                                 | Todos        | Infra pronta, CI/CD funcional, repositórios ativos |
-| **2**  | Protótipo UI/UX, modelagem banco, endpoints auth e usuários            | Front + Back | Login/cadastro funcional, protótipos               |
-| **3**  | CRUD de eventos, lógica de compra e persistência de ingressos          | Back-end     | API de eventos e compras operante                  |
-| **4**  | Telas de listagem e compra de ingressos, integração inicial front-back | Todos        | MVP inicial funcional (sem carteira)               |
-| **5**  | Carteira de ingressos (visualização e QR), edição de perfil            | Back + Front | Acesso a ingressos, edição funcional               |
-| **6**  | Transferência de ingressos, aceite e notificação                       | Back + Front | API de transferência, aceitação                    |
-| **7**  | Filtros de eventos (cidade, categoria), responsividade                 | Front-end    | Filtros aplicados                                  |
-| **8**  | Testes automatizados, revisão de performance e segurança               | Todos        | Validações, segurança básica                       |
-| **9**  | Deploy do MVP em produção na AWS                                       | DevOps leve  | MVP no ar                                          |
-| **10** | Documentação técnica, repasse para manutenção, check final             | Todos        | Docs técnicos, diagrama, instruções de deploy      |
+**Semana 1** (Dias 1–5):
+
+* Kickoff do projeto
+* Setup de repositórios, ambiente e CI/CD
+* Provisionamento da AWS (EC2, S3, RDS, CloudFront)
+* Definição de stack e arquitetura base
+* Protótipos iniciais UI/UX (figma ou similar)
+
+**Semana 2** (Dias 6–10):
+
+* Modelagem do banco de dados (eventos, usuários, ingressos)
+* Implementação da API de autenticação e cadastro/login
+* Integração de autenticação no front-end
+* Primeiros testes de login com feedback visual
+
+**Semana 3** (Dias 11–15):
+
+* CRUD de eventos no back-end (incluindo lotes)
+* Estrutura da tela de criação e edição de eventos (admin)
+* Começo da listagem pública de eventos com mock
+
+**Semana 4** (Dias 16–20):
+
+* Lógica de compra de ingressos no back-end (com vínculo ao lote)
+* Geração de QR Code único por ingresso
+* Integração com front: tela de compra e finalização
+
+**Semana 5** (Dias 21–25):
+
+* Criação da carteira de ingressos no front (tela de "meus ingressos")
+* Edição de perfil do usuário
+* Visualização dos QR Codes pela carteira
+
+**Semana 6** (Dias 26–30):
+
+* Transferência de ingressos: API de envio e aceite
+* Atualização do QR após aceite
+* Integração visual no front com feedback de aceite
+
+**Semana 7** (Dias 31–35):
+
+* Implementação dos filtros: cidade, estado, categorias de evento
+* Ajustes de responsividade para mobile e tablets
+* Polimento visual e estilização do front
+
+**Semana 8** (Dias 36–40):
+
+* Testes automatizados (unitários e integração)
+* Validação de segurança básica (auth, rate limit, injeção)
+* Revisão de performance (lazy load, otimização de imagens)
+
+**Semana 9** (Dias 41–45):
+
+* Deploy em produção (com CI/CD validado)
+* Configuração final de DNS, HTTPS e backups
+* Verificação de logs e métricas básicas (CloudWatch ou equivalente)
+
+**Semana 10** (Dias 46–50):
+
+* Documentação técnica (README, APIs, deploy, estrutura)
+* Repasse para manutenção
+* Retrospectiva final e encerramento do MVP
 
 ---
 
@@ -66,3 +116,5 @@ A estimativa de custo, tempo e esforço do MVP do Ingressou baseou-se em duas t�
 * A infraestrutura na AWS foi prevista para escalar com cache (Redis), banco (RDS) e backup automático.
 * Custos de QA foram absorvidos na etapa de testes automatizados e revisão entre devs.
 * A margem de risco de 10% cobre atrasos ou tarefas inesperadas.
+
+---
