@@ -160,18 +160,20 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 | RF42 | Reemissão de Ingresso | Após aceite, o ingresso é **transferido** para a carteira do destinatário e o **QR original é invalidado**; um **novo QR assinado** é emitido; tudo registrado em auditoria. | Alta |
 | RF43 | Recusa/Expiração | Em recusa ou expiração, a transferência é **cancelada** e o ingresso volta ao remetente. | Média |
 | RF44 | Restrições de Transferência | Proibir transferência de ingressos **já validados**, de **meia-entrada** (opcional por política), ou quando o evento **desabilitar transferências**; respeitar **limite de quantidade e janela de tempo**. | Alta |
-| RF45 | Taxa de Transferência (Opcional) | Permitir **taxa fixa/percentual** configurável por evento; exibir valor antes de confirmar; cobrança via PIX/cartão. | Baixa |
-| RF46 | Notificações | E-mails/WhatsApp para remetente e destinatário em cada etapa (criada, aceita, concluída, cancelada). | Média |
+| RF45 | Taxa de Transferência | Ao confirmar a transferência, o sistema cobra **10% do valor original do ingresso**, como taxa de serviço. O valor é calculado automaticamente e exibido antes da confirmação. O pagamento pode ser feito via **PIX ou cartão de crédito**, e a transferência só é concluída após a compensação. | Alta |
+| RF46 | Configuração da Taxa (Admin/Produtor) | O administrador ou produtor pode definir se o evento **permite ou não transferências**, bem como **ajustar o percentual da taxa** (padrão: 10%). Caso o produtor desative a cobrança, a transferência será gratuita. | Média |
+| RF47 | Notificações | Envio de notificações (e-mail e/ou WhatsApp) para remetente e destinatário em cada etapa: **criada, aceita, concluída ou cancelada**. | Média |
+
 
 ### 10. Administração
 
 | ID | Requisito | Descrição | Prioridade |
 | :--- | :--- | :--- | :--- |
-| RF47 | Painel Admin | Listar usuários, produtores, eventos, lotes, vendas, cupons, cashback e transferências. | Alta |
-| RF48 | Auditoria | Registrar logs de criar/editar/publicar/cancelar/validar/transferir; trilha completa com usuário/timestamp. | Alta |
-| RF49 | Fraudes | Bloquear usuários/eventos suspeitos; travar transferências quando necessário. | Alta |
-| RF50 | Parâmetros Globais | Configurar taxas, **regras de cashback**, **política de transferência** (janela, restrições, taxa), limites, cupons, mensagens padrão. | Média |
-| RF51 | Categorias (Taxonomia) | Manter categorias oficiais e atribuí-las aos eventos. | Média |
+| RF48 | Painel Admin | Listar usuários, produtores, eventos, lotes, vendas, cupons, cashback e transferências. | Alta |
+| RF49 | Auditoria | Registrar logs de criar/editar/publicar/cancelar/validar/transferir; trilha completa com usuário/timestamp. | Alta |
+| RF50 | Fraudes | Bloquear usuários/eventos suspeitos; travar transferências quando necessário. | Alta |
+| RF51 | Parâmetros Globais | Configurar taxas, **regras de cashback**, **política de transferência** (janela, restrições, taxa), limites, cupons, mensagens padrão. | Média |
+| RF52 | Categorias (Taxonomia) | Manter categorias oficiais e atribuí-las aos eventos. | Média |
 
 ## Requisitos Não Funcionais
 
