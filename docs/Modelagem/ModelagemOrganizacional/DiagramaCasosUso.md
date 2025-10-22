@@ -16,69 +16,199 @@
 
 O Diagrama de Casos de Uso é um dos diagramas comportamentais da UML (Unified Modeling Language), fundamental para capturar os requisitos funcionais de um sistema sob a perspectiva do usuário. Conforme descrito por [Diagrama de caso de uso UML: O que é, como fazer e exemplos](https://www.lucidchart.com/pages/pt/diagrama-de-caso-de-uso-uml) [3](#ref3) e [O que é UML e Diagramas de Caso de Uso: Introdução Prática à UML](https://www.devmedia.com.br/o-que-e-uml-e-diagramas-de-caso-de-uso-introducao-pratica-a-uml/23408) [2](#ref2), ele identifica quem interage com o sistema (Atores) e o que esses atores podem fazer (Casos de Uso) ao definir o escopo e as funcionalidades principais da aplicação de forma visual e intuitiva. Portanto, segundo a [IBM](https://www.ibm.com/docs/pt-br/rsm/7.5.0?topic=diagrams-use-case) [4](#ref4), este diagrama é essencial para comunicar o propósito e o comportamento esperado do sistema para diferentes stakeholders.
 
-Neste artefato, procura-se apresentar o Diagrama de Casos de Uso da plataforma Galáxia Conectada, que visa ilustrar as principais funcionalidades disponíveis para os diferentes tipos de usuários e sistemas externos que interagem com ela.
+# Caso de Uso: Comprar Ingresso
 
-## Objetivos
+Este documento detalha o caso de uso para a funcionalidade de compra de ingressos em uma plataforma de eventos.
 
-Com o intuito de apresentar o Diagrama de Casos de Uso e destacar as funcionalidades da plataforma sob a ótica do usuário, busca-se:
+##  Visão Geral
 
-- Representar as funcionalidades do sistema sob a perspectiva do usuário e de sistemas externos;
-- Identificar os Atores (usuários e sistemas) e suas interações com as funcionalidades do sistema;
-- Definir claramente o escopo funcional da plataforma "Galáxia Conectada";
+| Item | Descrição |
+| --- | --- |
+| **Identificador** | CU-01 |
+| **Nome** | Comprar Ingresso |
+| **Ator Principal** | Cliente (usuário final da plataforma) |
+| **Atores Secundários** | - Sistema de Pagamento (Pagar.me, Mercado Pago)<br>- Sistema de Notificações (E-mail, WhatsApp)<br>- Gateway de API (Nginx)<br>- Serviço de Cupons (caso aplicável) |
+| **Descrição** | Permitir que um cliente selecione um evento, escolha ingressos disponíveis, aplique cupom de desconto (se houver), realize o pagamento e receba seus ingressos digitais, com QR Code seguro, diretamente em sua carteira. |
 
+## Condições e Requisitos
 
-## Metodologia
+### Pré-condições
 
-Para a construção do diagrama, Serão seguidas as etapas abaixo:
+- O cliente deve estar autenticado (login com e-mail/senha ou Google/Apple).
+- Deve haver eventos publicados com lotes disponíveis à venda.
+- O cliente deve possuir um método de pagamento válido (cartão/Pix).
+- Caso use cupom, ele deve estar ativo e válido.
 
-1.  Serão analisados os seguintes artefatos para identificação de atores, funcionalidades e escopo:
-    - [Requisitos Funcionais e Não Funcionais elicitados - Elaborados na entrega 1](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/IniciativaExtra/RequisitosElicitados);
-    - [Diagrama de Classe](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
-    - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md);
-    - [BrainStorming realizado na entrega 1](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/ArtefatoGeneralista/BrainStorm).
+### Pós-condições
 
-2.  Após a análise dos dados, serão feitas as seguintes etapas:
-    1. Identificação dos Atores principais.
-    2. Identificação dos Casos de Uso essenciais a partir dos requisitos funcionais.
-    3.  Definição do Limite do Sistema, englobando os Casos de Uso pertencentes à "Galáxia Conectada".
-    4.  Identificação dos Relacionamentos entre Atores e Casos de Uso (Associação) e entre Atores (Generalização).
-    5.  Modelagem do diagrama utilizando a ferramenta Draw.io.
+- O pedido é registrado com status “Pago” ou “Aguardando Confirmação”.
+- Os ingressos são gerados e atribuídos à carteira do cliente.
+- As notificações são enviadas por e-mail e/ou WhatsApp.
+- Os QR Codes são gerados e armazenados (com assinatura).
+- O produtor recebe o valor bruto e a comissão é calculada (cashback e repasse ficam programados).
 
-## Sobre o Diagrama de Casos de Uso
+## Fluxos de Execução
 
-O Diagrama de Casos de Uso a seguir, na figura 2, elaborado com base nos princípios da UML de [Diagrama de caso de uso UML: O que é, como fazer e exemplos](https://www.ibm.com/docs/pt-br/rsm/7.5.0?topic=diagrams-use-case) [3](#ref3), [Tutorial do diagrama de caso de uso (guia com exemplos)](https://creately.com/blog/pt/diagrama/tutorial-de-diagrama-de-caso-de-uso/) [1](#ref1), [Criar um diagrama de caso de uso UML](https://support.microsoft.com/pt-br/topic/criar-um-diagrama-de-caso-de-uso-uml-92cc948d-fc74-466c-9457-e82d62ee1298) [7](#ref7), representa as principais interações funcionais da plataforma "Galáxia Conectada". Dessa maneira, ele destaca os `Atores` chave, como `Visitante`, `Entusiasta/Aluno` e sistemas como `BotImportadorConteudo`. Além disso, os `Casos de Uso` (elipses) representam as funcionalidades centrais agrupadas por temas.
+### Fluxo Principal (Caminho Feliz)
 
-Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
+1. O cliente acessa a página de um evento.
+2. Seleciona o(s) lote(s) e a quantidade de ingressos desejada.
+3. [Opcional] Insere um cupom de desconto.
+4. O sistema aplica validações (disponibilidade de ingressos, validade do cupom, políticas de quantidade).
+5. O cliente escolhe o método de pagamento (cartão de crédito, Pix).
+6. O sistema integra-se com o gateway de pagamento, inicia a cobrança e aguarda a autorização.
+7. Após a confirmação de pagamento, o sistema:
+    - Cria o Pedido.
+    - Gera os Ingressos com QR Code.
+    - Atribui os ingressos à Carteira do cliente.
+    - Envia notificações de confirmação (E-mail, WhatsApp).
+8. O pedido fica disponível na tela “Meus Ingressos”.
 
-<div align="center">
-    Figura 1: Legenda do Diagrama de Casos de Uso
-    <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/725cd7a49c5a871bc729855e9f2b824492871fed/docs/Modelagem/Imagens/LegendaCasoUso.drawio.png" width="500">
-    <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
-    <br>
-</div>
+### Fluxos Alternativos
 
-## Diagrama de Casos de Uso
+- **3a. Cupom inválido ou expirado:**
+    - O sistema rejeita o cupom e exibe a mensagem: “Cupom inválido ou expirado”.
+- **6a. Pagamento pendente (Pix):**
+    - O pedido é criado com status “Aguardando Pagamento”.
+    - O sistema monitora o pagamento por webhook e, após a confirmação, o fluxo segue a partir do passo 7 do fluxo principal.
+- **6b. Pagamento recusado:**
+    - O sistema exibe uma mensagem de erro e permite uma nova tentativa.
+    - Uma tentativa malsucedida é registrada para prevenção de fraude.
 
+## Exceções
 
-A Figura 2 mostra o diagrama de Casos de Uso da Galáxia Conectada
+| Código | Situação | Tratamento |
+| --- | --- | --- |
+| EXC-01 | Evento ou lote expirado | Redirecionar o cliente para a página inicial com um alerta. |
+| EXC-02 | Falha na API de pagamento | Exibir um erro amigável. Logar a falha e enviar um alerta para a equipe de suporte. |
+| EXC-03 | Falha na geração do QR Code | Tentar um fallback ou gerar em um processo em batch posterior. Notificar o usuário sobre o atraso. |
+| EXC-04 | Cliente tenta comprar mais do que o limite permitido | Exibir a mensagem: “Limite de ingressos por CPF excedido.” |
 
-<div align="center">
-    <b>Figura 2:</b> o Diagrama de Casos de Uso
-    <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaCasoUsoGalaxia.drawio.png" width="1000">
-    <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
-</div>
+## Requisitos Relacionados
 
-<p><strong>Observação:</strong> Caso deseje visualizar ou baixar em PDF, clique aqui: 
-<a href="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaCasoUsoGalaxia.drawio.pdf">PDF do Diagrama de Casos de Uso</a></p>
+| Tipo | ID | Descrição |
+| --- | --- | --- |
+| RF | RF06 | Visualizar eventos |
+| RF | RF11 | Comprar ingresso |
+| RF | RF13 | Aplicar cupom |
+| RF | RF15 | Receber ingresso por e-mail |
+| RF | RF20 | Acessar ingressos adquiridos |
+| RNF | RNF02 | Alta disponibilidade |
+| RNF | RNF04 | Segurança de dados e transações |
+| RNF | RNF05 | Observabilidade com métricas de compra |
 
+## Regras de Negócio
 
-## Conclusão 
+- Um cliente só pode comprar até X ingressos por CPF (definido por lote).
+- O cupom pode ser individual, acumulativo ou de influenciador, com limitações por tempo ou quantidade de usos.
+- O QR Code é assinado digitalmente com chave privada e só pode ser validado uma vez.
+- O cashback ao produtor pode ser retido parcialmente até o repasse final.
 
-Portanto, o Diagrama de Casos de Uso elaborado consolida a visão funcional da plataforma e estabelece de forma clara quem são os Atores que interagem com o sistema e quais Casos de Uso (funcionalidades) estão disponíveis para eles, ao delimitar,assim, o escopo do projeto. COm isso, ele serve como um pilar fundamental para guiar as fases subsequentes de análise, design detalhado, desenvolvimento do sistema.
+---
+
+# Caso de Uso — Realizar Check-in de Ingresso
+
+## Identificação
+
+* **ID**: CU-02
+* **Nome**: Realizar Check-in de Ingresso
+
+## Descrição Geral
+
+Permite que um operador de portaria (check-in) valide ingressos apresentados pelos clientes, através da leitura de um QR Code no aplicativo PWA de check-in, funcionando em modo online ou offline. A validação atualiza o status do ingresso e impede reutilização.
+
+---
+
+## Atores Envolvidos
+
+* **Ator Principal**: Operador de Check-in (usuário com permissão CHECKIN)
+* **Atores Secundários**:
+
+  * Cliente (apresenta o ingresso)
+  * Sistema de Ingressos / Carteira
+  * Serviço de Check-in
+  * Sistema de Sincronização
+
+---
+
+## Pré-condições
+
+* Operador deve estar autenticado no app de check-in.
+* Dispositivo deve estar sincronizado com a base de dados mais recente (em modo offline ou online).
+* Cliente deve possuir ingresso válido e não utilizado.
+
+## Pós-condições
+
+* Ingresso é marcado como "utilizado" com data e hora do check-in.
+* Evento é armazenado localmente (offline) ou enviado ao backend (online/sincronização).
+* Histórico de validações é atualizado.
+
+---
+
+## Fluxo Principal (Online)
+
+1. Cliente apresenta QR Code na portaria.
+2. Operador abre o app de check-in e escaneia o QR.
+3. Sistema valida assinatura digital do QR e verifica status do ingresso.
+4. Se válido:
+
+   * Marca o ingresso como utilizado
+   * Armazena registro de check-in com timestamp, operador e local
+5. Interface exibe mensagem "Check-in realizado com sucesso".
+6. Cliente recebe confirmação visual e sonora.
+
+---
+
+## Fluxo Alternativo (Offline)
+
+* Caso não haja internet:
+
+  * Passos 1 e 2 ocorrem normalmente
+  * Passo 3 usa base local para validação (dados sincronizados previamente)
+  * Passo 4 registra o check-in em armazenamento local
+  * Passo 5 exibe mensagem: "Check-in offline, será sincronizado"
+
+---
+
+## Exceções
+
+| Código | Situação                              | Tratamento                                                                |
+| ------ | ------------------------------------- | ------------------------------------------------------------------------- |
+| EXC-01 | Ingresso já utilizado                 | Exibir mensagem "Ingresso já validado" com detalhes (data/hora anterior)  |
+| EXC-02 | QR inválido ou adulterado             | Exibir "QR Code inválido ou não reconhecido"                              |
+| EXC-03 | Dados locais desatualizados (offline) | Alerta: "Base desatualizada. Sincronize para garantir validação correta." |
+| EXC-04 | Falha na sincronização                | Manter tentativa pendente e alertar operador                              |
+
+---
+
+## Requisitos Relacionados
+
+| Tipo | Código | Descrição                                   |
+| ---- | ------ | ------------------------------------------- |
+| RF   | RF36   | Validar ingresso via QR Code                |
+| RF   | RF37   | Operar modo offline                         |
+| RF   | RF38   | Registro de histórico de check-ins          |
+| RF   | RF39   | Sincronizar dados do app de check-in        |
+| RNF  | RNF03  | Alta performance e resposta rápida          |
+| RNF  | RNF04  | Segurança na validação (assinatura digital) |
+
+---
+
+## Regras de Negócio
+
+* Um ingresso só pode ser validado **uma única vez**.
+* O QR Code deve conter metadados e assinatura criptográfica para verificação de integridade.
+* Operador pode realizar check-ins **sem internet**, mas deve sincronizar ao final do turno.
+* Todos os registros devem ser auditáveis (data, hora, operador, localização).
+
+---
+
+## Observações Técnicas
+
+* App de check-in é uma PWA, com suporte a cache local, IndexedDB e sincronização posterior.
+* O sistema usa validação criptográfica com chave pública para autenticar os QR Codes.
+* Estratégias de reconciliação são aplicadas na sincronização para evitar conflitos de estado (ex: mesmo ingresso validado duas vezes offline).
+
 
 ## Bibliografia
 

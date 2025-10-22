@@ -125,6 +125,8 @@ Antes da modelagem visual do Diagrama de Componentes na ferramenta Draw.io, foi 
 
 Além disso, a Tabela 1, apresentada acima, desempenha um outro papel fundamental: além de catalogar formalmente cada componente com seu tipo, nome, descrição, interfaces providas e requeridas, e observações, ela também detalha suas dependências. Assim, serve como um guia complementar para facilitar a leitura e a compreensão precisa da estrutura e das conexões representadas no diagrama.
 
+---
+
 ## Diagrama de Componentes
 
 Para melhor compreensão do diagrama, a figura 1 mostra a legenda;
@@ -141,7 +143,7 @@ Para melhor compreensão do diagrama, a figura 1 mostra a legenda;
 Para facilitar a leitura e a compreensão da estrutura do sistema, o diagrama de componentes será apresentado em três partes: inicialmente, o componentes — Camada de Frontedn da **Ingressou**; em seguida, o pacote do backend, o pacote de infra e serviços externos; e, por fim, o diagrama completo que reúne ambos os pacotes em uma visão unificada.
 </p>
 
-
+---
 
 <div align="center">
     <b>Figura 1:</b> Diagrama de Componentes Completo  
