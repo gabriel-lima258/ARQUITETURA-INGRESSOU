@@ -19,7 +19,6 @@
     - [1.2.4 5W+2H](Base/ArtefatoGeneralista/5W2H.md)
     - [1.2.5 Diagrama de Ishikawa](Base/ArtefatoGeneralista/DiagramaIshikawa.md)
     - [1.2.6 Glossário](Base/ArtefatoGeneralista/glossario.md)
-    - [1.2.7 Estimativas](Base/ArtefatoGeneralista/Estimativas.md)
 
   * 1.3. Iniciativas Extras - Base
 
