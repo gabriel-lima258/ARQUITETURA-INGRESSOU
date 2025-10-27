@@ -1497,9 +1497,4 @@ Permite que um usuário autenticado reenvie um ingresso por e-mail, útil quando
 
 | Versão | Alteração                                                                      | Responsável       | Data       |
 | :----- | :----------------------------------------------------------------------------- | :---------------- | :--------- |
-| 1.0    | Criação da estrutura inicial do documento                                      | Larissa Stéfane   | 04/05/2025 |
-| 1.1    | Adição da seção de Metodologia                  | Larissa Stéfane   | 04/05/2025 |
-| 1.2    | Adição da explicação         | Larissa Stéfane   | 04/05/2025 |
-| 1.3    | Adição do Diagrama de Caso de Uso        | Larissa Stéfane   | 05/05/2025 |
-| 1.4 | Ajustes no artefato| Larissa Stéfane | 06/05/2024 |
-| 1.5 | Expansão significativa dos casos de uso cobrindo todos os requisitos funcionais principais (RF01-RF52) | Assistente IA | 16/01/2025 |
+| 1.0 | Expansão significativa dos casos de uso cobrindo todos os requisitos funcionais principais (RF01-RF52) | Gabriel Lima | 27/10/2025 |
