@@ -5,7 +5,7 @@
 - **1. Base**
   - [1. Desenho de Software (Base)](/Base/1.Base.md)
     
- * 1.1. Design Sprint
+ * 1.1. Design Sprints
     - [1.1.1 Entender(Unpack)](Base/DesignSprint/Entender.md)
     - [1.1.2 Esboçar(Sketch)](Base/DesignSprint/Esboçar.md)
     - [1.1.3 Decidir(Decision)](Base/DesignSprint/Decidir.md)
