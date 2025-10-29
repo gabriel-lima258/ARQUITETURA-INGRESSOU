@@ -1,5 +1,12 @@
 # Diagrama de Casos de Uso
 
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos  
+
+---
+
 ## Sumário
 
 - [Introdução](#Introdução)
@@ -10,6 +17,34 @@
 - [Conclusão](#Conclusão)
 - [Bibliografia](#Bibliografia)
 - [Histórico de versão](#Histórico-de-versão)
+
+## Checklist de Casos de Uso
+
+| ID | Nome do Caso de Uso | Status | Link |
+|----|---------------------|--------|------|
+| CU-01 | [Comprar Ingresso](#Caso-de-Uso-Comprar-Ingresso) | ☐ | [Ir para CU-01](#Caso-de-Uso-Comprar-Ingresso) |
+| CU-02 | [Realizar Check-in de Ingresso](#Caso-de-Uso-Realizar-Check-in-de-Ingresso) | ☐ | [Ir para CU-02](#Caso-de-Uso-Realizar-Check-in-de-Ingresso) |
+| CU-03 | [Cadastrar Usuário](#Caso-de-Uso-Cadastrar-Usuário) | ☐ | [Ir para CU-03](#Caso-de-Uso-Cadastrar-Usuário) |
+| CU-04 | [Realizar Login](#Caso-de-Uso-Realizar-Login) | ☐ | [Ir para CU-04](#Caso-de-Uso-Realizar-Login) |
+| CU-05 | [Recuperar Senha](#Caso-de-Uso-Recuperar-Senha) | ☐ | [Ir para CU-05](#Caso-de-Uso-Recuperar-Senha) |
+| CU-06 | [Gerenciar Perfil](#Caso-de-Uso-Gerenciar-Perfil) | ☐ | [Ir para CU-06](#Caso-de-Uso-Gerenciar-Perfil) |
+| CU-07 | [Buscar e Filtrar Eventos](#Caso-de-Uso-Buscar-e-Filtrar-Eventos) | ☐ | [Ir para CU-07](#Caso-de-Uso-Buscar-e-Filtrar-Eventos) |
+| CU-08 | [Visualizar Detalhes do Evento](#Caso-de-Uso-Visualizar-Detalhes-do-Evento) | ☐ | [Ir para CU-08](#Caso-de-Uso-Visualizar-Detalhes-do-Evento) |
+| CU-09 | [Cadastrar Produtor (Admin)](#Caso-de-Uso-Cadastrar-Produtor-Admin) | ☐ | [Ir para CU-09](#Caso-de-Uso-Cadastrar-Produtor-Admin) |
+| CU-10 | [Acessar Painel do Produtor](#Caso-de-Uso-Acessar-Painel-do-Produtor) | ☐ | [Ir para CU-10](#Caso-de-Uso-Acessar-Painel-do-Produtor) |
+| CU-11 | [Criar Evento (Admin)](#Caso-de-Uso-Criar-Evento-Admin) | ☐ | [Ir para CU-11](#Caso-de-Uso-Criar-Evento-Admin) |
+| CU-12 | [Publicar Evento (Admin)](#Caso-de-Uso-Publicar-Evento-Admin) | ☐ | [Ir para CU-12](#Caso-de-Uso-Publicar-Evento-Admin) |
+| CU-13 | [Vincular Produtor a Evento (Admin)](#Caso-de-Uso-Vincular-Produtor-a-Evento-Admin) | ☐ | [Ir para CU-13](#Caso-de-Uso-Vincular-Produtor-a-Evento-Admin) |
+| CU-14 | [Transferir Ingresso](#Caso-de-Uso-Transferir-Ingresso) | ☐ | [Ir para CU-14](#Caso-de-Uso-Transferir-Ingresso) |
+| CU-15 | [Criar Lote (Admin)](#Caso-de-Uso-Criar-Lote-Admin) | ☐ | [Ir para CU-15](#Caso-de-Uso-Criar-Lote-Admin) |
+| CU-16 | [Aplicar Cupom de Influenciador](#Caso-de-Uso-Aplicar-Cupom-de-Influenciador) | ☐ | [Ir para CU-16](#Caso-de-Uso-Aplicar-Cupom-de-Influenciador) |
+| CU-17 | [Gerenciar Painel Administrativo](#Caso-de-Uso-Gerenciar-Painel-Administrativo) | ☐ | [Ir para CU-17](#Caso-de-Uso-Gerenciar-Painel-Administrativo) |
+| CU-18 | [Reenviar Ingresso](#Caso-de-Uso-Reenviar-Ingresso) | ☐ | [Ir para CU-18](#Caso-de-Uso-Reenviar-Ingresso) |
+
+**Legenda:**
+- ☐ = Não implementado/Revisado
+- ☑ = Implementado/Revisado
+- ⚠ = Em andamento/Revisão pendente
 
 
 ## Introdução

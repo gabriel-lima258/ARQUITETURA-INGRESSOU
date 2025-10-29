@@ -1,5 +1,12 @@
 # Diagrama de Atividades
 
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos  
+
+---
+
 ## Sumário
 
 - [Introdução](#Introdução)
@@ -42,8 +49,8 @@ A elaboração dos diagramas de atividade seguirá uma abordagem baseada na inte
  Para isso, serão feitas as seguintes etapas:
 
 1. inicialmente serão realizadas análises dos seguintes artefatos:
-     - [5W2H](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/ArtefatoGeneralista/5W2H)
-     - Fluxo do [protótipo de alta fidelidade](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/DesignSprint/Prototipo)
+     - [5W2H](/Base/ArtefatoGeneralista/5W2H.md)
+     - Fluxo do [protótipo de alta fidelidade](/Base/DesignSprint/Prototipo.md)
      - [Diagrama de classes](/Modelagem/ModelagemEstatica/DiagramaClasses.md)
      - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md)
 3.  Os diagramas serão desenvolvidos na ferramenta Draw.io.
@@ -59,7 +66,7 @@ A estrutura do diagrama de atividades utiliza elementos visuais específicos par
 <div align="center">
     Figura 1: Legenda do Diagrama de Atividades
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/refs/heads/main/docs/Modelagem/Imagens/LegendaDiagramaAtividade.drawio.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaAtividade.drawio.png" width="500">
     <br>
     <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>

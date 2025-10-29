@@ -134,7 +134,7 @@ Para melhor compreensão do diagrama, a figura 1 mostra a legenda;
 <div align="center">
     <b>Figura 1:</b> Legenda do Diagrama de Componentes  
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/refs/heads/main/docs/Modelagem/Imagens/LegendaDiagramaComponentes.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaComponentes.png" width="500">
     <br>
     <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 </div>

@@ -1,5 +1,12 @@
 # Diagrama de Estados
 
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos  
+
+---
+
 ## Sumário
 
 - [Introdução](#Introdução)
@@ -44,7 +51,7 @@ Para a construção dos diagramas, serão seguidas as etapas abaixo:
 
 1. Inicialmente, serão analisados os seguintes artefatos como base para definição dos estados e transições:
 
-  - [Requisitos Funcionais e Não Funcionais elicitados - Elaborados na entrega 1](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/IniciativaExtra/RequisitosElicitados);
+  - [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
 
   - [Diagrama de Classe](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
     
@@ -53,7 +60,6 @@ Para a construção dos diagramas, serão seguidas as etapas abaixo:
 
 2. Os diagramas serão desenvolvidos utilizando a ferramenta [Draw.io](https://www.drawio.com/blog/uml-component-diagrams);
 
-3. Será realizada uma verificação final com base em um [checklist](/Modelagem/IniciativasExtras/Verificacao/VerificacaoDiagramaEstados.md) de boas práticas da UML, assegurando clareza, coerência e padronização na modelagem.
 
 ## Sobre o Diagrama de Estados
 
@@ -65,7 +71,7 @@ Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
 <div align="center">
     Figura 1: Legenda do Diagrama de Estados
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/refs/heads/main/docs/Modelagem/Imagens/LegendaDiagramaEstados.drawio.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaEstados.drawio.png" width="500">
     <br>
     <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>

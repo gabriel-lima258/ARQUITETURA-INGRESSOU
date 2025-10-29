@@ -191,7 +191,7 @@ Para melhor compreensão do diagrama, a figura 1 mostra a legenda;
 <div align="center">
     Figura 1: Legenda do Diagrama de Classes
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/23fbfeaa8725103ce3389b8fab26be3163ea8687/docs/Modelagem/Imagens/LegendaDiagramaClasses.drawio.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaClasses.drawio.png" width="500">
     <br>
     <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
     <br>

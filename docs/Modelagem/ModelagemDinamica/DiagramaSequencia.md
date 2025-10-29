@@ -1,5 +1,12 @@
 # Diagrama de Sequência
 
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos  
+
+---
+
 ## Sumário
 
 - [Introdução](#Introdução)
@@ -54,12 +61,11 @@ Para isso, foram realizadas as seguintes etapas:
 
 1. Análise dos seguintes artefatos de apoio ao entendimento comportamental:
 
-  - Fluxo do [protótipo de alta fidelidade](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/DesignSprint/Prototipo);
+  - Fluxo do [protótipo de alta fidelidade](/Base/DesignSprint/Prototipo.md);
   - [Diagrama de Classes](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
   - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md)
 
 2. Após a análise. serão contriídos dois diagramas de sequência na ferramenta Draw.io. 
-3. Por fim, será aplicada uma verificação por meio de [checklist](/Modelagem/IniciativasExtras/Verificacao/VerificacaoDiagramaSequencia.md) com critérios de consistência, completude e conformidade com a UML.
 
 
 ## Sobre o Diagrama de Sequência
@@ -73,7 +79,7 @@ Para melhor compreensão dos elementos, a figura 1 abaixo funciona como uma lege
 <div align="center">
     Figura 1: Legenda do Diagrama de Sequência
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/refs/heads/main/docs/Modelagem/Imagens/LegendaDiagramaSequ%C3%AAncia.drawio.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaSequ%C3%AAncia.drawio.png" width="500">
     <br>
     <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
     <br>

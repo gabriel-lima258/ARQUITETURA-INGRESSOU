@@ -1,5 +1,12 @@
 # Diagrama de Comunicação ou Colaboração
 
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos  
+
+---
+
 ## Sumário
 
 - [Introdução](#Introdução)
@@ -47,9 +54,9 @@ Para a construção dos diagramas, serão seguidas as etapas abaixo:
 
 1. Serão analisados os seguintes artefatos para embasamento dos diagramas:
 
-- [Requisitos Funcionais e Não Funcionais elicitados - Elaborados na entrega 1](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/IniciativaExtra/RequisitosElicitados);
-- [5W2H - Elaborado na Entrega 1]((https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/ArtefatoGeneralista/5W2H));
-- [Brainstorming](https://unbarqdsw2025-1-turma02.github.io/2025.1-T02-_G9_GalaxiaConectada_Entrega01/#/Base/ArtefatoGeneralista/BrainStorm);
+- [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
+- [5W2H]((/Base/ArtefatoGeneralista/5W2H.md));
+- [Brainstorming](/Base/ArtefatoGeneralista/BrainStorm);
 - [Diagrama de Classe](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
 - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md).
 
@@ -70,7 +77,7 @@ Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
 <div align="center">
     Figura 1: Legenda do Diagrama de Comunicação
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/refs/heads/main/docs/Modelagem/Imagens/LegendaDiagramaComunica%C3%A7%C3%A3o.drawio.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaComunica%C3%A7%C3%A3o.drawio.png" width="500">
     <br>
     <b>Autora:</b> <a href="">Larissa Stéfane</a>.
     <br>

@@ -1,5 +1,12 @@
 # Diagrama de Pacotes
 
+> **Versão:** 1.0  
+> **Data:** Outubro de 2025  
+> **Autor:** Gabriel Lima  
+> **Projeto:** Ingressou — Plataforma Web de Venda e Gestão de Ingressos  
+
+---
+
 ## Sumário
 
 - [Introdução](#Introdução)
@@ -55,7 +62,7 @@ Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
 <div align="center">
     Figura 1: Legenda do Diagrama de Estados
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/refs/heads/main/docs/Modelagem/Imagens/LegendaDiagramaPacote.drawio.png" width="500">
+    <img src="assets/Legendas/LegendaDiagramaPacote.drawio.png" width="500">
     <br>
     <b>Autor:</b> <a href="https://github.com/gab rile-lima258">Gabriel Lima</a>.
     <br>
