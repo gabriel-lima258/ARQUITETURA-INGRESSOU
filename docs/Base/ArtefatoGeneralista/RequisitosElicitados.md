@@ -20,10 +20,11 @@
 
 Este documento consolida os requisitos funcionais e não funcionais do **Ingressou**.
 
-A versão **1.4** incorpora três alterações centrais:
+A versão **1.5** incorpora expansão significativa dos requisitos de **acessibilidade** para pessoas com deficiência, além das três alterações centrais da versão 1.4:
 * **Cobertura nacional** com ênfase em **busca, filtros por localização (cidade/UF) e categorização** de eventos;
 * **Transferência de ingressos entre usuários** (carteira → transferência com aceite do destinatário e reemissão do QR);
 * Manutenção das decisões anteriores: **evento criado exclusivamente pelo Administrador**, **lote encerra por tempo** ou **quantidade (o que vier primeiro)**, **cupom de influenciador**, **mensageria + cache**, **cashback destinado ao produtor** e **vinculação Produtor↔Evento** para acesso de leitura.
+* **Acessibilidade ampliada**: Requisitos detalhados para conformidade WCAG 2.1 AA, suporte a leitores de tela, navegação por teclado, contraste e legibilidade, e acessibilidade específica para pessoas com deficiência visual, auditiva, motora e cognitiva.
 
 ## Visão Geral
 
@@ -187,7 +188,7 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 | RNF06 | Antifraude QR | Assinatura digital (JWT + nonce) e `anti-replay`; invalidação imediata na transferência/uso. | Segurança |
 | RNF07 | Escalabilidade | Horizontalização (containers/auto-scale) para picos de catálogo/checkout/check-in. | Arquitetura |
 | RNF08 | Responsividade | Mobile-first; PWA para check-in. | Usabilidade |
-| RNF09 | Acessibilidade | WCAG 2.1 AA. | Usabilidade |
+| RNF09 | Acessibilidade Web (WCAG 2.1 AA) | Conformidade com **WCAG 2.1 nível AA** nas diretrizes de Percebível, Operável, Compreensível e Robusto. Critérios essenciais: contraste mínimo 4.5:1 (texto normal) e 3:1 (texto grande); textos alternativos descritivos em imagens; estrutura semântica HTML5; navegação por teclado completa; foco visível e indicadores de estado; labels e instruções claras em formulários; mensagens de erro acessíveis. | Usabilidade |
 | RNF10 | Persistência | PostgreSQL; backup diário; retenção ≥ 30 dias; testes de restauração. | Infraestrutura |
 | RNF11 | Observabilidade | Logs estruturados, métricas e tracing (OpenTelemetry/Sentry). | Engenharia |
 | RNF12 | Compatibilidade | Últimas 2 versões de Chrome, Firefox, Edge e Safari. | Usabilidade |
@@ -196,6 +197,17 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 | RNF15 | Cache | Redis para catálogo (busca/listas por cidade/UF/categoria/data), páginas públicas e agregações; **invalidação por evento/lote/transferência**. | Performance |
 | RNF16 | Busca e Filtros | Índices por cidade, UF, data e categoria; paginação; resultados estáveis sob filtros; URLs parametrizadas. | Performance |
 | RNF17 | Segurança de Transferência | Links de aceite **assinados e com expiração**; dupla confirmação; auditoria completa (quem, quando, IP/dispositivo). | Segurança |
+| RNF18 | Suporte a Leitores de Tela | Compatibilidade total com leitores de tela (NVDA, JAWS, VoiceOver, TalkBack). Implementação de **ARIA labels**, **aria-live regions** para atualizações dinâmicas, **landmarks** para navegação por pontos de referência, **roles semânticos** e estados acessíveis (aria-expanded, aria-selected, aria-hidden). Feedback sonoro em ações críticas (compra confirmada, erro). | Usabilidade |
+| RNF19 | Navegação por Teclado | Funcionalidade completa via teclado sem dependência de mouse. Tab order lógico e sequencial; atalhos de teclado para ações principais (p.ex.: Enter para comprar, Esc para fechar modais); suporte a teclas de navegação (setas, Page Up/Down, Home/End); **skip links** para pular conteúdo repetitivo; foco visível em todos os elementos interativos. | Usabilidade |
+| RNF20 | Contraste e Legibilidade | Taxa de contraste mínimo **4.5:1** para texto normal e **3:1** para texto grande (≥18pt ou ≥14pt bold). Texto não deve depender apenas de cor para transmitir informação. Opção de **modo de alto contraste** ou tema escuro/claro customizável. Tipografia legível com tamanho mínimo de 12pt e espaçamento adequado entre linhas (≥1.5). | Usabilidade |
+| RNF21 | Acessibilidade em Formulários | Labels associados a todos os campos; instruções claras antes ou dentro dos campos; mensagens de erro específicas e posicionadas próximo ao campo; agrupamento lógico de campos relacionados; indicação de campos obrigatórios via texto e símbolo; validação em tempo real com feedback acessível; autocomplete quando aplicável. | Usabilidade |
+| RNF22 | Mídia e Conteúdo Multimodal | **Textos alternativos descritivos** para todas as imagens informativas; **legendas** para vídeos; **transcrições** para conteúdo de áudio; **descrições de áudio** para vídeos importantes; controle de reprodução (play/pause) em todos os conteúdos multimídia; opção de pausar/parar animações automáticas. | Usabilidade |
+| RNF23 | Navegação e Estrutura | Estrutura semântica clara com cabeçalhos hierárquicos (h1-h6); breadcrumbs para orientação; menu de navegação consistente e previsível; múltiplas formas de encontrar conteúdo (busca, filtros, categorias); indicação clara da página atual; links descritivos (evitar "clique aqui"). | Usabilidade |
+| RNF24 | Acessibilidade Mobile e Touch | Áreas de toque mínimas de **44x44 pixels**; espaçamento adequado entre elementos interativos; gestos alternativos para ações complexas (swipe, pinch); suporte a VoiceOver (iOS) e TalkBack (Android); rotação de tela funcional; zoom até 200% sem perda de funcionalidade; teclado virtual apropriado conforme o tipo de campo. | Usabilidade |
+| RNF25 | Acessibilidade de Conteúdo Dinâmico | Atualizações dinâmicas (Ajax, SPA) anunciadas via **aria-live** sem interromper o usuário; loading states acessíveis; erros exibidos de forma não intrusiva; confirmações de ação claras; mudanças de contexto só quando solicitadas pelo usuário; tempo adequado para ler e interagir com conteúdo temporário. | Usabilidade |
+| RNF26 | Acessibilidade em Pagamentos e Checkout | Processo de checkout acessível passo a passo com indicação clara de progresso; resumo de compra acessível antes da confirmação; campos de pagamento com labels e máscaras apropriadas; confirmação de ações críticas (tampar confirmação com Enter); mensagens de erro de pagamento claras e acionáveis; QR Code com descrição textual alternativa. | Usabilidade |
+| RNF27 | Acessibilidade para Pessoas com Deficiência Motora | Suporte a tecnologias assistivas de entrada alternativa (teclados adaptativos, switches, controle por voz); tolerância a erros de clique/toque; tempo suficiente para completar ações; possibilidade de desfazer ações acidentais; formulários com auto-save quando apropriado; atalhos de teclado para todas as ações principais. | Usabilidade |
+| RNF28 | Acessibilidade para Pessoas com Deficiência Cognitiva | Linguagem clara e simples; instruções passo a passo para processos complexos; ajuda contextual disponível; prevenção de erros com validação proativa; possibilidade de cancelar ou revisar antes de confirmar; layout consistente e previsível; ícones acompanhados de texto. | Usabilidade |
 
 ## Regras de Negócio
 
@@ -240,7 +252,7 @@ App nativo; Apple/Google Wallet; afiliados avançado; **revenda P2P** (marketpla
 
 ## Considerações Finais
 
-A versão **1.4** destaca a **descoberta nacional** (busca/filtros por cidade/UF/categoria/data) e introduz a **transferência de ingressos** com aceite e reemissão segura do QR, mantendo a governança (Admin cria/vincula), o controle de acesso (RBAC), a robustez (mensageria + cache) e o incentivo financeiro ao **produtor** (cashback).
+A versão **1.5** destaca a expansão significativa dos **requisitos de acessibilidade** (RNF09-RNF28), garantindo que a plataforma Ingressou seja acessível para pessoas com deficiência visual, auditiva, motora e cognitiva, em conformidade com WCAG 2.1 nível AA. Além disso, mantém as características da versão 1.4: **descoberta nacional** (busca/filtros por cidade/UF/categoria/data), **transferência de ingressos** com aceite e reemissão segura do QR, governança (Admin cria/vincula), controle de acesso (RBAC), robustez (mensageria + cache) e incentivo financeiro ao **produtor** (cashback).
 
 ## Histórico de Versão
 
@@ -251,3 +263,4 @@ A versão **1.4** destaca a **descoberta nacional** (busca/filtros por cidade/UF
 | 1.2 | Cashback do produtor; remoção de cashback do usuário; ajustes em escopo, RF, RNF e regras | Gabriel Lima | 16/10/2025 |
 | 1.3 | Onboarding de produtor pelo Admin; **vinculação Produtor↔Evento**; reforço de RBAC | Gabriel Lima | 16/10/2025 |
 | 1.4 | Busca & filtros nacionais (cidade/UF/categoria/data), **taxonomia de categorias**, e **transferência de ingressos com aceite e reemissão segura de QR** | Gabriel Lima | 16/10/2025 |
+| 1.5 | Expansão significativa dos requisitos não funcionais de **acessibilidade** (RNF09-RNF28): especificações detalhadas para pessoas com deficiência visual, auditiva, motora e cognitiva; conformidade WCAG 2.1 AA; suporte a leitores de tela; navegação por teclado; contraste e legibilidade; acessibilidade mobile e de conteúdo dinâmico | Gabriel Lima | 27/10/2025 |
