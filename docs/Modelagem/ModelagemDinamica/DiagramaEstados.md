@@ -53,7 +53,7 @@ A elaboração dos diagramas de estados será realizada com base na integração
 Para a construção dos diagramas, serão seguidas as etapas abaixo:
 
 1. Inicialmente, serão analisados os seguintes artefatos como base para definição dos estados e transições:
-   - [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
+  - [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
    - [Diagrama de Classes](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
    - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md);
    - [Diagrama de Casos de Uso](/Modelagem/ModelagemOrganizacional/DiagramaCasosUso.md);
