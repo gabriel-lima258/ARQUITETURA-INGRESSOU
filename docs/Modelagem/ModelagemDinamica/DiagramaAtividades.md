@@ -198,7 +198,7 @@ A figura 3 apresenta o diagrama de atividades do fluxo de check-in.
 <div align="center">
     <b>Figura 3:</b> Diagrama de Atividade — Realizar Check-in de Ingresso
     <br>
-    <img src="assets/Modelagem/Dinamica/Atividades1.pdf" width="1000">
+    <img src="assets/Modelagem/Dinamica/Atividades2.pdf" width="1000">
     <br>
     <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
     <br>
@@ -267,7 +267,7 @@ A figura 4 apresenta o diagrama de atividades do fluxo de criação e publicaç�
 <div align="center">
     <b>Figura 4:</b> Diagrama de Atividade — Criar e Publicar Evento (Admin)
     <br>
-    <img src="assets/Modelagem/Dinamica/Atividades1.pdf" width="1000">
+    <img src="assets/Modelagem/Dinamica/Atividades3.pdf" width="1000">
     <br>
     <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
     <br>
