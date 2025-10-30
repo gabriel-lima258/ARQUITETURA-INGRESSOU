@@ -1,4 +1,4 @@
-# Diagrama de Comunicação ou Colaboração
+# Diagrama de Comunicação — Projeto Ingressou (MVP)
 
 > **Versão:** 1.0  
 > **Data:** Outubro de 2025  
@@ -9,68 +9,68 @@
 
 ## Sumário
 
-- [Introdução](#Introdução)
-- [Objetivos](#Objetivos)
-- [Metodologia](#Metodologia)
-- [Sobre o Diagrama de Comunicação](#Sobre-o-Diagrama-de-Atividades)
-- [Aba Fórum](#Aba-Fórum)
-- [Aba Jogos](#Aba-Jogos)
-- [Conclusão](#Conclusão)
-- [Bibliografia](#Bibliografia)
-- [Histórico de versão](#Histórico-de-versão)
+- [Introdução](#introdução)
+- [Objetivos](#objetivos)
+- [Metodologia](#metodologia)
+- [Sobre o Diagrama de Comunicação](#sobre-o-diagrama-de-comunicação)
+- [Cenário 1: Compra de Ingresso](#cenário-1-compra-de-ingresso)
+- [Cenário 2: Transferência de Ingresso](#cenário-2-transferência-de-ingresso)
+- [Conclusão](#conclusão)
+- [Bibliografia](#bibliografia)
+- [Histórico de versão](#histórico-de-versão)
 
 
 ## Introdução
 
-O diagrama de colaboração (ou de comunicação), como é definido na Apostila UML - Unified Modeling Language - Linguagem de Modelagem Unificada em Português [1](#ref1), representa como os objetos de um sistema interagem entre si ao focar nos relacionamentos e nas trocas de mensagens mais do que na ordem temporal dessas ações. Segundo a [IBM: Diagramas de comunicação](https://www.ibm.com/docs/pt-br/radfws/9.6.0?topic=SSRTLW_9.6.0/com.ibm.xtools.sequence.doc/topics/ccommndiag.htm) <a name="ref3"></a>, esse tipo de diagrama permite analisar o comportamento dinâmico do sistema ao identificar objetos participantes, dados trocados e caminhos de mensagens. 
+O diagrama de colaboração (ou de comunicação), como é definido na Apostila UML - Unified Modeling Language - Linguagem de Modelagem Unificada em Português [1](#ref1), representa como os objetos de um sistema interagem entre si ao focar nos relacionamentos e nas trocas de mensagens mais do que na ordem temporal dessas ações. Segundo a [IBM: Diagramas de comunicação](https://www.ibm.com/docs/pt-br/radfws/9.6.0?topic=SSRTLW_9.6.0/com.ibm.xtools.sequence.doc/topics/ccommndiag.htm) [3](#ref3), esse tipo de diagrama permite analisar o comportamento dinâmico do sistema ao identificar objetos participantes, dados trocados e caminhos de mensagens.
 
-Dessa forma, como o desenvolvimento de diagramas de comunicação é essencial para visualizar como os componentes e objetos do sistema interagem entre si, especialmente em áreas com maior troca de mensagens, esse artefato apresenta os diagramas de comunicação para a **aba de fórum** e a **aba de jogos**. 
+Dessa forma, como o desenvolvimento de diagramas de comunicação é essencial para visualizar como os componentes e objetos do sistema interagem entre si, especialmente em áreas com maior troca de mensagens, esse artefato apresenta os diagramas de comunicação para os **cenários principais do Ingressou**: **compra de ingressos** e **transferência de ingressos**. 
 
 
 ## Objetivos
 
-O objetivo deste documento é representar graficamente os principais fluxos de interação entre objetos dos módulos do fórum e dos jogos da plataforma Galáxia Conectada por meio de diagramas de comunicação (ou colaboração). De forma mais específica, busca-se:
+O objetivo deste documento é representar graficamente os principais fluxos de interação entre objetos do sistema Ingressou por meio de diagramas de comunicação (ou colaboração). De forma mais específica, busca-se:
 
-- Ilustrar a troca de mensagens entre instâncias de classes nos módulos Fórum e Jogos;
+- Ilustrar a troca de mensagens entre instâncias de classes nos cenários de **compra de ingressos** e **transferência de ingressos**;
 
 - Demonstrar a organização estrutural das interações com foco nos relacionamentos entre os objetos;
 
 - Evidenciar a ordem sequencial das mensagens numeradas para facilitar o rastreamento dos comportamentos do sistema;
 
-- Apoiar a modelagem dinâmica da plataforma com base em dois cenários práticos: participação em tópicos do fórum e execução de jogos educativos.
+- Apoiar a modelagem dinâmica da plataforma com base em dois cenários práticos: **processo de compra de ingresso** e **transferência de ingresso entre usuários**.
 
 
 ## Metodologia
 
-A elaboração dos diagramas de comunicação seguirá uma abordagem fundamentada na análise integrada dos artefatos previamente desenvolvidos no projeto Galáxia Conectada. 
+A elaboração dos diagramas de comunicação seguirá uma abordagem fundamentada na análise integrada dos artefatos previamente desenvolvidos no projeto Ingressou. 
 
-Sobre os módulos de foco neste artefato:
+Sobre os cenários de foco neste artefato:
 
-- **Aba (Módulo) do Fórum**: O Fórum é o espaço comunitário central da "Galáxia Conectada", projetado para facilitar a interação e a troca de conhecimento entre os usuários. Nele, os membros podem criar novos tópicos de discussão sobre assuntos astronômicos ou dúvidas sobre a plataforma, postar respostas e comentários em tópicos existentes (RF09, RF24), além de potencialmente votar em posts úteis e usar tags para organização (RF09). 
+- **Cenário 1 - Compra de Ingresso**: Processo completo de compra de ingresso, desde a seleção do evento e lote até a confirmação do pagamento e emissão do ingresso digital com QR Code. Este cenário envolve validações de estoque, processamento de pagamento (PIX/cartão), aplicação de cupons e notificações ao usuário.
 
-- **Aba (Módulo) dos Jogos**: Esta seção da plataforma "Galáxia Conectada" é dedicada a oferecer uma coleção de jogos e quizzes interativos (RF08, RF21) focados em temas astronômicos, o qual serve como uma ferramenta lúdica e complementar de aprendizado. Assim, o objetivo principal é engajar os usuários (entusiastas) de forma divertida e permitir  que testem seus conhecimentos.
+- **Cenário 2 - Transferência de Ingresso**: Fluxo de transferência de ingresso entre usuários, incluindo criação da solicitação, aceite do destinatário, pagamento da taxa de transferência, invalidação do QR original e emissão de novo QR Code para o destinatário.
  
 Para a construção dos diagramas, serão seguidas as etapas abaixo:
 
 1. Serão analisados os seguintes artefatos para embasamento dos diagramas:
 
 - [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
-- [5W2H]((/Base/ArtefatoGeneralista/5W2H.md));
-- [Brainstorming](/Base/ArtefatoGeneralista/BrainStorm);
-- [Diagrama de Classe](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
-- [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md).
+- [5W2H](/Base/ArtefatoGeneralista/5W2H.md);
+- [Brainstorming](/Base/ArtefatoGeneralista/BrainStorm.md);
+- [Diagrama de Classes](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
+- [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md);
+- [Diagrama de Casos de Uso](/Modelagem/ModelagemOrganizacional/DiagramaCasosUso.md).
 
-
-2. Dois diagramas serão desenvolvidos, sendo um para o módulo Fórum (interação em tópicos) e outro para o módulo Jogos (início e encerramento de partidas);
+2. Dois diagramas serão desenvolvidos, sendo um para o cenário de **compra de ingresso** e outro para o cenário de **transferência de ingresso**;
 
 3. Os diagramas serão criados utilizando a ferramenta [Draw.io](https://www.drawio.com/blog/uml-component-diagrams);
 
 
 ## Sobre o Diagrama de Comunicação
 
-Conforme explicado em [Guia: Diagramas de colaboração UML](https://miro.com/pt/diagrama/o-que-e-diagrama-colaboracao-uml/) [5](#ref5), os Diagramas de Comunicação (também conhecidos como diagramas de Colaboração) apresentados a seguir ilustram as interações dinâmicas entre os diferentes objetos e componentes de sistema necessários para realizar cenários específicos nas abas de Fórum e Jogos Educacionais da plataforma "Galáxia Conectada". Diferente dos diagramas de sequência que enfatizam a ordem temporal, estes diagramas focam na estrutura da colaboração ao mostrar os Vínculos (linhas de conexão) que existem entre os participantes (objetos/componentes como :WebUI, :ModuloForum, :ModuloJogos, entusiasta:Usuario, etc.) e como as Mensagens (as quais representam chamadas de métodos ou comunicação) trafegam por esses vínculos para executar uma tarefa, como criar um novo tópico ou registrar a pontuação de um jogo. Além disso, a sequência exata das interações é definida pela numeração anexada a cada mensagem, onde a notação decimal (ex: 1, 1.1, 1.2) indica o fluxo de controle e as chamadas aninhadas que ocorrem durante o processo, como é explicado em [Criar um diagrama de comunicação UML](https://support.microsoft.com/pt-br/topic/criar-um-diagrama-de-comunica%C3%A7%C3%A3o-uml-911956f4-5f19-4a58-97a3-bb14110a5ed1). [4](#ref4)
+Conforme explicado em [Guia: Diagramas de colaboração UML](https://miro.com/pt/diagrama/o-que-e-diagrama-colaboracao-uml/) [5](#ref5), os Diagramas de Comunicação (também conhecidos como diagramas de Colaboração) apresentados a seguir ilustram as interações dinâmicas entre os diferentes objetos e componentes de sistema necessários para realizar cenários específicos da plataforma Ingressou. Diferente dos diagramas de sequência que enfatizam a ordem temporal, estes diagramas focam na estrutura da colaboração ao mostrar os Vínculos (linhas de conexão) que existem entre os participantes (objetos/componentes como :WebUI, :CheckoutService, :PaymentOrchestrator, cliente:Usuario, etc.) e como as Mensagens (as quais representam chamadas de métodos ou comunicação) trafegam por esses vínculos para executar uma tarefa, como comprar um ingresso ou transferir um ingresso entre usuários. Além disso, a sequência exata das interações é definida pela numeração anexada a cada mensagem, onde a notação decimal (ex: 1, 1.1, 1.2) indica o fluxo de controle e as chamadas aninhadas que ocorrem durante o processo, como é explicado em [Criar um diagrama de comunicação UML](https://support.microsoft.com/pt-br/topic/criar-um-diagrama-de-comunica%C3%A7%C3%A3o-uml-911956f4-5f19-4a58-97a3-bb14110a5ed1). [4](#ref4)
 
-Com base no que foi explicado em [Criar um diagrama de comunicação UML](https://support.microsoft.com/pt-br/topic/criar-um-diagrama-de-comunica%C3%A7%C3%A3o-uml-911956f4-5f19-4a58-97a3-bb14110a5ed1) [4](#ref4), para construir estes diagramas e representar detalhadamente as interações, foram utilizados elementos chave da UML. Dessa forma, os participantes são mostrados como Objetos/Linhas de Vida (retângulos nomeados), conectados por Vínculos (linhas sólidas) que representam os caminhos de comunicação. As Mensagens, indicadas por setas ao longo dos vínculos, são rotuladas com números de sequência decimais para denotar a ordem e o aninhamento, nomes de operações e, ocasionalmente, parâmetros. Além desses fundamentos, para capturar a complexidade dos cenários, foram empregados elementos avançados: a notação <<create>> para indicar a criação de novas instâncias (como sessaoAtual : SessaoJogo ou topicoCriado : Topico), Iteração (*) para mensagens repetidas (como na atualização do jogo), Autochamadas (mensagens com setas em loop no mesmo objeto, ex: atualizações da :WebUI), e a notação <<destroy>> para indicar o fim do ciclo de vida de um objeto (como a sessaoAtual). 
+Com base no que foi explicado em [Criar um diagrama de comunicação UML](https://support.microsoft.com/pt-br/topic/criar-um-diagrama-de-comunica%C3%A7%C3%A3o-uml-911956f4-5f19-4a58-97a3-bb14110a5ed1) [4](#ref4), para construir estes diagramas e representar detalhadamente as interações, foram utilizados elementos chave da UML. Dessa forma, os participantes são mostrados como Objetos/Linhas de Vida (retângulos nomeados), conectados por Vínculos (linhas sólidas) que representam os caminhos de comunicação. As Mensagens, indicadas por setas ao longo dos vínculos, são rotuladas com números de sequência decimais para denotar a ordem e o aninhamento, nomes de operações e, ocasionalmente, parâmetros. Além desses fundamentos, para capturar a complexidade dos cenários, foram empregados elementos avançados: a notação <<create>> para indicar a criação de novas instâncias (como pedidoCriado : Pedido ou ingressoEmitido : Ingresso), Iteração (*) para mensagens repetidas (como na validação de estoque), Autochamadas (mensagens com setas em loop no mesmo objeto, ex: atualizações da :WebUI), e a notação <<destroy>> para indicar o fim do ciclo de vida de um objeto (como a sessaoTransferencia). 
 
 Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
 
@@ -87,187 +87,170 @@ Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
 **Observação Importante:** Com o intuido de elaborar melhor os diagramas, foram elaboradas tabelas contendo os elementos/Participantes com suas descrições e relação com os requisitos elicitados e com os componentes do diagrama de componentes **(Tabelas 1 e 3)**. 
 Da mesma forma, foram criadas tabelas que mostram os vínculos entre os objetos **(Tabelas 2 e 4)**
 
-## Aba Fórum
+## Cenário 1: Compra de Ingresso
 
-Para elucidar os elementos que interagem e colaboram no Diagrama de Comunicação referente às funcionalidades do Fórum da plataforma "Galáxia Conectada", a Tabela 1 a seguir identifica e descreve cada participante (objetos ou instâncias de classes) envolvido. Esta tabela tem como objetivo fornecer uma visão detalhada de cada elemento que troca mensagens ao detalhar a sua funcionalidade no contexto específico das interações do fórum. 
+Para elucidar os elementos que interagem e colaboram no Diagrama de Comunicação referente ao processo de compra de ingresso na plataforma Ingressou, a Tabela 1 a seguir identifica e descreve cada participante (objetos ou instâncias de classes) envolvido. Esta tabela tem como objetivo fornecer uma visão detalhada de cada elemento que troca mensagens ao detalhar a sua funcionalidade no contexto específico das interações de compra. 
 
 <details>
-  <summary><strong>Tabela 1: Participantes do Diagrama de Comunicação (Fórum)</strong></summary>
+  <summary><strong>Tabela 1: Participantes do Diagrama de Comunicação (Compra de Ingresso)</strong></summary>
 
-
-**Tabela 1:** Participantes do Diagrama de Comunicação (Fórum)
+**Tabela 1:** Participantes do Diagrama de Comunicação (Compra de Ingresso)
 
 | #  | Elemento/Participante      | Descrição/Funcionalidade                                          | Relação Requisitos (RFs)        | Relação Componentes (Nome e #)                                 | Relação Classes (# e Nome)                     |
 |----|----------------------------|-------------------------------------------------------------------|---------------------------------|----------------------------------------------------------------|------------------------------------------------|
-| 1  | `entusiasta : Usuario`     | O usuário final que inicia a criação do tópico.                   | RF09, RF07, RF23, RF24, RF25   | (Ator Externo, interage com WebUI #3)                          | #01 Usuario                                    |
-| 2  | `: WebUI`                  | Interface no navegador para interação do usuário com o fórum.       | (Suporte visual para RFs do Fórum) | `WebUI` (#3)                                                   | (Usa dados de várias classes)                  |
-| 3  | `: APIGateway`             | Ponto de entrada API para requisições do fórum vindas da WebUI.   | (Infraestrutura)                | `APIGateway` (#11)                                             | (Orquestra chamadas a componentes/serviços)    |
-| 4  | `: GestaoUsuarios`         | Verifica permissões do usuário para postar.                       | (Suporte a regras RF09)         | `GestaoUsuarios` (#12)                                         | #01 Usuario, #07 Perfil                         |
-| 5  | `: ModuloForum`            | Orquestrador principal da lógica do fórum (criação, moderação...). | RF09, RF07, RF25, RF10          | `ModuloForum` (#26) (Parte do Subsistema Comunidade #25)       | #19 Forum, #20 Subforum, #21 Topico, #22 Postagem |
-| 6  | `topicoCriado : Topico`    | Instância do Tópico sendo criado.                                 | RF09                            | (Gerenciado por `ModuloForum` #26)                             | #21 Topico                                     |
-| 7  | `postagemInicial : Postagem`| Instância da primeira Postagem do tópico.                         | RF09                            | (Gerenciado por `ModuloForum` #26)                             | #22 Postagem                                   |
-| 8  | `: ModuloModeracao`        | Avalia conteúdo e aplica regras de moderação.                     | (Suporte a regras RF09, RF07)   | `ModuloModeracao` (#28) (Parte do Subsistema Comunidade #25) | (Usa #21 Topico, #22 Postagem)                 |
-| 9  | `: ServicoBusca`           | Indexa novo conteúdo para permitir buscas futuras.                | RF10                            | `ServicoBusca` (#14)                                           | (Indexa dados de #21 Topico, #22 Postagem, etc) |
-| 10 | `perfilUsuario : Perfil`   | Instância do Perfil do usuário (usado para Reputação).            | RF07, RF23                      | (Gerenciado por `GestaoUsuarios` #12, usado por ModForum #26) | #07 Perfil                                     |
-| 11 | `: Reputacao`              | Classe/Conceito representando a reputação (pontos adicionados).   | RF07                            | (Gerenciado por `GestaoUsuarios` #12, usado por ModForum #26) | #08 Reputacao                                  |
-| 12 | `: ServicoNotificacoes`    | Envia notificações (moderadores, inscritos, usuário rejeitado).   | RF12, (Suporte RF09)            | `ServicoNotificacoes` (#13)                                    | #09 Notificacao                                |
-| 13 | `: ServicoMonitoramento`   | Registra logs de eventos importantes.                             | (Suporte RNF05, RNF12)          | `ServicoMonitoramento` (#6)                                    | (Pode usar LogEntry - não definida)            |
-| 14 | `: ServicoConfiguracao`    | Fornece configurações específicas do fórum.                       | (Suporte a regras RF09)         | `ServicoConfiguracao` (#4)                                     | (Usa config.yaml #5)                           |
-| 15 | `: BancoDeDados`           | Armazena/Recupera dados persistentes do fórum e usuários.         | (Suporte a todos RFs)           | `BancoDeDados` (#34)                                           | (Persiste instâncias de várias classes)      |
+| 1  | `cliente : Usuario`        | O usuário final que realiza a compra do ingresso.                 | RF01, RF26, RF27, RF28         | (Ator Externo, interage com WebUI #1)                          | #01 Usuario                                    |
+| 2  | `: WebUI`                  | Interface no navegador para interação do usuário com o checkout.  | (Suporte visual para RFs de Compra) | `SPA Principal` (#1)                                         | (Usa dados de várias classes)                  |
+| 3  | `: GatewayService`         | Ponto de entrada API para requisições de checkout vindas da WebUI. | (Infraestrutura)                | `Gateway Service` (#5)                                         | (Orquestra chamadas a componentes/serviços)    |
+| 4  | `: AuthService`            | Verifica autenticação e permissões do usuário.                   | (Suporte a regras RF01-RF05)    | `AuthService` (#6)                                             | #01 Usuario                                    |
+| 5  | `: CheckoutService`        | Orquestrador principal da lógica de checkout (validação, reserva). | RF26, RF31                      | `CheckoutService` (#12)                                        | #10 Pedido, #11 ItemPedido, #19 Cupom         |
+| 6  | `pedidoCriado : Pedido`    | Instância do Pedido sendo criado.                                 | RF26                            | (Gerenciado por `CheckoutService` #12)                         | #10 Pedido                                     |
+| 7  | `: PaymentOrchestrator`    | Orquestra processamento de pagamentos PIX e cartão.              | RF27, RF28                      | `PaymentOrchestrator` (#13)                                    | #12 Pagamento                                  |
+| 8  | `pagamentoCriado : Pagamento`| Instância do Pagamento sendo processado.                        | RF27, RF28                      | (Gerenciado por `PaymentOrchestrator` #13)                     | #12 Pagamento                                  |
+| 9  | `: TicketingService`       | Emite ingressos e QR Codes após confirmação de pagamento.        | RF32, RF35                      | `TicketingService` (#15)                                       | #13 Ingresso, #14 QrCode                       |
+| 10 | `ingressoEmitido : Ingresso`| Instância do Ingresso sendo emitido.                             | RF32                            | (Gerenciado por `TicketingService` #15)                        | #13 Ingresso                                   |
+| 11 | `: NotificationService`    | Envia notificações de confirmação por e-mail/WhatsApp.           | RF35, RF47                      | `NotificationService` (#23)                                    | #17 Notificacao                                |
+| 12 | `: CacheService`          | Armazena dados temporários para performance.                     | RNF15                           | `Redis Cache` (#28)                                            | (Cache de dados)                               |
+| 13 | `: BancoDeDados`          | Armazena/Recupera dados persistentes do sistema.                 | (Suporte a todos RFs)           | `PostgreSQL Database` (#25)                                    | (Persiste instâncias de várias classes)        |
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+<b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-Para complementar a identificação dos participantes, a Tabela 2 se aprofunda na dinâmica das interações do Fórum ao detalhar a sequência, o conteúdo e as características das mensagens trocadas e dos vínculos estabelecidos no Diagrama de Comunicação correspondente. O propósito desta tabela é servir como um guia para a leitura do diagrama.
+Para complementar a identificação dos participantes, a Tabela 2 se aprofunda na dinâmica das interações do processo de compra ao detalhar a sequência, o conteúdo e as características das mensagens trocadas e dos vínculos estabelecidos no Diagrama de Comunicação correspondente. O propósito desta tabela é servir como um guia para a leitura do diagrama.
 
 <details>
-  <summary><strong>Tabela 2: Mensagens e Vínculos do Diagrama de Comunicação (Fórum)</strong></summary>
+  <summary><strong>Tabela 2: Mensagens e Vínculos do Diagrama de Comunicação (Compra de Ingresso)</strong></summary>
 
-
-**Tabela 2:** Mensagens e Vínculos do Diagrama de Comunicação (Fórum)
+**Tabela 2:** Mensagens e Vínculos do Diagrama de Comunicação (Compra de Ingresso)
 
 | Etapa        | Vínculo (Mensagem)                                                              | Tipo                                         | Origem -> Destino                           | Relação Requisitos (RFs) | Relação Componentes (Origem -> Destino)              | Relação Classes (Método/Dados)               |
 |--------------|---------------------------------------------------------------------------------|----------------------------------------------|---------------------------------------------|--------------------------|------------------------------------------------------|----------------------------------------------|
-| 1            | `exibirFormularioNovoTopico()`                                                  | Operação Lógica (Autochamada)                | :WebUI -> :WebUI                            | RF09                     | #3 WebUI -> #3 WebUI                                 | (Lógica UI)                                  |
-| 2            | `submeterNovoTopico(...)`                                                       | Operação Lógica                              | :WebUI -> :APIGateway                       | RF09                     | #3 WebUI -> #11 APIGateway                           | (Payload com dados p/ Topico/Postagem)       |
-| 2.1          | `logEvento('submissao_novo_topico')`                                            | Operação Lógica                              | :APIGateway -> :ServicoMonitoramento        | RNF05, RNF12             | #11 APIGateway -> #6 ServicoMonitoramento            | (Log)                                        |
-| 2.2          | `verificarPermissaoPostar(...)`                                                 | Operação Lógica                              | :APIGateway -> :GestaoUsuarios              | (Regra implícita RF09)   | #11 APIGateway -> #12 GestaoUsuarios                 | (Verifica dados de Usuario #01)              |
-| [permConcedida] 2.3 | `criarTopicoEPostagem(...)`                                             | Operação Lógica                              | :APIGateway -> :ModuloForum                 | RF09                     | #11 APIGateway -> #26 ModuloForum                    | (Orquestra criação de Topico #21, Postagem #22)|
-| 2.3.1        | `getConfigsForum(...)`                                                          | Operação Lógica                              | :ModuloForum -> :ServicoConfiguracao        | (Regra implícita RF09)   | #26 ModuloForum -> #4 ServicoConfiguracao            | (Configuração)                               |
-| 2.3.2        | `<<create>> inserirTopicoBD(...)`                                               | Operação Lógica                              | :ModuloForum -> :BancoDeDados               | RF09                     | #26 ModuloForum -> #34 BancoDeDados                  | (Cria/Persiste Topico #21)                   |
-| 2.3.3        | `<<create>> inserirPostagemBD(...)`                                             | Operação Lógica                              | :ModuloForum -> :BancoDeDados               | RF09                     | #26 ModuloForum -> #34 BancoDeDados                  | (Cria/Persiste Postagem #22)                 |
-| 2.3.4        | `atualizarRefUltimoPost(postagemInicial)`                                       | Operação Lógica                              | :ModuloForum -> `topicoCriado : Topico`     | RF09                     | #26 ModuloForum -> (#21 Topico)                      | (Atualiza estado Topico #21)                 |
-| 2.3.5        | `inicializarEstado()`                                                           | Operação Lógica                              | :ModuloForum -> `postagemInicial : Postagem` | RF09                     | #26 ModuloForum -> (#22 Postagem)                    | (Atualiza estado Postagem #22)               |
-| 2.3.6        | `getReputacaoUsuarioBD(idUsuario)`                                              | Operação Lógica                              | :ModuloForum -> :BancoDeDados               | RF07                     | #26 ModuloForum -> #34 BancoDeDados                  | (Busca Reputacao #08)                        |
-| 2.3.7        | `reputacaoDoUsuario.adicionarPontos(...)`                                       | Método da Classe (`Reputacao.adicionarPontos`) | RF07                     | #26 ModuloForum -> (#08 Reputacao)                   | #08 Reputacao.adicionarPontos                |
-| 2.3.8        | `salvarReputacaoBD(reputacaoDoUsuario)`                                         | Operação Lógica                              | :ModuloForum -> :BancoDeDados               | RF07                     | #26 ModuloForum -> #34 BancoDeDados                  | (Persiste Reputacao #08)                     |
-| [reqMod] 2.3.9 | `marcarParaRevisao(postagemInicial)`                                          | Operação Lógica                              | :ModuloForum -> :ModuloModeracao            | (Regra implícita RF09)   | #26 ModuloForum -> #28 ModuloModeracao               | (Usa Postagem #22)                           |
-| 2.3.9.1      | `atualizarStatusPostagemBD(idPostagem, 'PENDENTE')`                             | Operação Lógica                              | :ModuloModeracao -> :BancoDeDados           | (Regra implícita RF09)   | #28 ModuloModeracao -> #34 BancoDeDados              | (Atualiza Postagem #22)                      |
-| 2.3.9.2      | `notificarEquipeModeradores(idPostagem)`                                        | Operação Lógica                              | :ModuloModeracao -> :ServicoNotificacoes    | (Regra implícita RF09)   | #28 ModuloModeracao -> #13 ServicoNotificacoes       | (Cria Notificacao #09)                       |
-| * 2.3.10     | `associarTagAoTopico(topicoCriado, tag)`                                        | Operação Lógica                              | :ModuloForum -> :BancoDeDados               | RF09                     | #26 ModuloForum -> #34 BancoDeDados                  | (Associa Tag a Topico #21)                   |
-| 2.3.11       | `indexarConteudo(topicoCriado)`                                                 | Operação Lógica                              | :ModuloForum -> :ServicoBusca               | RF10                     | #26 ModuloForum -> #14 ServicoBusca                  | (Usa Topico #21)                             |
-| 2.3.11.1     | `atualizarIndice(topicoCriado)`                                                 | Operação Lógica (Autochamada)                | :ServicoBusca -> :ServicoBusca              | RF10                     | #14 ServicoBusca -> #14 ServicoBusca                 | (Lógica interna de indexação)                |
-| 2.3.12       | `indexarConteudo(postagemInicial)`                                              | Operação Lógica                              | :ModuloForum -> :ServicoBusca               | RF10                     | #26 ModuloForum -> #14 ServicoBusca                  | (Usa Postagem #22)                           |
-| 2.3.12.1     | `atualizarIndice(postagemInicial)`                                              | Operação Lógica (Autochamada)                | :ServicoBusca -> :ServicoBusca              | RF10                     | #14 ServicoBusca -> #14 ServicoBusca                 | (Lógica interna de indexação)                |
-| 2.3.13       | `notificarInscritos(idSubforum, topicoCriado)`                                  | Operação Lógica                              | :ModuloForum -> :ServicoNotificacoes        | RF12                     | #26 ModuloForum -> #13 ServicoNotificacoes       | (Cria Notificacao #09, usa Topico #21)      |
-| 3            | `redirecionarParaTopico(idTopicoCriado)`                                        | Operação Lógica (Autochamada)                | :WebUI -> :WebUI                            | RF09                     | #3 WebUI -> #3 WebUI                                 | (Lógica UI)                                  |
-| 4            | `exibirPaginaTopico(topicoCriado)`                                              | Operação Lógica                              | :WebUI -> entusiasta: Usuario               | RF09                     | #3 WebUI -> (Ator)                                   | (Exibe dados do Topico #21)                  |
+| 1            | `selecionarEventoELote(...)`                                                    | Operação Lógica (Autochamada)                | :WebUI -> :WebUI                            | RF06, RF07, RF08         | #1 SPA Principal -> #1 SPA Principal                 | (Lógica UI)                                  |
+| 2            | `iniciarCheckout(...)`                                                          | Operação Lógica                              | :WebUI -> :GatewayService                   | RF26                     | #1 SPA Principal -> #5 Gateway Service               | (Payload com dados do pedido)                |
+| 2.1          | `logEvento('inicio_checkout')`                                                  | Operação Lógica                              | :GatewayService -> :ServicoMonitoramento    | RNF11                    | #5 Gateway Service -> #6 ServicoMonitoramento        | (Log)                                        |
+| 2.2          | `verificarAutenticacao(...)`                                                    | Operação Lógica                              | :GatewayService -> :AuthService             | RF02, RF03               | #5 Gateway Service -> #6 AuthService                 | (Verifica dados de Usuario #01)              |
+| [authOK] 2.3 | `processarCheckout(...)`                                                        | Operação Lógica                              | :GatewayService -> :CheckoutService         | RF26                     | #5 Gateway Service -> #12 CheckoutService            | (Orquestra criação de Pedido #10)            |
+| 2.3.1        | `validarDisponibilidadeLote(...)`                                               | Operação Lógica                              | :CheckoutService -> :BancoDeDados           | RF21, RF22               | #12 CheckoutService -> #25 PostgreSQL Database       | (Verifica Lote #09)                          |
+| 2.3.2        | `reservarIngressos(...)`                                                        | Operação Lógica                              | :CheckoutService -> :BancoDeDados           | RF21                     | #12 CheckoutService -> #25 PostgreSQL Database       | (Reserva estoque Lote #09)                   |
+| 2.3.3        | `<<create>> criarPedido(...)`                                                   | Operação Lógica                              | :CheckoutService -> :BancoDeDados           | RF26                     | #12 CheckoutService -> #25 PostgreSQL Database       | (Cria/Persiste Pedido #10)                   |
+| 2.3.4        | `aplicarCupom(codigoCupom)`                                                     | Operação Lógica                              | :CheckoutService -> :BancoDeDados           | RF31                     | #12 CheckoutService -> #25 PostgreSQL Database       | (Valida Cupom #19)                           |
+| 2.3.5        | `calcularTotal(...)`                                                            | Operação Lógica (Autochamada)                | :CheckoutService -> :CheckoutService        | RF26                     | #12 CheckoutService -> #12 CheckoutService           | (Lógica de cálculo)                          |
+| 3            | `processarPagamento(...)`                                                       | Operação Lógica                              | :CheckoutService -> :PaymentOrchestrator    | RF27, RF28               | #12 CheckoutService -> #13 PaymentOrchestrator       | (Inicia Pagamento #12)                       |
+| 3.1          | `<<create>> criarPagamento(...)`                                                | Operação Lógica                              | :PaymentOrchestrator -> :BancoDeDados       | RF27, RF28               | #13 PaymentOrchestrator -> #25 PostgreSQL Database   | (Cria Pagamento #12)                         |
+| 3.2          | `iniciarCobrancaPIX(...)`                                                       | Operação Lógica                              | :PaymentOrchestrator -> :GatewayPagamento   | RF27                     | #13 PaymentOrchestrator -> #29 Gateway de Pagamento  | (Integração externa)                         |
+| 3.3          | `aguardarConfirmacao(...)`                                                      | Operação Lógica                              | :PaymentOrchestrator -> :PaymentOrchestrator| RF27                     | #13 PaymentOrchestrator -> #13 PaymentOrchestrator   | (Aguarda webhook)                            |
+| [pagOK] 4    | `emitirIngressos(...)`                                                          | Operação Lógica                              | :PaymentOrchestrator -> :TicketingService   | RF32                     | #13 PaymentOrchestrator -> #15 TicketingService      | (Inicia emissão Ingresso #13)                |
+| 4.1          | `<<create>> gerarIngresso(...)`                                                 | Operação Lógica                              | :TicketingService -> :BancoDeDados          | RF32                     | #15 TicketingService -> #25 PostgreSQL Database      | (Cria Ingresso #13)                          |
+| 4.2          | `gerarQRCode(...)`                                                              | Operação Lógica                              | :TicketingService -> :QRSecurityService     | RF32, RNF06              | #15 TicketingService -> #16 QRSecurityService        | (Gera QrCode #14)                            |
+| 4.3          | `atualizarStatusPedido('PAGO')`                                                 | Operação Lógica                              | :TicketingService -> :BancoDeDados          | RF29                     | #15 TicketingService -> #25 PostgreSQL Database      | (Atualiza Pedido #10)                        |
+| 5            | `enviarNotificacaoConfirmacao(...)`                                             | Operação Lógica                              | :TicketingService -> :NotificationService   | RF35                     | #15 TicketingService -> #23 NotificationService      | (Cria Notificacao #17)                       |
+| 6            | `exibirConfirmacaoCompra(...)`                                                  | Operação Lógica                              | :WebUI -> cliente: Usuario                  | RF26                     | #1 SPA Principal -> (Ator)                           | (Exibe dados do Pedido #10)                  |
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+<b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-A Figura 2 mostra o diagrama de comunicação da aba do fórum
-
+A Figura 2 mostra o diagrama de comunicação do cenário de compra de ingresso
 
 <div align="center">
-    <b>Figura 2:</b> Diagrama de Comunicação – Fórum
+    <b>Figura 2:</b> Diagrama de Comunicação – Compra de Ingresso
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaComunicacaoForumDiscurssoes.png" width="1000">
+    <img src="assets/Modelagem/Dinamica/Comunicacao1.pdf" width="1000">
     <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 </div>
 
 <p><strong>Observação:</strong> Caso deseje visualizar ou baixar em PDF, clique aqui: 
-<a href="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaComunicacaoForumDiscurssoes.pdf">PDF do Diagrama de Comunicação – Fórum</a></p>
+<a href="assets/Modelagem/Dinamica/Comunicacao1.pdf">PDF do Diagrama de Comunicação – Compra de Ingresso</a></p>
 
 
 
 
-## Aba Jogos
+## Cenário 2: Transferência de Ingresso
 
-A fim de detalhar os colaboradores envolvidos nos cenários de interação dos Jogos Educacionais, conforme ilustrado no respectivo Diagrama de Comunicação, a Tabela 3 apresenta uma listagem descritiva de cada participante e seu papel funcional. Esta tabulação visa clarificar as responsabilidades de cada objeto ou instância dentro do fluxo dos jogos, vinculando-os aos Requisitos Funcionais (RFs) específicos que implementam, aos Componentes arquiteturais relacionados e às Classes do modelo de domínio que lhes dão origem. 
+A fim de detalhar os colaboradores envolvidos nos cenários de interação da transferência de ingressos, conforme ilustrado no respectivo Diagrama de Comunicação, a Tabela 3 apresenta uma listagem descritiva de cada participante e seu papel funcional. Esta tabulação visa clarificar as responsabilidades de cada objeto ou instância dentro do fluxo de transferência, vinculando-os aos Requisitos Funcionais (RFs) específicos que implementam, aos Componentes arquiteturais relacionados e às Classes do modelo de domínio que lhes dão origem. 
 
 <details>
-  <summary><strong>Tabela 3: Participantes do Diagrama de Comunicação (Jogos Educacionais)</strong></summary>
+  <summary><strong>Tabela 3: Participantes do Diagrama de Comunicação (Transferência de Ingresso)</strong></summary>
 
-**Tabela 3:** Participantes do Diagrama de Comunicação (Jogos Educacionais)
+**Tabela 3:** Participantes do Diagrama de Comunicação (Transferência de Ingresso)
 
 | #  | Elemento/Participante          | Descrição/Funcionalidade                                                      | Relação Requisitos (RFs)          | Relação Componentes (Nome e #)                                    | Relação Classes (# e Nome)                                   |
 |----|--------------------------------|-------------------------------------------------------------------------------|-----------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------|
-| 01  | `entusiasta : Usuario`         | O usuário final que interage com a plataforma para jogar.                     | RF08, RF05, RF06, RF22, RF23      | (Ator Externo, interage com WebUI #3)                             | #01 Usuario                                                  |
-| 02  | `: WebUI`                      | Interface no navegador para exibir jogos, receber input e mostrar feedback.     | (Suporte visual RFs de Jogos)     | `WebUI` (#3)                                                      | (Usa dados de Jogo #18, PontuacaoJogo [conceitual], etc.)    |
-| 03  | `: APIGateway`                 | Ponto de entrada API para requisições relacionadas aos jogos.                   | (Infraestrutura)                  | `APIGateway` (#11)                                                | (Orquestra chamadas a componentes/serviços)                  |
-| 04  | `: GestaoUsuarios`             | Gerencia dados do usuário (pode ser consultado para ID em ações logadas).       | (Suporte RF05, RF23)              | `GestaoUsuarios` (#12)                                            | #01 Usuario, #07 Perfil                                        |
-| 05  | `: ModuloJogos`                | Lógica principal dos jogos (iniciar, registrar resultado, gerenciar sessão).  | RF08, RF06, RF21, RF22            | `ModuloJogos` (#23) (Parte do Subsistema Conteudo Interativo #20) | (Usa #18 Jogo, SessaoJogo [não listada], PontuacaoJogo [não listada]) |
-| 06  | `jogoSel : Jogo`               | Instância específica da classe `Jogo`, com dados/regras do jogo selecionado.  | RF08                              | (Gerenciado por `ModuloJogos` #23)                                | #18 Jogo (Subclasse de #14 Conteudo)                         |
-| 07  | `sessaoAtual : SessaoJogo`     | Instância que representa a partida atual do jogo (criada ao iniciar).         | RF08                              | (Gerenciado por `ModuloJogos` #23)                                | (Retornada por Jogo.iniciar - não listada explicitamente)     |
-| 08  | `: GestorAssetsEstaticos`      | Fornece URLs/acesso aos arquivos de mídia do jogo.                             | RNF11 (Implícito)                 | `GestorAssetsEstaticos` (#7)                                      | (Gerencia Artefatos #8)                                      |
-| 09 | `: ServicoCache`               | Armazena dados do jogo temporariamente para acelerar carregamento.              | RNF02 (Opcional)                  | `ServicoCache` (#17)                                              | (Infraestrutura de Cache)                                    |
-| 10 | `: ModuloGamificacao`          | Aplica regras de XP, conquistas baseado na performance do jogo.               | RF05, RF07, RF22, RF23            | `ModuloGamificacao` (#27) (Parte do Subsistema Comunidade #25)    | (Usa #07 Perfil, #10 Conquista, #08 Reputacao)                 |
-| 11 | `perfilUsuario : Perfil`       | Instância do Perfil do usuário, onde XP é adicionado.                         | RF05, RF23                        | (Gerenciado por `GestaoUsuarios` #12, usado por ModGamif #27)      | #07 Perfil                                                     |
-| 12 | `: MotorRegrasGamificacao`     | Define como recompensas são calculadas (pode ser interno ao ModGamif).         | RF05                              | (Conceitual ou parte do `ModuloGamificacao` #27)                  | (Lógica de Negócio)                                          |
-| 13 | `: ServicoNotificacoes`        | Envia notificações ao usuário (ex: nova conquista).                           | RF12                              | `ServicoNotificacoes` (#13)                                       | #09 Notificacao                                              |
-| 14 | `: ServicoMonitoramento`       | Registra logs de eventos importantes do fluxo do jogo.                        | RNF05, RNF12 (Suporte)            | `ServicoMonitoramento` (#6)                                       | (Pode usar LogEntry)                                         |
-| 15 | `: ServicoConfiguracao`        | Busca configurações gerais ou específicas do jogo (ex: pontuação base).      | (Suporte RF08, RF21)              | `ServicoConfiguracao` (#4)                                        | (Usa config.yaml #5)                                         |
-| 16 | `: BancoDeDados`               | Persistência de dados do jogo, sessões, pontuações, perfil, etc.              | RF04, RF05, RF07, RF23 (Suporte) | `BancoDeDados` (#34)                                              | (Persiste instâncias de várias classes)                        |
+| 01  | `remetente : Usuario`          | O usuário que inicia a transferência do ingresso.                             | RF40, RF41, RF42                  | (Ator Externo, interage com WebUI #1)                             | #01 Usuario                                                  |
+| 02  | `destinatario : Usuario`       | O usuário que recebe o ingresso transferido.                                  | RF40, RF41, RF42                  | (Ator Externo, interage com WebUI #1)                             | #01 Usuario                                                  |
+| 03  | `: WebUI`                      | Interface no navegador para gerenciar transferências.                         | (Suporte visual RFs de Transferência) | `SPA Principal` (#1)                                          | (Usa dados de várias classes)                                |
+| 04  | `: GatewayService`             | Ponto de entrada API para requisições de transferência.                       | (Infraestrutura)                  | `Gateway Service` (#5)                                            | (Orquestra chamadas a componentes/serviços)                  |
+| 05  | `: AuthService`                | Verifica autenticação dos usuários envolvidos.                               | RF02, RF03                        | `AuthService` (#6)                                                | #01 Usuario                                                   |
+| 06  | `: TransferService`            | Lógica principal das transferências (criar, aceitar, reemitir).              | RF40-RF47                         | `TransferService` (#17)                                           | #16 Transferencia, #13 Ingresso                              |
+| 07  | `transferenciaCriada : Transferencia`| Instância da transferência sendo processada.                            | RF40                              | (Gerenciado por `TransferService` #17)                            | #16 Transferencia                                             |
+| 08  | `ingressoOriginal : Ingresso`  | Instância do ingresso sendo transferido.                                     | RF40, RF42                        | (Gerenciado por `TransferService` #17)                            | #13 Ingresso                                                  |
+| 09  | `: PaymentOrchestrator`        | Processa pagamento da taxa de transferência.                                 | RF45                              | `PaymentOrchestrator` (#13)                                       | #12 Pagamento                                                 |
+| 10  | `: TicketingService`           | Invalida QR original e gera novo QR para destinatário.                       | RF42                              | `TicketingService` (#15)                                          | #13 Ingresso, #14 QrCode                                      |
+| 11  | `: NotificationService`        | Envia notificações sobre status da transferência.                            | RF47                              | `NotificationService` (#23)                                       | #17 Notificacao                                               |
+| 12  | `: CacheService`              | Armazena dados temporários para performance.                                 | RNF15                             | `Redis Cache` (#28)                                               | (Cache de dados)                                              |
+| 13  | `: BancoDeDados`              | Persistência de dados das transferências e ingressos.                        | (Suporte a todos RFs)             | `PostgreSQL Database` (#25)                                       | (Persiste instâncias de várias classes)                       |
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+<b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-Para uma análise minuciosa do fluxo de mensagens e das conexões representadas no Diagrama de Comunicação dos Jogos Educacionais, a Tabela 4 subsequente cataloga e explica cada interação fundamental entre os participantes. Através desta tabela, busca-se facilitar a compreensão do diagrama ao mapear a sequência da comunicação, ao identificar o conteúdo de cada mensagem (vínculo), seu tipo, o remetente e o destinatário. Para enriquecer o entendimento, a tabela também correlaciona essas trocas de mensagens com os Requisitos Funcionais (RFs) atendidos e as interações entre Componentes e os métodos/dados das Classes.
+Para uma análise minuciosa do fluxo de mensagens e das conexões representadas no Diagrama de Comunicação da Transferência de Ingressos, a Tabela 4 subsequente cataloga e explica cada interação fundamental entre os participantes. Através desta tabela, busca-se facilitar a compreensão do diagrama ao mapear a sequência da comunicação, ao identificar o conteúdo de cada mensagem (vínculo), seu tipo, o remetente e o destinatário. Para enriquecer o entendimento, a tabela também correlaciona essas trocas de mensagens com os Requisitos Funcionais (RFs) atendidos e as interações entre Componentes e os métodos/dados das Classes.
 
 <details>
-  <summary><strong>Tabela 4: Mensagens e Vínculos do Diagrama de Comunicação (Jogos Educacionais)
+  <summary><strong>Tabela 4: Mensagens e Vínculos do Diagrama de Comunicação (Transferência de Ingresso)
 </strong></summary>
 
-**Tabela 4:** Mensagens e Vínculos do Diagrama de Comunicação (Jogos Educacionais)
+**Tabela 4:** Mensagens e Vínculos do Diagrama de Comunicação (Transferência de Ingresso)
 
 
 | Etapa        | Vínculo (Mensagem)                                                              | Tipo                                            | Origem -> Destino                        | Relação Requisitos (RFs) | Relação Componentes (Origem -> Destino)                     | Relação Classes (Método/Dados)                      |
 |--------------|---------------------------------------------------------------------------------|-------------------------------------------------|------------------------------------------|--------------------------|-----------------------------------------------------------|-----------------------------------------------------|
-| 1            | `solicitarInicioJogo(idJogo, idUsuario?)`                                       | Operação Lógica                                 | :WebUI -> :APIGateway                    | RF08                     | #3 WebUI -> #11 APIGateway                              | (Inicia fluxo do jogo)                              |
-| 1.1          | `logEvento('req_inicio_jogo')`                                                  | Operação Lógica                                 | :APIGateway -> :ServicoMonitoramento     | (Monitoramento)          | #11 APIGateway -> #6 ServicoMonitoramento                 | (Log)                                               |
-| 1.2          | `iniciarJogo(idJogo, idUsuario?)`                                               | Operação Lógica                                 | :APIGateway -> :ModuloJogos              | RF08                     | #11 APIGateway -> #23 ModuloJogos                         | (Orquestra início do jogo)                          |
-| 1.2.1        | `getConfig(chave='jogo_config')`                                                | Operação Lógica                                 | :ModuloJogos -> :ServicoConfiguracao     | (Suporte RF08)           | #23 ModuloJogos -> #4 ServicoConfiguracao               | (Configuração)                                      |
-| 1.2.2        | `getCacheJogo(idJogo)`                                                          | Operação Lógica                                 | :ModuloJogos -> :ServicoCache            | RNF02 (Opcional)         | #23 ModuloJogos -> #17 ServicoCache                     | (Cache)                                             |
-| [cacheMiss] 1.2.3 | `buscarJogoDoBD(idJogo)`                                              | Operação Lógica                                 | :ModuloJogos -> :BancoDeDados            | RF08                     | #23 ModuloJogos -> #34 BancoDeDados                     | (Busca dados Jogo #18)                              |
-| 1.2.4        | `getUrlsAssets(jogoSel.assets)`                                                 | Operação Lógica                                 | :ModuloJogos -> :GestorAssetsEstaticos   | RNF11 (Implícito)        | #23 ModuloJogos -> #7 GestorAssetsEstaticos             | (Assets)                                            |
-| 1.2.5        | `sessaoAtual := <<create>> jogoSel.iniciar(entusiasta)`                         | Método da Classe (`Jogo.iniciar`)               | :ModuloJogos -> `jogoSel : Jogo`         | RF08                     | #23 ModuloJogos -> (#18 Jogo)                           | #18 Jogo.iniciar                                    |
-| * 2          | `atualizarInterfaceJogo(estadoSessao)`                                          | Operação Lógica (Autochamada)                   | :WebUI -> :WebUI                         | RF08                     | #3 WebUI -> #3 WebUI                                      | (Lógica UI)                                         |
-| * 2.1        | `getEstadoAtualizado()`                                                         | Operação Lógica/Método (`SessaoJogo`)         | `sessaoAtual : SessaoJogo` -> :WebUI     | RF08                     | (SessaoJogo) -> #3 WebUI                                  | (Estado SessaoJogo)                                 |
-| 3            | `submeterResultado(idSessao, pontuacao)`                                        | Operação Lógica                                 | :WebUI -> :APIGateway                    | RF06                     | #3 WebUI -> #11 APIGateway                              | (Envia dados PontuacaoJogo)                         |
-| 3.1          | `logEvento('submissao_resultado')`                                              | Operação Lógica                                 | :APIGateway -> :ServicoMonitoramento     | (Monitoramento)          | #11 APIGateway -> #6 ServicoMonitoramento                 | (Log)                                               |
-| 3.2          | `registrarResultado(idSessao, pontuacao, idUsuario?)`                           | Operação Lógica                                 | :APIGateway -> :ModuloJogos              | RF06                     | #11 APIGateway -> #23 ModuloJogos                         | (Processa resultado)                                |
-| 3.2.1        | `pontuacaoReg := jogoSel.registrarPontuacao(sessaoAtual)`                       | Método da Classe (`Jogo.registrarPontuacao`)    | :ModuloJogos -> `jogoSel : Jogo`         | RF06                     | #23 ModuloJogos -> (#18 Jogo)                           | #18 Jogo.registrarPontuacao                         |
-| 3.2.2        | `salvarPontuacaoBD(pontuacaoReg)`                                               | Operação Lógica                                 | :ModuloJogos -> :BancoDeDados            | RF04, RF23               | #23 ModuloJogos -> #34 BancoDeDados                     | (Persiste PontuacaoJogo)                            |
-| [pont > rec] 3.2.3 | `atualizarRecordeBD(jogoSel, pontuacao)`            | Operação Lógica                                 | :ModuloJogos -> :BancoDeDados            | RF07 (Implícito)         | #23 ModuloJogos -> #34 BancoDeDados                     | (Atualiza Jogo #18)                                 |
-| 3.3          | `idUsuarioLogado := getUsuarioDaSessao(idSessao)`                               | Operação Lógica                                 | :ModuloJogos -> :GestaoUsuarios          | (Suporte RF05)           | #23 ModuloJogos -> #12 GestaoUsuarios                   | (Busca Usuario #01)                                 |
-| [idUser] 3.4   | `registrarAcaoGamificacao('jogo_finalizado', ...)`                              | Operação Lógica                                 | :ModuloJogos -> :ModuloGamificacao       | RF05, RF07, RF23         | #23 ModuloJogos -> #27 ModuloGamificacao                | (Inicia processo Gamificação)                       |
-| 3.4.1        | `getPerfilDoBD(idUsuarioLogado)`                                                | Operação Lógica                                 | :ModuloGamificacao -> :BancoDeDados      | RF05, RF23               | #27 ModuloGamificacao -> #34 BancoDeDados                 | (Busca Perfil #07)                                  |
-| 3.4.2        | `calcularRecompensas(...)`                                                      | Operação Lógica                                 | :ModuloGamificacao -> :MotorRegrasGamificacao | RF05                   | #27 ModuloGamificacao -> (MotorRegras)                    | (Lógica de Negócio)                                 |
-| 3.4.3        | `perfilUsuario.adicionarXp(xpCalculado)`                                        | Método da Classe (`Perfil.adicionarXp`)         | :ModuloGamificacao -> `perfilUsuario : Perfil` | RF05                   | #27 ModuloGamificacao -> (#07 Perfil)                     | #07 Perfil.adicionarXp                              |
-| 3.4.4        | `salvarPerfilBD(perfilUsuario)`                                                 | Operação Lógica                                 | :ModuloGamificacao -> :BancoDeDados      | RF05, RF23               | #27 ModuloGamificacao -> #34 BancoDeDados                 | (Persiste Perfil #07)                               |
-| 3.4.5        | `verificarDesbloqueioConquista(...)`                                            | Operação Lógica                                 | :ModuloGamificacao -> :BancoDeDados      | RF05                     | #27 ModuloGamificacao -> #34 BancoDeDados                 | (Verifica/Atualiza Conquista #10/UsuarioConquista #12) |
-| [conqDesbl] 3.4.6 | `enviarNotificacao(idUsuarioLogado, tipo='conquista', ...)`                | Operação Lógica                                 | :ModuloGamificacao -> :ServicoNotificacoes | RF12                   | #27 ModuloGamificacao -> #13 ServicoNotificacoes          | (Cria Notificacao #09)                              |
-| 3.5          | `<<destroy>> finalizarSessaoJogo(sessaoAtual)`                                  | Operação Lógica                                 | :ModuloJogos -> `sessaoAtual : SessaoJogo` | RF08                     | #23 ModuloJogos -> (SessaoJogo)                           | (Finaliza ciclo SessaoJogo)                         |
-| 4            | `exibirFeedbackFinal(...)`                                                      | Operação Lógica                                 | :WebUI -> `entusiasta : Usuario`         | RF06                     | #3 WebUI -> (Ator)                                      | (Exibe resultado/XP)                                |
+| 1            | `iniciarTransferencia(ingressoId, emailDestinatario)`                          | Operação Lógica                                 | :WebUI -> :GatewayService                | RF40                     | #1 SPA Principal -> #5 Gateway Service                     | (Inicia fluxo de transferência)                         |
+| 1.1          | `logEvento('inicio_transferencia')`                                             | Operação Lógica                                 | :GatewayService -> :ServicoMonitoramento | RNF11                    | #5 Gateway Service -> #6 ServicoMonitoramento             | (Log)                                                 |
+| 1.2          | `verificarAutenticacao(...)`                                                    | Operação Lógica                                 | :GatewayService -> :AuthService          | RF02, RF03               | #5 Gateway Service -> #6 AuthService                       | (Verifica Usuario #01)                                |
+| [authOK] 1.3 | `criarTransferencia(...)`                                                       | Operação Lógica                                 | :GatewayService -> :TransferService      | RF40                     | #5 Gateway Service -> #17 TransferService                  | (Orquestra criação Transferencia #16)                   |
+| 1.3.1        | `validarElegibilidadeIngresso(...)`                                             | Operação Lógica                                 | :TransferService -> :BancoDeDados        | RF44                     | #17 TransferService -> #25 PostgreSQL Database            | (Verifica Ingresso #13)                               |
+| 1.3.2        | `verificarPoliticaTransferencia(...)`                                           | Operação Lógica                                 | :TransferService -> :BancoDeDados        | RF44                     | #17 TransferService -> #25 PostgreSQL Database            | (Verifica TransferPolicy #15)                          |
+| 1.3.3        | `<<create>> criarTransferencia(...)`                                            | Operação Lógica                                 | :TransferService -> :BancoDeDados        | RF40                     | #17 TransferService -> #25 PostgreSQL Database            | (Cria Transferencia #16)                               |
+| 1.3.4        | `enviarConviteTransferencia(...)`                                               | Operação Lógica                                 | :TransferService -> :NotificationService | RF47                     | #17 TransferService -> #23 NotificationService            | (Cria Notificacao #17)                                |
+| 2            | `aceitarTransferencia(tokenTransferencia)`                                      | Operação Lógica                                 | :WebUI -> :GatewayService                | RF41                     | #1 SPA Principal -> #5 Gateway Service                     | (Aceita transferência)                                 |
+| 2.1          | `verificarTokenValido(...)`                                                     | Operação Lógica                                 | :GatewayService -> :TransferService      | RF41                     | #5 Gateway Service -> #17 TransferService                  | (Valida token Transferencia #16)                        |
+| 2.2          | `processarPagamentoTaxa(...)`                                                   | Operação Lógica                                 | :TransferService -> :PaymentOrchestrator | RF45                     | #17 TransferService -> #13 PaymentOrchestrator            | (Inicia Pagamento #12)                                 |
+| 2.2.1        | `calcularTaxaTransferencia(...)`                                                | Operação Lógica                                 | :PaymentOrchestrator -> :TransferService | RF45                     | #13 PaymentOrchestrator -> #17 TransferService            | (Calcula taxa TransferPolicy #15)                       |
+| 2.2.2        | `<<create>> criarPagamentoTaxa(...)`                                            | Operação Lógica                                 | :PaymentOrchestrator -> :BancoDeDados    | RF45                     | #13 PaymentOrchestrator -> #25 PostgreSQL Database        | (Cria Pagamento #12)                                   |
+| 2.2.3        | `processarCobrancaPIX(...)`                                                     | Operação Lógica                                 | :PaymentOrchestrator -> :GatewayPagamento| RF45                     | #13 PaymentOrchestrator -> #29 Gateway de Pagamento       | (Integração externa)                                   |
+| [pagOK] 3    | `concluirTransferencia(...)`                                                    | Operação Lógica                                 | :PaymentOrchestrator -> :TransferService | RF42                     | #13 PaymentOrchestrator -> #17 TransferService            | (Finaliza transferência)                               |
+| 3.1          | `invalidarQROriginal(...)`                                                      | Operação Lógica                                 | :TransferService -> :TicketingService    | RF42                     | #17 TransferService -> #15 TicketingService               | (Invalida QrCode #14)                                  |
+| 3.2          | `gerarNovoQR(...)`                                                              | Operação Lógica                                 | :TicketingService -> :QRSecurityService  | RF42                     | #15 TicketingService -> #16 QRSecurityService             | (Gera novo QrCode #14)                                 |
+| 3.3          | `transferirIngressoParaDestinatario(...)`                                       | Operação Lógica                                 | :TransferService -> :BancoDeDados        | RF42                     | #17 TransferService -> #25 PostgreSQL Database            | (Atualiza Ingresso #13)                                |
+| 3.4          | `atualizarStatusTransferencia('CONCLUIDA')`                                     | Operação Lógica                                 | :TransferService -> :BancoDeDados        | RF42                     | #17 TransferService -> #25 PostgreSQL Database            | (Atualiza Transferencia #16)                            |
+| 4            | `notificarTransferenciaConcluida(...)`                                          | Operação Lógica                                 | :TransferService -> :NotificationService | RF47                     | #17 TransferService -> #23 NotificationService            | (Cria Notificacao #17)                                 |
+| 5            | `exibirConfirmacaoTransferencia(...)`                                           | Operação Lógica                                 | :WebUI -> destinatario: Usuario          | RF42                     | #1 SPA Principal -> (Ator)                                | (Exibe dados da Transferencia #16)                      |
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+<b> Autor: </b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-A figura 3 apresenta o diagrama de Comunicação da Aba de Jogos
+A figura 3 apresenta o diagrama de Comunicação do Cenário de Transferência de Ingresso
 
 <div align="center">
-    <b>Figura 3:</b> Diagrama de Comunicação – Jogos
+    <b>Figura 3:</b> Diagrama de Comunicação – Transferência de Ingresso
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaComunicacaoJogosEducacionais.png" width="1000">
+    <img src="assets/Modelagem/Dinamica/Comunicacao2.pdf" width="1000">
     <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 </div>
 
 <p><strong>Observação:</strong> Caso deseje visualizar ou baixar em PDF, clique aqui: 
-<a href="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaComunicacaoJogosEducacionais.pdf">PDF do Diagrama de Comunicação – Jogos</a></p>
+<a href="assets/Modelagem/Dinamica/Comunicacao2.pdf">PDF do Diagrama de Comunicação – Transferência de Ingresso</a></p>
 
 
 
 
 ## Conclusão
 
-Em conclusão, os Diagramas de Comunicação elaborados para os módulos de Fórum e Jogos Educacionais forneceram uma visão detalhada e estrutural das interações entre os diversos componentes e objetos da plataforma "Galáxia Conectada". Ao mapear os participantes, seus vínculos de comunicação e, crucialmente, a sequência numerada das mensagens trocadas – ao incorporar elementos avançados como criação de objetos, condições e iterações – estes diagramas elucidam como as diferentes partes do sistema colaboram para realizar funcionalidades chave, como a criação de um tópico ou a execução e pontuação de um jogo.
+Em conclusão, os Diagramas de Comunicação elaborados para os cenários de **Compra de Ingresso** e **Transferência de Ingresso** forneceram uma visão detalhada e estrutural das interações entre os diversos componentes e objetos da plataforma Ingressou. Ao mapear os participantes, seus vínculos de comunicação e, crucialmente, a sequência numerada das mensagens trocadas – ao incorporar elementos avançados como criação de objetos, condições e iterações – estes diagramas elucidam como as diferentes partes do sistema colaboram para realizar funcionalidades chave, como a compra de ingressos com processamento de pagamento e a transferência segura de ingressos entre usuários com reemissão de QR Code.
 
 ## Bibliografia
 
@@ -291,13 +274,6 @@ Em conclusão, os Diagramas de Comunicação elaborados para os módulos de Fór
 
 ## Histórico de versão
 
-
 | Versão | Alteração | Responsável | Data |
 | - | - | - | - |
-| 1.0 | Elaboração do documento| Larissa Stéfane | 01/05/2025 |
-| 1.1 | Adição da metodologia e da seção de explicação  | Larissa Stéfane | 01/05/2025 |
-| 1.2 | Criação das tabelas da aba fórum | Larissa Stéfane | 01/05/2025 |
-| 1.3 | Criação das tabelas da aba de jogos | Larissa Stéfane | 02/05/2025 |
-| 1.4 | Explicação dos diagramas de comunicação | Larissa Stéfane | 02/05/2025 |
-| 1.5 | Adição dos diagramas | Larissa Stéfane | 02/05/2025 |
-| 1.6 | Ajustes no artefato| Larissa Stéfane | 06/05/2025 |
+| 1.0 | Adaptação completa do documento para o projeto Ingressou com cenários de compra e transferência de ingressos | Gabriel Lima | 29/10/2025 |
