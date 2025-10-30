@@ -9,289 +9,327 @@
 
 ## Sumário
 
-- [Introdução](#Introdução)
-- [Objetivos](#Objetivos)
-- [Metodologia](#Metodologia)
-- [Sobre o Diagrama de Estados](#Sobre-o-Diagrama-de-Estados)
-- [Aba Promoção](#Aba-Promoção)
-- [Aba Fórum](#Aba-Fórum)
-- [Conclusão](#Conclusão)
-- [Bibliografia](#Bibliografia)
-- [Histórico de versão](#Histórico-de-versão)
+- [Introdução](#introdução)
+- [Objetivos](#objetivos)
+- [Metodologia](#metodologia)
+- [Sobre o Diagrama de Estados](#sobre-o-diagrama-de-estados)
+- [Ciclo de Vida do Evento](#ciclo-de-vida-do-evento)
+- [Ciclo de Vida do Pedido](#ciclo-de-vida-do-pedido)
+- [Ciclo de Vida da Transferência de Ingresso](#ciclo-de-vida-da-transferência-de-ingresso)
+- [Conclusão](#conclusão)
+- [Bibliografia](#bibliografia)
+- [Histórico de versão](#histórico-de-versão)
+
+---
 
 ## Introdução
 
-O **diagrama de estados**, também conhecido como **diagrama de máquina de estados**, segundo [fonte: O que é um diagrama de máquina de estados?](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml) [1](#ref1), é um tipo de diagrama comportamental da UML (Unified Modeling Language) utilizado para representar o comportamento dinâmico de um objeto ao ilustrar os estados que ele pode assumir ao longo do tempo e as transições causadas por eventos específicos. Com isso, com base no artigo [State Machine Diagrams](https://www.uml-diagrams.org/state-machine-diagrams.html) [3](#ref3), esse tipo de modelagem é especialmente útil para descrever sistemas reativos e orientados a eventos em que as ações dependem das entradas recebidas e permiti visualizar como o objeto responde a diferentes estímulos durante sua existência.
+O **diagrama de estados**, também conhecido como **diagrama de máquina de estados**, segundo [fonte: O que é um diagrama de máquina de estados?](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml) [1](#ref1), é um tipo de diagrama comportamental da UML (Unified Modeling Language) utilizado para representar o comportamento dinâmico de um objeto ao ilustrar os estados que ele pode assumir ao longo do tempo e as transições causadas por eventos específicos. Com isso, com base no artigo [State Machine Diagrams](https://www.uml-diagrams.org/state-machine-diagrams.html) [3](#ref3), esse tipo de modelagem é especialmente útil para descrever sistemas reativos e orientados a eventos em que as ações dependem das entradas recebidas e permite visualizar como o objeto responde a diferentes estímulos durante sua existência.
 
-No contexto do projeto Galáxia Conectada, serão elaborados dois diagramas de estados com base nas abas de **Fórum** e **Promoções**. Para isso, será descrito o comportamento de componentes interativos do sistema e as transições de estado que ocorrem nessas temáticas.
+No contexto do projeto **Ingressou**, serão elaborados diagramas de estados para representar o ciclo de vida das principais entidades do sistema: **Evento**, **Pedido** e **Transferência de Ingresso**. Essas entidades possuem comportamentos dinâmicos complexos que influenciam diretamente o funcionamento da plataforma de venda e gestão de ingressos.
+
+---
 
 ## Objetivos
 
-O objetivo deste documento é representar, por meio de diagramas de estados, os comportamentos dinâmicos de elementos interativos dos módulos das promoções e do fórum da plataforma Galáxia Conectada. De forma mais específica, busca-se:
+O objetivo deste documento é representar, por meio de diagramas de estados, os comportamentos dinâmicos das principais entidades do sistema **Ingressou**. De forma mais específica, busca-se:
 
-- Representar os diferentes estados que determinados objetos da plataforma podem assumir durante sua execução;
-
-- Demonstrar as transições de estado com base em eventos, ações ou interações do usuário;
-
+- Representar os diferentes estados que as entidades **Evento**, **Pedido** e **Transferência** podem assumir durante sua execução;
+- Demonstrar as transições de estado com base em eventos, ações ou interações do usuário (Admin, Cliente, Sistema);
 - Auxiliar na compreensão dos fluxos internos e das mudanças comportamentais dos componentes da plataforma;
+- Apoiar a modelagem de sistemas reativos e orientados a eventos com uma representação visual clara e estruturada;
+- Documentar as regras de negócio relacionadas às mudanças de estado, conforme definidas nos requisitos funcionais e regras de negócio.
 
-- Apoiar a modelagem de sistemas reativos e orientados a eventos com uma representação visual clara e estruturada.
-
+---
 
 ## Metodologia
 
-A elaboração dos diagramas de estados será realizada com base na integração de artefatos previamente desenvolvidos no projeto da Galáxia Conectada, com o objetivo de representar visualmente os comportamentos dinâmicos de elementos interativos da plataforma. Assim, serão desenvolvidos **dois diagramas principais**, sendo um voltado para a **aba de promoções** e outro para a **aba de fórum**. 
+A elaboração dos diagramas de estados será realizada com base na integração de artefatos previamente desenvolvidos no projeto **Ingressou**, com o objetivo de representar visualmente os comportamentos dinâmicos das principais entidades do sistema. Assim, serão desenvolvidos **três diagramas principais**:
 
-- **Módulo de Promoções Astronômicas**: Este módulo funciona como um agregador de ofertas, ao buscar e exibir promoções e descontos relevantes para entusiastas da astronomia (como livros, telescópios, etc.). Essas promoções serão capturadas por bots de sites de e-commerce externos. 
-
-- **Módulo de Fórum de Discussões:** É a área interativa da plataforma onde os usuários podem criar tópicos, fazer perguntas, compartilhar conhecimentos, responder a outros membros e discutir sobre astronomia e conteúdos relacionados. Com isso, o objetivo central é construir uma comunidade ativa, facilitar a troca de informações e o aprendizado entre pares, aumentar o engajamento e a retenção dos usuários na "Galáxia Conectada" através da interação social.
-
+- **Ciclo de Vida do Evento**: Representa os estados desde a criação pelo Admin até o encerramento/cancelamento, incluindo publicação e lotes;
+- **Ciclo de Vida do Pedido**: Modela o fluxo completo desde a criação do pedido até a conclusão com pagamento ou cancelamento;
+- **Ciclo de Vida da Transferência de Ingresso**: Demonstra o processo de transferência entre usuários, incluindo aceite, pagamento de taxa e reemissão de QR Code.
 
 Para a construção dos diagramas, serão seguidas as etapas abaixo:
 
 1. Inicialmente, serão analisados os seguintes artefatos como base para definição dos estados e transições:
+   - [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
+   - [Diagrama de Classes](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
+   - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md);
+   - [Diagrama de Casos de Uso](/Modelagem/ModelagemOrganizacional/DiagramaCasosUso.md);
 
-  - [Requisitos Funcionais e Não Funcionais elicitados](/Base/ArtefatoGeneralista/RequisitosElicitados.md);
+2. Os diagramas serão desenvolvidos utilizando a ferramenta [Draw.io](https://www.drawio.com/blog/uml-component-diagrams), seguindo notação UML 2.0;
 
-  - [Diagrama de Classe](/Modelagem/ModelagemEstatica/DiagramaClasses.md);
-    
-  - [Diagrama de Componentes](/Modelagem/ModelagemEstatica/DiagramaComponentes.md).
-
-
-2. Os diagramas serão desenvolvidos utilizando a ferramenta [Draw.io](https://www.drawio.com/blog/uml-component-diagrams);
-
+---
 
 ## Sobre o Diagrama de Estados
 
-Os Diagramas de Máquina de Estados a seguir ilustram o ciclo de vida e o comportamento dinâmico das entidades Promoção e Fórum dentro da plataforma "Galáxia Conectada". Sendo assim, com base em [State Machine Diagrams](https://www.uml-diagrams.org/state-machine-diagrams.html) [3](#ref3) e [UML 2 Tutorial - State Machine Diagram
-](https://sparxsystems.com/resources/tutorials/uml2/state-diagram.html) [2](#ref2), eles mapeiam os diversos Estados possíveis para essas entidades (como Pendente Validação, Ativa, Fechado) e as Transições (setas) que ocorrem entre eles. Essas mudanças de estado são acionadas por Eventos específicos (ações do sistema, usuário ou tempo) e podem depender de Condições de Guarda ([]), frequentemente executando Ações (/) durante a transição. Para representar detalhadamente os fluxos, foram utilizados elementos como Estados Compostos (agrupando Subestados), Ações de Entrada/Saída/Do (entry/exit/do) e, no caso do Fórum, Regiões Ortogonais para modelar concorrência, o que permite uma visualização clara das regras que governam o comportamento dessas entidades ao longo do tempo.
+Os Diagramas de Máquina de Estados a seguir ilustram o ciclo de vida e o comportamento dinâmico das entidades **Evento**, **Pedido** e **Transferência** dentro da plataforma **Ingressou**. Sendo assim, com base em [State Machine Diagrams](https://www.uml-diagrams.org/state-machine-diagrams.html) [3](#ref3) e [UML 2 Tutorial - State Machine Diagram](https://sparxsystems.com/resources/tutorials/uml2/state-diagram.html) [2](#ref2), eles mapeiam os diversos estados possíveis para essas entidades e as transições (setas) que ocorrem entre eles. Essas mudanças de estado são acionadas por eventos específicos (ações do sistema, usuário ou tempo) e podem depender de condições de guarda (`[]`), frequentemente executando ações (`/`) durante a transição.
 
-Para melhor compreensão dos diagramas, a figura 1 mostra a legenda;
+Para representar detalhadamente os fluxos, foram utilizados elementos como estados compostos (agrupando subestados), ações de entrada/saída/do (entry/exit/do) e condições de guarda, o que permite uma visualização clara das regras que governam o comportamento dessas entidades ao longo do tempo.
+
+Para melhor compreensão dos diagramas, a figura 1 mostra a legenda:
 
 <div align="center">
-    Figura 1: Legenda do Diagrama de Estados
+    <b>Figura 1:</b> Legenda do Diagrama de Estados
     <br>
     <img src="assets/Legendas/LegendaDiagramaEstados.drawio.png" width="500">
     <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
     <br>
 </div>
 
+**Observação Importante:** Com o intuito de elaborar melhor os diagramas, foram elaboradas tabelas contendo os estados com suas descrições e relação com os requisitos elicitados e com os componentes do diagrama de componentes **(Tabelas 1, 3 e 5)**. Da mesma forma, foram criadas tabelas que mostram as transições entre os estados **(Tabelas 2, 4 e 6)**.
 
-**Observação Importante:** Com o intuido de elaborar melhor os diagramas, foram elaboradas tabelas contendo os estados com suas descrições e relação com os requisitos elicitados e com os componentes do diagrama de componentes **(Tabelas 1 e 3)**. 
-Da mesma forma, foram criadas tabelas que mostram as transições entre os estados. **(Tabelas 2 e 4)**
+---
 
-## Aba Promoção
+## Ciclo de Vida do Evento
 
-O Diagrama de Máquina de Estados para o módulo de Promoções ilustra as diversas fases pelas quais uma PromocaoExterna pode passar ao longo de seu ciclo de vida na plataforma "Galáxia Conectada". Para detalhar e clarificar cada uma dessas fases, a Tabela 1 a seguir apresenta e descreve os diferentes estados definidos.
-
+O Diagrama de Máquina de Estados para a entidade **Evento** ilustra as diversas fases pelas quais um evento pode passar ao longo de seu ciclo de vida na plataforma **Ingressou**. Conforme definido no **Diagrama de Classes**, o evento possui os seguintes estados: `RASCUNHO`, `AGUARDANDO_APROVACAO`, `PUBLICADO`, `ENCERRADO` e `CANCELADO`. Para detalhar e clarificar cada uma dessas fases, a Tabela 1 a seguir apresenta e descreve os diferentes estados definidos.
 
 <details>
-  <summary><strong>Tabela 1: Estados do Ciclo de Vida da Promoção</strong></summary>
+  <summary><strong>Tabela 1: Estados do Ciclo de Vida do Evento</strong></summary>
 
-**Tabela 1: Estados do Ciclo de Vida da Promoção** 
+**Tabela 1: Estados do Ciclo de Vida do Evento**
 
-| #  | EEstados                     | Descrição                                                                    | Relação com Requisitos (Exemplos) | Relação com Componentes (Gerenciador Principal) |
-|----|-------------------------------|------------------------------------------------------------------------------|-----------------------------------|---------------------------------------------------|
-| 1  | ⚫ (Estado Inicial)           | Ponto de entrada, representa a criação ou descoberta inicial da promoção.   | Implícito para RF19               | :BotImportadorPromocoes (#33)                     |
-| 2  | `Recém Descoberta`            | A promoção foi identificada pelo bot, mas ainda não processada internamente.   | Implícito para RF19               | :BotImportadorPromocoes (#33), :ModuloPromocoes (#31) |
-| 3  | `Pendente Validação Automática` | Aguardando a execução de verificações automáticas (ex: link válido, loja ok). | Suporte à qualidade para RF19     | :ModuloPromocoes (#31)                            |
-| 4  | `Aguardando Validação Manual` | Falha/Inconclusão na validação automática, requer intervenção humana.         | Suporte à qualidade para RF19     | :ModuloPromocoes (#31), :ModuloModeracao (#28)    |
-| 5  | `Rejeitada`                   | A promoção foi considerada inválida (manual ou automaticamente).               | Suporte à qualidade para RF19     | :ModuloPromocoes (#31), :ModuloModeracao (#28)    |
-| 6  | `Aprovada (Aguardando Pub.)`  | Validada, mas ainda não está visível para os usuários (pode ter agendamento). | Suporte à qualidade para RF19     | :ModuloPromocoes (#31)                            |
-| 7  | `Ativa (Visível)`             | **(Estado Composto)** Promoção visível e válida para os usuários. Contém subestados. | RF19                              | :ModuloPromocoes (#31)                            |
-| 8  | `-> Listada Normalmente`       | Subestado de `Ativa`: Visível na listagem padrão.                            | RF19                              | :ModuloPromocoes (#31)                            |
-| 9  | `-> Agendada para Destaque`    | Subestado de `Ativa`: Marcada para se tornar destaque em breve.              | RF19, (Relacionado a RF25 - Populares) | :ModuloPromocoes (#31), :ServicoRecomendacoes (#15)? |
-| 10 | `-> Em Destaque`              | Subestado de `Ativa`: Visível com maior proeminência (ex: banner, topo lista). | RF19, (Relacionado a RF25 - Populares) | :ModuloPromocoes (#31), :ServicoRecomendacoes (#15)? |
-| 11 | `Suspensa Temporariamente`    | Visibilidade interrompida por um administrador, mas pode ser reativada.      | Gerenciamento (Implícito)         | :ModuloPromocoes (#31)                            |
-| 12 | `Expirada`                    | A data de validade da promoção foi atingida. Não deve mais ser mostrada.     | Suporte à validade para RF19    | :ModuloPromocoes (#31)                            |
-| 13 | `Pendente de Remoção/Arq.`   | Estado intermediário após expirar ou ser rejeitada, antes do arquivamento.    | Gerenciamento (Implícito)         | :ModuloPromocoes (#31)                            |
-| 14 | `Arquivada`                   | Dados movidos para histórico, não mais acessíveis diretamente pelos usuários.   | Gerenciamento (Implícito)         | :ModuloPromocoes (#31)                            |
-| 15 | ⊚ (Estado Final)              | O ciclo de vida da promoção no sistema terminou (dados podem ser removidos). | Gerenciamento (Implícito)         | :ModuloPromocoes (#31)                            |
+| # | Estado | Descrição | Relação com Requisitos | Relação com Classes | Relação com Componentes |
+|---|---|---|---|---|---|
+| 1 | ⚫ (Estado Inicial) | Ponto de entrada quando um Admin inicia a criação de um novo evento. | CU-11 | Evento | EventAdminService, Painel Admin |
+| 2 | `RASCUNHO` | Evento criado pelo Admin, mas ainda não publicado. Permite edição completa. | RF15, CU-11 | Evento | EventAdminService |
+| 3 | `AGUARDANDO_APROVACAO` | Evento submetido para publicação, aguardando validação de pré-condições. | RF17, CU-12 | Evento | EventAdminService |
+| 4 | `PUBLICADO` | **(Estado Composto)** Evento visível publicamente com vendas ativas. Contém subestados relacionados à disponibilidade de lotes. | RF17, RF18, CU-12 | Evento, Lote | EventAdminService, EventSearchService |
+| 5 | `-> Com Lotes Disponíveis` | Subestado de PUBLICADO: Há lotes ativos e com estoque disponível. | RF21, RF22 | Lote | EventSearchService, CheckoutService |
+| 6 | `-> Com Lotes Esgotados` | Subestado de PUBLICADO: Todos os lotes estão esgotados ou encerrados. | RF22 | Lote | EventSearchService |
+| 7 | `ENCERRADO` | Evento concluído naturalmente após a data de fim. Não permite mais vendas. | RF15 | Evento | EventAdminService |
+| 8 | `CANCELADO` | Evento cancelado pelo Admin ou automaticamente. Não permite vendas. | RF15 | Evento | EventAdminService |
+| 9 | ⊚ (Estado Final) | Ciclo de vida do evento terminou (arquivado ou removido). | - | Evento | EventAdminService |
 
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+**Autor:** <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-Para complementar a compreensão dos estados de uma PromocaoExterna, a Tabela 2 se aprofunda nas transições que governam as mudanças entre esses diferentes estágios, conforme representado no Diagrama de Máquina de Estados do módulo de promoções. Esta tabela visa especificar os eventos gatilho (triggers), as condições de guarda (guards) que devem ser satisfeitas e as ações (actions) que são executadas durante cada mudança de estado. Ao fornecer esta visão estruturada, a tabela auxilia na leitura do diagrama.
+Para complementar a compreensão dos estados de um **Evento**, a Tabela 2 se aprofunda nas transições que governam as mudanças entre esses diferentes estágios, conforme representado no Diagrama de Máquina de Estados. Esta tabela visa especificar os eventos gatilho (triggers), as condições de guarda (guards) que devem ser satisfeitas e as ações (actions) que são executadas durante cada mudança de estado.
 
 <details>
-  <summary><strong>Tabela 2: Transições do Ciclo de Vida da Promoção Externa</strong></summary>
+  <summary><strong>Tabela 2: Transições do Ciclo de Vida do Evento</strong></summary>
 
+**Tabela 2: Transições do Ciclo de Vida do Evento**
 
-**Tabela 2: Transições do Ciclo de Vida da Promoção Externa**
+| Elementos entre a transição | Rótulo da transição | Relação com Requisitos | Relação com Componentes (Evento / Ação) |
+|---|---|---|---|
+| ⚫ -> `RASCUNHO` | `adminCriaEvento / criarEventoBD(), definirStatusRASCUNHO()` | RF15, CU-11 | Painel Admin / EventAdminService via Evento Repository |
+| `RASCUNHO` -> `AGUARDANDO_APROVACAO` | `adminTentaPublicar [semLotesValidados OU semCategoria] / validarPreCondicoes()` | RF17, CU-12 | Painel Admin / EventAdminService |
+| `AGUARDANDO_APROVACAO` -> `PUBLICADO` | `preCondicoesAtendidas [lotesValidos>=1 AND categoria!=null] / publicarEvento(), invalidarCache(), notificarProdutores()` | RF17, CU-12 | EventAdminService / EventAdminService, Cache Service, NotificationService |
+| `AGUARDANDO_APROVACAO` -> `RASCUNHO` | `preCondicoesNaoAtendidas / retornarParaRascunho()` | RF17 | EventAdminService / EventAdminService |
+| `PUBLICADO` -> `Com Lotes Disponíveis` | *(implícito na publicação)* `lotesAtivosComEstoque() / atualizarDisponibilidade()` | RF21, RF22 | EventAdminService / EventSearchService |
+| `Com Lotes Disponíveis` -> `Com Lotes Esgotados` | `todosLotesEsgotados [quantidadeVendida>=quantidadeTotal OR tempoExpirado] / marcarLotesEncerrados()` | RF22 | OrderLifecycleManager / EventAdminService |
+| `Com Lotes Esgotados` -> `Com Lotes Disponíveis` | `novoLoteCriado [loteAtivo AND estoque>0] / atualizarDisponibilidade()` | RF21 | EventAdminService / EventSearchService |
+| `PUBLICADO` -> `ENCERRADO` | `when(dataAtual >= dataFimEvento) / encerrarEvento(), calcularCashbackProdutor()` | RF15, RB02 | Timer / EventAdminService, CashbackService |
+| `PUBLICADO` -> `CANCELADO` | `adminCancelaEvento / cancelarEvento(motivo), estornarPagamentos(), notificarClientes()` | RF15 | Painel Admin / EventAdminService |
+| `RASCUNHO` -> `CANCELADO` | `adminCancelaRascunho / removerEvento()` | RF15 | Painel Admin / EventAdminService |
+| `ENCERRADO` -> ⊚ (Final) | `arquivamentoConcluido [after(1 ano)] / moverParaHistorico()` | - | Timer / EventAdminService |
+| `CANCELADO` -> ⊚ (Final) | `arquivamentoConcluido [after(6 meses)] / moverParaHistorico()` | - | Timer / EventAdminService |
 
-
-| Elementos entre a transição                    | Rótulo da transição                                                              | Relação com Requisitos (Exemplos)      | Relação com Componentes (Evento / Ação)                                       |
-|------------------------------------------------|------------------------------------------------------------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
-| ⚫ -> `Recém Descoberta`                         | *(implícito)* | Implícito RF19                         | :BotImportadorPromocoes (#33)                                                 |
-| `Recém Descoberta` -> `Pendente Val. Automática` | `botRegistraPromoção / salvarInfoInicialBD()`                                    | Implícito RF19                         | :BotImportadorPromocoes (#33) / :ModuloPromocoes (#31) via :BancoDeDados (#34) |
-| `Pendente Val. Automática` -> `Aprovada (...)`   | `validacaoAutomaticaConcluida [resultado=OK] / registrarValidacaoOK()`             | Suporte RF19                           | :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BancoDeDados (#34)       |
-| `Pendente Val. Automática` -> `Aguardando Val. Manual` | `validacaoAutomaticaConcluida [resultado=Inconclusivo OU Falha] / marcarParaRevisaoManual()` | Suporte RF19                           | :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BancoDeDados (#34)       |
-| `Aguardando Val. Manual` -> `Aprovada (...)`   | `moderadorAprova [validacaoManual=OK] / registrarAprovacaoManual()`              | Suporte RF19                           | :ModuloModeracao (#28) / :ModuloPromocoes (#31) via :BancoDeDados (#34)       |
-| `Aguardando Val. Manual` -> `Rejeitada`          | `moderadorRejeita [validacaoManual=Falha] / registrarRejeicaoManual()`           | Suporte RF19                           | :ModuloModeracao (#28) / :ModuloPromocoes (#31) via :BancoDeDados (#34)       |
-| `Aprovada (...)` -> `Ativa (Visível)`            | `agendadorPublica / tornarVisivelNosListings(), notificarServicoBusca()`         | RF19                                   | Agendador ou :ModuloPromocoes (#31) / :ModuloPromocoes (#31), :ServicoBusca (#14)|
-| `Listada Normalmente` -> `Agendada Destaque`     | `sistemaDetectaPopularidade [isPopular] / agendarDestaque()`                     | RF19, (RF25)                           | :ModuloPromocoes (#31) ou :ServicoRecomendacoes (#15) / :ModuloPromocoes (#31) |
-| `Agendada Destaque` -> `Em Destaque`             | `agendadorAplicaDestaque / atualizarFlagDestaqueBD(true)`                          | RF19, (RF25)                           | Agendador ou :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BD (#34)     |
-| `Em Destaque` -> `Listada Normalmente`         | `popularidadeDiminui [isNaoMaisPopular] / atualizarFlagDestaqueBD(false)`         | RF19, (RF25)                           | :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BD (#34)                 |
-| `Agendada Destaque` -> `Listada Normalmente`     | `adminCancelaDestaque / cancelarAgendamentoDestaque()`                           | Gerenciamento                          | Admin via :ModuloPromocoes (#31) / :ModuloPromocoes (#31)                   |
-| `Ativa (Visível)` -> `Suspensa Temporariamente`  | `adminSuspende / ocultarPromoção(), notificarUsuarioResponsavel()`               | Gerenciamento                          | Admin via :ModuloPromocoes (#31) / :ModuloPromocoes (#31), :ServicoNotificacoes (#13) |
-| `Suspensa Temporariamente` -> `Ativa (Visível)`  | `adminReativa / tornarVisivelNovamente()`                                        | Gerenciamento                          | Admin via :ModuloPromocoes (#31) / :ModuloPromocoes (#31)                   |
-| `Ativa (Visível)` -> `Expirada`                  | `when(dataAtual >= dataValidade) / marcarComoExpiradaBD(), notificarServicoBuscaRemover()` | Suporte RF19                           | :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BD (#34), :ServicoBusca (#14) |
-| `Expirada` -> `Pendente de Remoção/Arq.`        | `verificacaoPosExpiracaoConcluida / prepararParaArquivamento()`                  | Gerenciamento                          | :ModuloPromocoes (#31) / :ModuloPromocoes (#31)                               |
-| `Rejeitada` -> `Pendente de Remoção/Arq.`       | `processoLimpezaRejeitadas / prepararParaArquivamento()`                         | Gerenciamento                          | :ModuloPromocoes (#31) / :ModuloPromocoes (#31)                               |
-| `Pendente de Remoção/Arq.` -> `Arquivada`      | `jobArquivamentoExecutado / moverDadosParaHistorico(), removerDosListingsAtivos()` | Gerenciamento                          | Agendador ou :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BD (#34)     |
-| `Arquivada` -> ⊚ (Final)                        | `after(X meses) / removerDadosFinais()`                                          | Gerenciamento                          | Agendador ou :ModuloPromocoes (#31) / :ModuloPromocoes (#31) via :BD (#34)     |
-
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+**Autor:** <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-A Figura 2 mostra o diagrama de estados das promoções
+A figura 2 apresenta o diagrama de estados do ciclo de vida do Evento:
 
 <div align="center">
-    <b>Figura 2:</b> o Diagrama de Estados – Promoções
+    <b>Figura 2:</b> Diagrama de Estados — Ciclo de Vida do Evento
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaEstadosPromocao.drawio.png" width="1000">
+    <img src="assets/Modelagem/Dinamica/Estado1.pdf" width="1000">
     <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+    <br>
 </div>
 
-<p><strong>Observação:</strong> Caso deseje visualizar ou baixar em PDF, clique aqui: 
-<a href="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaEstadosPromocao.drawio.pdf">PDF do Diagrama de Estados – Promoções</a></p>
+<p><strong>Observação:</strong> O diagrama será desenvolvido seguindo a estrutura descrita nas Tabelas 1 e 2, modelando o ciclo completo desde a criação do evento como rascunho até seu encerramento ou cancelamento.</p>
 
+---
 
+## Ciclo de Vida do Pedido
 
-## Aba Fórum
-
-O comportamento dinâmico de um Topico dentro do Fórum da plataforma "Galáxia Conectada" é modelado através de um Diagrama de Máquina de Estados específico, e para um entendimento aprofundado dos estágios possíveis desta entidade, a Tabela 3 subsequente descreve cada um dos estados que um tópico pode assumir.
+O Diagrama de Máquina de Estados para a entidade **Pedido** ilustra o fluxo completo desde a criação do pedido pelo cliente até sua conclusão com pagamento confirmado ou cancelamento. Conforme definido no **Diagrama de Classes**, o pedido possui os seguintes estados: `CRIADO`, `AGUARDANDO_PAGAMENTO`, `PAGO`, `CANCELADO` e `EXPIRADO`. Para detalhar e clarificar cada uma dessas fases, a Tabela 3 a seguir apresenta e descreve os diferentes estados definidos.
 
 <details>
-  <summary><strong>Tabela 3: Estados do Ciclo de Vida do Tópico do Fórum</strong></summary>
+  <summary><strong>Tabela 3: Estados do Ciclo de Vida do Pedido</strong></summary>
 
+**Tabela 3: Estados do Ciclo de Vida do Pedido**
 
-**Tabela 3: Estados do Ciclo de Vida do Tópico do Fórum**
+| # | Estado | Descrição | Relação com Requisitos | Relação com Classes | Relação com Componentes |
+|---|---|---|---|---|---|
+| 1 | ⚫ (Estado Inicial) | Ponto de entrada quando cliente seleciona ingressos e inicia checkout. | CU-01 | Pedido | SPA Principal, CheckoutService |
+| 2 | `CRIADO` | Pedido criado com itens selecionados, mas ainda não finalizado. Permite edição de itens e aplicação de cupom. | RF26, CU-01 | Pedido, ItemPedido | CheckoutService |
+| 3 | `AGUARDANDO_PAGAMENTO` | **(Estado Composto)** Pedido finalizado, aguardando confirmação de pagamento. Contém subestados relacionados ao método de pagamento. | RF27, RF28, CU-01 | Pedido, Pagamento | PaymentOrchestrator, Gateway de Pagamento |
+| 4 | `-> PIX Pendente` | Subestado de AGUARDANDO_PAGAMENTO: QR Code PIX gerado, aguardando pagamento (reserva de 10 min). | RF27, RB04 | Pagamento | PaymentOrchestrator, Gateway de Pagamento |
+| 5 | `-> Cartão Autorizado` | Subestado de AGUARDANDO_PAGAMENTO: Transação cartão autorizada, aguardando confirmação via webhook. | RF28 | Pagamento | PaymentOrchestrator, Gateway de Pagamento |
+| 6 | `PAGO` | Pagamento confirmado, ingressos emitidos e atribuídos à carteira do cliente. | RF29, CU-01 | Pedido, Pagamento, Ingresso | OrderLifecycleManager, TicketingService |
+| 7 | `CANCELADO` | Pedido cancelado pelo cliente ou sistema (falha de pagamento, estoque insuficiente). | RF30, CU-01 | Pedido, Pagamento | OrderLifecycleManager |
+| 8 | `EXPIRADO` | Reserva de pagamento PIX expirou (10 minutos) sem confirmação. | RF27, RB04 | Pedido | PaymentOrchestrator, OrderLifecycleManager |
+| 9 | ⊚ (Estado Final) | Ciclo de vida do pedido terminou (pago, cancelado ou expirado). | - | Pedido | - |
 
-| #  | Elemento                      | Descrição                                                                                    | Relação com Requisitos (Exemplos)      | Relação com Componentes (Gerenciador/Influenciador)                                    |
-|----|-------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------|--------------------------------------------------------------------------------------|
-| 1  | ⚫ (Estado Inicial)           | Ponto de entrada quando um usuário começa a criar um novo tópico.                              | Implícito para RF09                    | :WebUI, :ModuloForum (#26)                                                            |
-| 2  | `Em Rascunho`                 | O tópico foi iniciado pelo usuário, mas ainda não foi submetido.                             | Implícito para RF09                    | :WebUI, :ModuloForum (#26), :BancoDeDados (#34)                                       |
-| 3  | `Aguardando Moderação Inicial`| **(Composto)** Tópico submetido, aguardando análise inicial da moderação antes de ser visível. | Suporte à qualidade/regras para RF09   | :ModuloForum (#26), :ModuloModeracao (#28), :ServicoNotificacoes (#13)                 |
-| 4  | `-> Análise Pendente`         | Subestado: Aguardando um moderador pegar o tópico para análise.                               | Suporte RF09                           | :ModuloModeracao (#28)                                                               |
-| 5  | `-> Revisado (Aprovado)`      | Subestado: Moderador analisou e aprovou o tópico para publicação.                            | Suporte RF09                           | :ModuloModeracao (#28), :BancoDeDados (#34)                                           |
-| 6  | `-> Revisado (Rejeitado)`     | Subestado: Moderador analisou e rejeitou o tópico.                                           | Suporte RF09                           | :ModuloModeracao (#28), :BancoDeDados (#34), :ServicoNotificacoes (#13)                 |
-| 7  | `-> ⊚ (Aprovação Concluída)`   | Estado Final Interno: Fim do fluxo de moderação com aprovação.                               | Suporte RF09                           | :ModuloModeracao (#28)                                                               |
-| 8  | `-> ⊚ (Rejeição Concluída)`   | Estado Final Interno: Fim do fluxo de moderação com rejeição.                                | Suporte RF09                           | :ModuloModeracao (#28)                                                               |
-| 9  | `Visível`                     | **(Composto com Regiões)** Tópico publicado e visível para os usuários no fórum.             | RF09, RF25                             | :ModuloForum (#26), :ServicoBusca (#14), :ServicoNotificacoes (#13)                     |
-| 10 | `--> (Região: Status Atividade)` | *Região Ortogonal dentro de Visível.* | RF09                                   | :ModuloForum (#26)                                                                   |
-| 11 | `----> Ativo`                 | **(Composto)** Subestado de Visível: Tópico aberto para novas postagens e interações.        | RF09, RF24, RF25                       | :ModuloForum (#26)                                                                   |
-| 12 | `------> Normal`              | Sub-subestado de Ativo: Atividade normal de postagens.                                       | RF09, RF24                             | :ModuloForum (#26)                                                                   |
-| 13 | `------> Debate Intenso`      | Sub-subestado de Ativo: Alta frequência de postagens, pode indicar popularidade.             | RF09, RF24, (RF25)                     | :ModuloForum (#26)                                                                   |
-| 14 | `------> Aguardando Resposta OP`| Sub-subestado de Ativo: Tópico aguardando esclarecimento do autor original.                 | RF09, RF24                             | :ModuloForum (#26), :ServicoNotificacoes (#13)                                         |
-| 15 | `------> ⊚ (Resolvido)`       | Estado Final Interno de Ativo: Tópico marcado como resolvido pelo autor original.          | RF09                                   | :ModuloForum (#26), :ServicoNotificacoes (#13)                                         |
-| 16 | `--> Fechado`                 | **(Composto)** Subestado de Visível: Tópico visível, mas trancado para novas postagens.      | RF09 (Implícito - gerenciamento)       | :ModuloForum (#26), :ModuloModeracao (#28)                                             |
-| 17 | `----> Por Inatividade`       | Sub-subestado de Fechado: Trancado automaticamente por falta de atividade.                  | Gerenciamento                          | :ModuloForum (#26)                                                                   |
-| 18 | `----> Por Moderador`         | Sub-subestado de Fechado: Trancado por um moderador.                                        | Gerenciamento                          | :ModuloModeracao (#28)                                                               |
-| 19 | `----> Por OP`                | Sub-subestado de Fechado: Trancado pelo autor original (se permitido).                      | Gerenciamento                          | :ModuloForum (#26)                                                                   |
-| 20 | `--> (Região: Status Destaque)`| *Região Ortogonal dentro de Visível.* | Gerenciamento                          | :ModuloModeracao (#28)                                                               |
-| 21 | `----> Não Pinado`            | Subestado de Visível: Tópico com visibilidade padrão (não fixo no topo).                     | RF09                                   | :ModuloForum (#26)                                                                   |
-| 22 | `----> Pinado`                | Subestado de Visível: Tópico fixado no topo do subfórum para maior visibilidade.           | Gerenciamento                          | :ModuloModeracao (#28), :ModuloForum (#26)                                             |
-| 23 | `Arquivado`                   | Tópico removido da visualização principal, guardado em área de histórico.                  | Gerenciamento                          | :ModuloForum (#26), :BancoDeDados (#34)                                               |
-| 24 | `Excluído Permanentemente`    | Tópico marcado para exclusão ou já removido completamente do sistema.                      | Gerenciamento                          | :ModuloForum (#26), :BancoDeDados (#34), :ServicoMonitoramento (#6)                   |
-| 25 | ⊚ (Estado Final Principal)    | Fim definitivo do ciclo de vida do tópico no sistema.                                      | Gerenciamento                          | :ModuloForum (#26), :BancoDeDados (#34)                                               |
-
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+**Autor:** <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-
-
-A evolução de um Topico do Fórum entre seus diversos estados é regida por transições específicas, as quais são detalhadas na Tabela 4. Esta tabela serve como um complemento fundamental ao Diagrama de Máquina de Estados dos Tópicos, explicando as dinâmicas de mudança de estado. Seu propósito é elucidar os eventos disparadores (como uma ação de um Moderador ou um critério temporal), as condições de guarda que precisam ser atendidas para que a transição ocorra, e as ações que podem ser executadas como resultado dessa mudança (por exemplo, de 'Aberto' para 'Fechado'). Dessa maneira, ao apresentar essas informações de forma organizada, a tabela auxilia na compreensão das regras que ditam o comportamento e o fluxo de vida dos tópicos no Fórum.
-
+Para complementar a compreensão dos estados de um **Pedido**, a Tabela 4 se aprofunda nas transições que governam as mudanças entre esses diferentes estágios.
 
 <details>
-  <summary><strong>Tabela 4: Transições do Ciclo de Vida do Tópico do Fóruns
-</strong></summary>
+  <summary><strong>Tabela 4: Transições do Ciclo de Vida do Pedido</strong></summary>
 
-**Tabela 4**: Transições do Ciclo de Vida do Tópico do Fóruns
+**Tabela 4: Transições do Ciclo de Vida do Pedido**
 
+| Elementos entre a transição | Rótulo da transição | Relação com Requisitos | Relação com Componentes (Evento / Ação) |
+|---|---|---|---|
+| ⚫ -> `CRIADO` | `clienteAdicionaItens / criarPedidoBD(), reservarEstoqueTemporario()` | RF26, CU-01 | SPA Principal / CheckoutService |
+| `CRIADO` -> `AGUARDANDO_PAGAMENTO` | `clienteFinalizaPedido [metodoPagamento= PIX OU Cartão] / iniciarPagamento(), criarPagamentoBD()` | RF26, RF27, RF28, CU-01 | CheckoutService / PaymentOrchestrator |
+| `AGUARDANDO_PAGAMENTO` -> `PIX Pendente` | `metodoPagamento=PIX / gerarQRCodeDinamico(), definirReservaExpiraEm(10min)` | RF27, RB04 | PaymentOrchestrator / Gateway de Pagamento |
+| `AGUARDANDO_PAGAMENTO` -> `Cartão Autorizado` | `metodoPagamento=Cartão AND autorizacaoOK / registrarAutorizacao()` | RF28 | PaymentOrchestrator / Gateway de Pagamento |
+| `PIX Pendente` -> `PAGO` | `webhookConfirmaPagamentoPIX / confirmarPagamento(), emitirIngressos()` | RF27, RF29 | Gateway de Pagamento / PaymentOrchestrator, TicketingService |
+| `PIX Pendente` -> `EXPIRADO` | `when(reservaExpiraEm < agora) / expirarPedido(), liberarEstoque()` | RF27, RB04 | Timer / OrderLifecycleManager |
+| `Cartão Autorizado` -> `PAGO` | `webhookConfirmaPagamentoCartao / confirmarPagamento(), emitirIngressos()` | RF28, RF29 | Gateway de Pagamento / PaymentOrchestrator, TicketingService |
+| `Cartão Autorizado` -> `CANCELADO` | `webhookRecusaPagamento / recusarPagamento(), liberarEstoque()` | RF28, RF30 | Gateway de Pagamento / PaymentOrchestrator, OrderLifecycleManager |
+| `AGUARDANDO_PAGAMENTO` -> `CANCELADO` | `clienteCancelaPedido OU falhaPagamento / cancelarPedido(), liberarEstoque()` | RF30, CU-01 | Cliente ou PaymentOrchestrator / OrderLifecycleManager |
+| `CRIADO` -> `CANCELADO` | `clienteCancela OU timeoutSessao / cancelarPedido(), liberarEstoque()` | RF30 | Cliente ou Sistema / CheckoutService |
+| `EXPIRADO` -> ⊚ (Final) | *(implícito após expiração)* | - | OrderLifecycleManager |
+| `PAGO` -> ⊚ (Final) | *(implícito após pagamento confirmado)* | - | OrderLifecycleManager |
+| `CANCELADO` -> ⊚ (Final) | *(implícito após cancelamento)* | - | OrderLifecycleManager |
 
-| Elementos entre a transição                                    | Rótulo da transição                                                                          | Relação com Requisitos (Exemplos) | Relação com Componentes (Evento / Ação)                                                            |
-|----------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------|
-| ⚫ -> `Em Rascunho`                                              | `usuarioIniciaCriacao / criarRascunhoTopico()`                                               | Implícito RF09                    | :WebUI / :ModuloForum(#26) via :BD(#34)                                                            |
-| `Em Rascunho` -> `Aguardando Moderação Inicial`                 | `usuarioSubmete / salvarConteudoFinal(), notificarModeracaoPendente()`                         | RF09                              | :WebUI / :ModuloForum(#26) via :BD(#34), :ServicoNotificacoes(#13)                                  |
-| `Em Rascunho` -> `Excluído Permanentemente`                     | `usuarioCancelaCriacao / descartarRascunho()`                                                 | Gerenciamento                     | :WebUI / :ModuloForum(#26) via :BD(#34)                                                            |
-| (Dentro Moderação) ⚫ -> `Análise Pendente`                       | *(implícito)* | Suporte RF09                    | :ModuloModeracao(#28)                                                              |
-| (Dentro Moderação) `Análise Pendente` -> `Revisado (Aprovado)`  | `moderadorAprova / registrarAprovacao(), atualizarStatusTopicoBD('Aprovado')`                  | Suporte RF09                    | :ModuloModeracao(#28) / :ModuloModeracao(#28) via :BD(#34)                                         |
-| (Dentro Moderação) `Análise Pendente` -> `Revisado (Rejeitado)` | `moderadorRejeita / registrarRejeicao(), notificarUsuarioRejeicao()`                         | Suporte RF09                    | :ModuloModeracao(#28) / :ModuloModeracao(#28) via :BD(#34), :ServicoNotificacoes(#13)               |
-| (Dentro Moderação) `Revisado (Aprovado)` -> ⊚ (Aprovação)       | *(implícito)* | Suporte RF09                    | :ModuloModeracao(#28)                                                              |
-| (Dentro Moderação) `Revisado (Rejeitado)` -> ⊚ (Rejeição)       | *(implícito)* | Suporte RF09                    | :ModuloModeracao(#28)                                                              |
-| Borda(`Aguardando Moderação`) -> `Visível`                     | `[resultado=Aprovado] / publicarTopico(), indexarConteudoInicial()`                            | RF09                              | :ModuloModeracao(#28) / :ModuloForum(#26), :ServicoBusca(#14)                                      |
-| Borda(`Aguardando Moderação`) -> `Excluído Permanentemente`    | `[resultado=Rejeitado] / marcarParaExclusaoBD()`                                             | Gerenciamento                     | :ModuloModeracao(#28) / :ModuloForum(#26) via :BD(#34)                                             |
-| (Dentro Visível/Reg1) ⚫ -> `Ativo`                               | *(implícito)* | RF09                              | :ModuloForum(#26)                                                                  |
-| (Dentro Ativo) ⚫ -> `Normal`                                     | *(implícito)* | RF09                              | :ModuloForum(#26)                                                                  |
-| (Dentro Ativo) `Normal` -> `Debate Intenso`                       | `atividadeAumenta [posts>limite] / marcarComoIntenso()`                                      | RF09, RF25                        | :ModuloForum(#26) / :ModuloForum(#26)                                                            |
-| (Dentro Ativo) `Debate Intenso` -> `Normal`                       | `atividadeDiminui / desmarcarComoIntenso()`                                                  | RF09, RF25                        | :ModuloForum(#26) / :ModuloForum(#26)                                                            |
-| (Dentro Ativo) `Normal` -> `Aguardando Resposta OP`               | `after(3 dias sem resposta OP) / notificarOP()`                                              | RF09                              | Timer / :ServicoNotificacoes(#13)                                                                |
-| (Dentro Ativo) `Aguardando Resposta OP` -> `Normal`               | `opResponde`                                                                                 | RF09                              | :ModuloForum(#26)                                                                  |
-| (Dentro Ativo) `Normal` OR `Debate` OR `Aguardando` -> ⊚ (Resolvido) | `opMarcaResolvido / notificarParticipantesResolucao()`                                     | RF09                              | :ModuloForum(#26) / :ServicoNotificacoes(#13)                                                    |
-| (Dentro Visível/Reg1) `Ativo` -> `Fechado`                       | `tempoInatividadeAtingido OR moderadorTranca OR opTranca / registrarMotivoFechamento()`        | Gerenciamento (RF09)            | Timer/:ModuloModeracao(#28)/:ModuloForum(#26) / :ModuloForum(#26) via :BD(#34)                   |
-| (Dentro Visível/Reg2) ⚫ -> `Não Pinado`                          | *(implícito)* | Gerenciamento                     | :ModuloForum(#26)                                                                  |
-| (Dentro Visível/Reg2) `Não Pinado` -> `Pinado`                    | `moderadorPina / atualizarFlagPinBD(true)`                                                   | Gerenciamento                     | :ModuloModeracao(#28) / :ModuloForum(#26) via :BD(#34)                                             |
-| (Dentro Visível/Reg2) `Pinado` -> `Não Pinado`                    | `moderadorDespina / atualizarFlagPinBD(false)`                                                 | Gerenciamento                     | :ModuloModeracao(#28) / :ModuloForum(#26) via :BD(#34)                                             |
-| Borda(`Visível`) -> `Arquivado`                                 | `adminArquiva OR after(1 ano inatividade) / moverParaArquivoHistorico()`                     | Gerenciamento                     | Admin ou Timer / :ModuloForum(#26) via :BD(#34)                                                |
-| Borda(`Visível`) -> `Excluído Permanentemente`                  | `adminExcluiTopico / marcarParaExclusaoComLog()`                                             | Gerenciamento                     | Admin via :ModuloForum(#26) / :ModuloForum(#26) via :BD(#34), :ServicoMonitoramento(#6)         |
-| `Arquivado` -> ⊚ (Final Principal)                              | `after(5 anos) / removerDadosArquivados()`                                                   | Gerenciamento                     | Timer / :ModuloForum(#26) via :BD(#34)                                                           |
-| `Excluído Permanentemente` -> ⊚ (Final Principal)               | *(implícito ou via job)* | Gerenciamento                     | :ModuloForum(#26) via :BD(#34)                                                               |
-
-<b> Autora: </b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+**Autor:** <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
 
 </details>
 
-A figura 3 apresenta o diagrama de estados do Fórum
+A figura 3 apresenta o diagrama de estados do ciclo de vida do Pedido:
 
 <div align="center">
-    <b>Figura 3:</b> o Diagrama de Estados – Fórum
+    <b>Figura 3:</b> Diagrama de Estados — Ciclo de Vida do Pedido
     <br>
-    <img src="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaEstadosForum.drawio.png" width="1000">
+    <img src="assets/Modelagem/Dinamica/Estado2.pdf" width="1000">
     <br>
-    <b>Autora:</b> <a href="https://github.com/SkywalkerSupreme">Larissa Stéfane</a>.
+    <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+    <br>
 </div>
 
-<p><strong>Observação:</strong> Caso deseje visualizar ou baixar em PDF, clique aqui: 
-<a href="https://raw.githubusercontent.com/UnBArqDsw2025-1-Turma02/2025.1_T02_G9_GalaxiaConectada_Entrega02/main/docs/Modelagem/Imagens/DiagramaEstadosForum.drawio.pdf">PDF do Diagrama de Estados – Fórum</a></p>
+<p><strong>Observação:</strong> O diagrama será desenvolvido seguindo a estrutura descrita nas Tabelas 3 e 4, modelando o fluxo completo desde a criação do pedido até a confirmação do pagamento ou cancelamento.</p>
 
+---
+
+## Ciclo de Vida da Transferência de Ingresso
+
+O Diagrama de Máquina de Estados para a entidade **Transferência** ilustra o processo completo de transferência de ingressos entre usuários, incluindo aceite do destinatário, pagamento de taxa e reemissão de QR Code. Conforme definido no **Diagrama de Classes**, a transferência possui os seguintes estados: `CRIADA`, `AGUARDANDO_ACEITE`, `AGUARDANDO_PAGAMENTO_TAXA`, `CONCLUIDA`, `RECUSADA`, `EXPIRADA` e `CANCELADA`. Para detalhar e clarificar cada uma dessas fases, a Tabela 5 a seguir apresenta e descreve os diferentes estados definidos.
+
+<details>
+  <summary><strong>Tabela 5: Estados do Ciclo de Vida da Transferência de Ingresso</strong></summary>
+
+**Tabela 5: Estados do Ciclo de Vida da Transferência de Ingresso**
+
+| # | Estado | Descrição | Relação com Requisitos | Relação com Classes | Relação com Componentes |
+|---|---|---|---|---|---|
+| 1 | ⚫ (Estado Inicial) | Ponto de entrada quando remetente inicia transferência de ingresso. | CU-14 | Transferencia | TransferService, SPA Principal |
+| 2 | `CRIADA` | Solicitação de transferência criada, aguardando envio do convite ao destinatário. | RF40, CU-14 | Transferencia | TransferService |
+| 3 | `AGUARDANDO_ACEITE` | **(Estado Composto)** Convite enviado ao destinatário, aguardando aceite dentro da janela de tempo configurável. | RF40, RF41, CU-14 | Transferencia | TransferService, NotificationService |
+| 4 | `-> Convite Enviado` | Subestado de AGUARDANDO_ACEITE: Notificação enviada, aguardando acesso do destinatário ao link. | RF40, RF47 | Transferencia | NotificationService |
+| 5 | `-> Destinatário Visualizou` | Subestado de AGUARDANDO_ACEITE: Destinatário acessou o link, mas ainda não aceitou. | RF41 | Transferencia | TransferService |
+| 6 | `AGUARDANDO_PAGAMENTO_TAXA` | Destinatário aceitou, mas ainda não pagou a taxa de transferência (10% do valor original). | RF45, CU-14 | Transferencia, Pagamento | TransferService, PaymentOrchestrator |
+| 7 | `CONCLUIDA` | Taxa paga, ingresso transferido para carteira do destinatário, QR original invalidado e novo QR emitido. | RF42, RF45, CU-14 | Transferencia, Ingresso, QrCode | TransferService, TicketingService, QRSecurityService |
+| 8 | `RECUSADA` | Destinatário recusou a transferência dentro da janela de tempo. | RF43, CU-14 | Transferencia | TransferService |
+| 9 | `EXPIRADA` | Janela de tempo para aceite expirou sem resposta do destinatário. | RF43, CU-14 | Transferencia | TransferService |
+| 10 | `CANCELADA` | Remetente cancelou a transferência antes do aceite ou após falha no pagamento da taxa. | RF43, CU-14 | Transferencia | TransferService |
+| 11 | ⊚ (Estado Final) | Ciclo de vida da transferência terminou (concluída, recusada, expirada ou cancelada). | - | Transferencia | - |
+
+**Autor:** <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+
+</details>
+
+Para complementar a compreensão dos estados de uma **Transferência**, a Tabela 6 se aprofunda nas transições que governam as mudanças entre esses diferentes estágios.
+
+<details>
+  <summary><strong>Tabela 6: Transições do Ciclo de Vida da Transferência de Ingresso</strong></summary>
+
+**Tabela 6: Transições do Ciclo de Vida da Transferência de Ingresso**
+
+| Elementos entre a transição | Rótulo da transição | Relação com Requisitos | Relação com Componentes (Evento / Ação) |
+|---|---|---|---|
+| ⚫ -> `CRIADA` | `remetenteIniciaTransferencia [ingressoValido AND eventoPermiteTransferencia] / criarTransferenciaBD(), invalidarQROriginal()` | RF40, RF44, CU-14 | SPA Principal / TransferService |
+| `CRIADA` -> `AGUARDANDO_ACEITE` | `conviteEnviado / enviarNotificacaoDestinatario(), definirExpiraEm()` | RF40, RF47 | TransferService / NotificationService |
+| `AGUARDANDO_ACEITE` -> `Convite Enviado` | *(implícito na criação)* `/ registrarMomentoEnvio()` | RF40 | NotificationService / TransferService |
+| `Convite Enviado` -> `Destinatário Visualizou` | `destinatarioAcessaLink / registrarVisualizacao()` | RF41 | TransferService / TransferService |
+| `Destinatário Visualizou` -> `AGUARDANDO_PAGAMENTO_TAXA` | `destinatarioAceita [dentroJanelaTempo] / aceitarTransferencia(), calcularTaxa()` | RF41, RF45 | TransferService / TransferService |
+| `AGUARDANDO_ACEITE` -> `RECUSADA` | `destinatarioRecusa [dentroJanelaTempo] / recusarTransferencia(), retornarIngressoRemetente(), notificarRemetente()` | RF43, RF47 | TransferService / TransferService, NotificationService |
+| `AGUARDANDO_ACEITE` -> `EXPIRADA` | `when(expiraEm < agora) / expirarTransferencia(), retornarIngressoRemetente()` | RF43 | Timer / TransferService |
+| `AGUARDANDO_ACEITE` -> `CANCELADA` | `remetenteCancela / cancelarTransferencia(), retornarIngressoRemetente()` | RF43 | Remetente / TransferService |
+| `AGUARDANDO_PAGAMENTO_TAXA` -> `CONCLUIDA` | `taxaPaga [pagamentoConfirmado] / transferirIngresso(), invalidarQROriginal(), gerarNovoQR(), notificarConclusao()` | RF42, RF45, RF47 | PaymentOrchestrator / TransferService, TicketingService, QRSecurityService, NotificationService |
+| `AGUARDANDO_PAGAMENTO_TAXA` -> `CANCELADA` | `falhaPagamentoTaxa OU remetenteCancela / cancelarTransferencia(), retornarIngressoRemetente(), estornarTaxa()` | RF43 | PaymentOrchestrator ou Remetente / TransferService |
+| `RECUSADA` -> ⊚ (Final) | *(implícito após recusa)* | - | TransferService |
+| `EXPIRADA` -> ⊚ (Final) | *(implícito após expiração)* | - | TransferService |
+| `CANCELADA` -> ⊚ (Final) | *(implícito após cancelamento)* | - | TransferService |
+| `CONCLUIDA` -> ⊚ (Final) | *(implícito após conclusão)* | - | TransferService |
+
+**Autor:** <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+
+</details>
+
+A figura 4 apresenta o diagrama de estados do ciclo de vida da Transferência de Ingresso:
+
+<div align="center">
+    <b>Figura 4:</b> Diagrama de Estados — Ciclo de Vida da Transferência de Ingresso
+    <br>
+    <img src="assets/Modelagem/Dinamica/Estado3.pdf" width="1000">
+    <br>
+    <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
+    <br>
+</div>
+
+<p><strong>Observação:</strong> O diagrama será desenvolvido seguindo a estrutura descrita nas Tabelas 5 e 6, modelando o fluxo completo desde a criação da solicitação de transferência até sua conclusão com reemissão do QR Code ou cancelamento.</p>
+
+---
 
 ## Conclusão
 
-Em suma, os Diagramas de Máquina de Estados detalhados nesta seção forneceram uma modelagem visual dos ciclos de vida das entidades de Promoção e do fórum, essenciais para a plataforma "Galáxia Conectada". Através da aplicação de elementos fundamentais e avançados da UML, como estados compostos, regiões ortogonais, condições de guarda e ações específicas de estado (entry/exit/do), foi possível representar de forma clara e precisa as complexas sequências de estados, os eventos que disparam as transições e as regras que governam o comportamento dessas entidades.
+Os Diagramas de Máquina de Estados detalhados nesta seção fornecem uma modelagem visual dos ciclos de vida das principais entidades do sistema **Ingressou**: **Evento**, **Pedido** e **Transferência de Ingresso**. Através da aplicação de elementos fundamentais e avançados da UML, como estados compostos, condições de guarda e ações específicas de estado (entry/exit/do), foi possível representar de forma clara e precisa as complexas sequências de estados, os eventos que disparam as transições e as regras que governam o comportamento dessas entidades.
+
+Os três diagramas elaborados cobrem os processos críticos do MVP:
+
+1. **Ciclo de Vida do Evento**: Demonstra o fluxo completo desde a criação pelo Admin até o encerramento ou cancelamento, incluindo validações de pré-condições para publicação e gestão de disponibilidade de lotes;
+2. **Ciclo de Vida do Pedido**: Evidencia o processo completo de compra, desde a criação do pedido até a confirmação do pagamento ou cancelamento, incluindo suporte a PIX e cartão com comportamentos distintos;
+3. **Ciclo de Vida da Transferência**: Mostra o fluxo completo de transferência de ingressos entre usuários, incluindo aceite do destinatário, pagamento de taxa e reemissão segura do QR Code.
+
+Esses diagramas servem como base para implementação, documentação técnica e validação dos requisitos funcionais identificados nos casos de uso (CU-01, CU-11, CU-12, CU-14) e nos documentos de análise (5W2H, Diagrama de Classes, Diagrama de Componentes, Requisitos Elicitados).
+
+---
 
 ## Bibliografia
 
 <a name="ref1"></a>
-[1] LUCIDCHART. O que é um diagrama de máquina de estados? Disponível em: https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml. Acesso em: 4 maio 2025.
+[1] LUCIDCHART. O que é um diagrama de máquina de estados? Disponível em: https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-maquina-de-estados-uml. Acesso em: 30 out. 2025.
 
 <a name="ref2"></a>
-[2] SPARX SYSTEMS. UML 2 Tutorial – State Machine Diagram. Disponível em: https://sparxsystems.com/resources/tutorials/uml2/state-diagram.html. Acesso em: 4 maio 2025.
+[2] SPARX SYSTEMS. UML 2 Tutorial – State Machine Diagram. Disponível em: https://sparxsystems.com/resources/tutorials/uml2/state-diagram.html. Acesso em: 30 out. 2025.
 
 <a name="ref3"></a>
-[3] UML-DIAGRAMS. State Machine Diagrams. Disponível em: https://www.uml-diagrams.org/state-machine-diagrams.html. Acesso em: 4 maio 2025.
+[3] UML-DIAGRAMS. State Machine Diagrams. Disponível em: https://www.uml-diagrams.org/state-machine-diagrams.html. Acesso em: 30 out. 2025.
 
 <a name="ref4"></a>
-[4] IBM. Máquinas de Estado. Disponível em: https://www.ibm.com/docs/pt-br/dmrt/9.5.0?topic=diagrams-state-machines. Acesso em: 4 maio 2025.
+[4] IBM. Máquinas de Estado. Disponível em: https://www.ibm.com/docs/pt-br/dmrt/9.5.0?topic=diagrams-state-machines. Acesso em: 30 out. 2025.
 
 <a name="ref5"></a>
-[5] RAMOS, Ricardo Argenton. UML – Aula III: Diagramas de Estado, Atividades, Componentes e Instalação. Engenharia de Software II, 2013.1. Disponível em: http://www.univasf.edu.br/~ricardo.aramos/disciplinas/ES_II_2013_1/UML_Aula3.pdf. Acesso em: 4 maio 2025.
+[5] LIMA, Gabriel. Diagrama de Classes — Projeto Ingressou (MVP). Outubro de 2025. Disponível em: [Modelagem/ModelagemEstatica/DiagramaClasses.md](/Modelagem/ModelagemEstatica/DiagramaClasses.md).
+
+<a name="ref6"></a>
+[6] LIMA, Gabriel. Diagrama de Componentes — Projeto Ingressou. Outubro de 2025. Disponível em: [Modelagem/ModelagemEstatica/DiagramaComponentes.md](/Modelagem/ModelagemEstatica/DiagramaComponentes.md).
+
+<a name="ref7"></a>
+[7] LIMA, Gabriel. Diagrama de Casos de Uso — Projeto Ingressou. Outubro de 2025. Disponível em: [Modelagem/ModelagemOrganizacional/DiagramaCasosUso.md](/Modelagem/ModelagemOrganizacional/DiagramaCasosUso.md).
+
+<a name="ref8"></a>
+[8] LIMA, Gabriel. Requisitos Elicitados — Ingressou v1.5. Outubro de 2025. Disponível em: [Base/ArtefatoGeneralista/RequisitosElicitados.md](/Base/ArtefatoGeneralista/RequisitosElicitados.md).
+
+---
 
 ## Histórico de versão
 
 | Versão | Alteração | Responsável | Data |
-| - | - | - | - |
-| 1.0 | Elaboração do documento| Larissa Stéfane | 04/05/2025 |
-| 1.1 | Adição do seção de explicação  | Larissa Stéfane | 04/05/2025 |
-| 1.2 | Criação das tabelas da aba de promoção | Larissa Stéfane | 04/05/2025 |
-| 1.3 | Criação das tabelas da aba de fórum | Larissa Stéfane | 04/05/2025 |
-| 1.4 |Complementação das tabelas | Larissa Stéfane | 04/05/2025 |
-| 1.5 | Adição dos Diagramas | Larissa Stéfane | 04/05/2025 |
-| 1.6 | Adição da conclusão | Larissa Stéfane | 04/05/2025 |
-| 1.7 | Ajustes no artefato| Larissa Stéfane | 06/05/2025 |
+|---|---|---|---|
+| 1.0 | Criação inicial do documento com três diagramas de estados principais (Evento, Pedido, Transferência) baseados nos documentos Diagrama de Classes, Diagrama de Componentes, Diagrama de Casos de Uso e Requisitos Elicitados | Gabriel Lima | 30/10/2025 |
