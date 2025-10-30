@@ -15,6 +15,7 @@
 - [Sobre o Diagrama de Sequência](#Sobre-o-Diagrama-de-Sequência)
 - [Cenário 1: Compra de Ingresso](#Cenário-1-Compra-de-Ingresso)
 - [Cenário 2: Check-in de Ingresso](#Cenário-2-Check-in-de-Ingresso)
+- [Guia Completo: Como Criar e Conectar Classes no Diagrama de Sequência](#Guia-Completo-Como-Criar-e-Conectar-Classes-no-Diagrama-de-Sequência)
 - [Conclusão](#Conclusão)
 - [Bibliografia](#Bibliografia)
 - [Histórico de versão](#Histórico-de-versão)
@@ -127,7 +128,7 @@ Com base na tabela 1, abaixo, na figura 2, há o diagrama de Sequência - Compra
 <div align="center">
     Figura 2: Diagrama de Sequência - Compra de Ingresso
     <br>
-    <img src="assets/Modelagem/Imagens/DiagramaSequenciaCompra.png" width="1000">
+    <img src="assets/Modelagem/Dinamica/Sequencia1.png" width="1000">
     <br>
     <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
     <br>
@@ -174,7 +175,7 @@ Com base na tabela 2, abaixo, na figura 3, há o diagrama de Sequência - Check-
 <div align="center">
     Figura 3: Diagrama de Sequência - Check-in de Ingresso
     <br>
-    <img src="assets/Modelagem/Imagens/DiagramaSequenciaCheckin.png" width="1000">
+    <img src="assets/Modelagem/Dinamica/Sequencia2.png" width="1000">
     <br>
     <b>Autor:</b> <a href="https://github.com/gabriel-lima258">Gabriel Lima</a>.
     <br>
@@ -211,3 +212,4 @@ Os diagramas desenvolvidos demonstram a arquitetura modular do sistema, evidenci
 | Versão | Alteração | Responsável | Data |
 | - | - | - | - |
 | 1.0 | Elaboração do documento e diagramas de sequência para o projeto Ingressou | Gabriel Lima | 27/10/2025 |
+| 1.1 | Adição do guia completo para criação e conexão de classes baseado no diagrama de sequência | Gabriel Lima | 27/10/2025 |
