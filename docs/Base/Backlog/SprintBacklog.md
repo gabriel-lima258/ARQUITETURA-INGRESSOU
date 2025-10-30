@@ -31,9 +31,11 @@
 
 Este documento apresenta o **Sprint Backlog** do projeto **Ingressou**, detalhando as tarefas técnicas específicas de cada sprint para implementação do MVP. O backlog foi derivado do [Backlog de Produto](/Base/Backlog/BacklogProduto.md), organizando as features em **8 sprints de 2 semanas cada = 16 semanas (4 meses)**.
 
+**Priorização:** Utiliza método **First Things First**, priorizando Q1 (Crítica) no início e Q2 (Alta) nos sprints seguintes, deixando Q3 (Média) e Q4 (Baixa) para sprints finais ou versões simplificadas.
+
 Cada sprint contém:
 - **Objetivo da Sprint**
-- **Features do Product Backlog** relacionadas
+- **Features do Product Backlog** relacionadas (com quadrante Q1-Q4)
 - **Tarefas técnicas** detalhadas com estimativas
 - **Critérios de aceitação** por tarefa
 - **Definição de pronto** para a sprint
@@ -80,10 +82,10 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Duração:** 2 semanas (10 dias úteis)  
 **Story Points:** ~38 pontos
 
-#### Features do Product Backlog
-- E1-F1: Cadastro de Usuário (8 pts)
-- E1-F2: Login e Sessão (5 pts)
-- E10-F3: Segurança (13 pts)
+#### Features do Product Backlog (Prioridade Q1 - Crítica)
+- E1-F1: Cadastro de Usuário (Q1 - 8 pts)
+- E1-F2: Login e Sessão (Q1 - 5 pts)
+- E10-F3: Segurança (Q1 - 13 pts)
 
 #### Tarefas Técnicas
 
@@ -119,8 +121,8 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Duração:** 2 semanas (10 dias úteis)  
 **Story Points:** ~35 pontos
 
-#### Features do Product Backlog
-- E10-F5: Mensageria e Cache (13 pts)
+#### Features do Product Backlog (Prioridade Q2 - Alta)
+- E10-F5: Mensageria e Cache (Q2 - 13 pts)
 
 #### Tarefas Técnicas
 
@@ -154,11 +156,11 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Duração:** 2 semanas (10 dias úteis)  
 **Story Points:** ~42 pontos
 
-#### Features do Product Backlog
-- E3-F1: Onboarding de Produtor (13 pts)
-- E4-F1: Criação de Evento (13 pts)
-- E4-F2: Criação de Lotes (13 pts)
-- E4-F3: Publicação de Evento (8 pts)
+#### Features do Product Backlog (Prioridade Q1 - Crítica)
+- E3-F1: Onboarding de Produtor (Q1 - 13 pts)
+- E4-F1: Criação de Evento (Q1 - 13 pts)
+- E4-F2: Criação de Lotes (Q1 - 13 pts)
+- E4-F3: Publicação de Evento (Q1 - 8 pts)
 
 #### Tarefas Técnicas
 
@@ -195,15 +197,15 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Objetivo:** Implementar busca e filtros para descoberta de eventos.
 
 **Duração:** 2 semanas (10 dias úteis)  
-**Story Points:** ~34 pontos
+**Story Points:** ~37 pontos
 
-#### Features do Product Backlog
-- E2-F1: Busca Global (8 pts)
-- E2-F2: Filtros por Localização (8 pts)
-- E2-F3: Filtros por Categoria (5 pts)
-- E2-F4: Filtros por Data (5 pts)
-- E4-F4: Página Pública do Evento (5 pts)
-- E2-F5: Ordenação e URLs (5 pts)
+#### Features do Product Backlog (Prioridade Q2 - Alta)
+- E2-F1: Busca Global (Q2 - 8 pts)
+- E2-F2: Filtros por Localização (Q2 - 8 pts)
+- E2-F3: Filtros por Categoria (Q2 - 5 pts)
+- E2-F4: Filtros por Data (Q2 - 5 pts)
+- E4-F4: Página Pública do Evento (Q2 - 5 pts)
+- E2-F5: Ordenação e URLs (Q4 - 5 pts) - *Pode ser simplificado no MVP*
 
 #### Tarefas Técnicas
 
@@ -213,14 +215,16 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 | | - Endpoint GET /eventos/busca?q={termo}<br>- Busca full-text em nome, local, artista, descrição<br>- Índices otimizados no PostgreSQL<br>- Paginação de resultados<br>- Cache de consultas frequentes | | | |
 | **S4-T2** | **Backend de Filtros** | Backend | 8 | 🟠 Alta | S3-T7 |
 | | - Endpoint GET /eventos com query params<br>- Filtros: cidade, UF, categoria, data<br>- Índices por cidade, UF, data, categoria<br>- Combinação de filtros<br>- URLs parametrizadas e compartilháveis | | | |
-| **S4-T3** | **Interface de Busca e Filtros** | Frontend | 8 | 🟠 Alta | S4-T1, S4-T2 |
-| | - Campo de busca com autocompletar<br>- Filtros por localização, categoria e data<br>- Persistência de filtros na URL<br>- Botão "limpar filtros"<br>- Debounce para otimização | | | |
-| **S4-T4** | **Página de Listagem de Eventos** | Frontend | 5 | 🟠 Alta | S4-T2 |
-| | - Grid/Lista de eventos<br>- Cards com informações principais<br>- Paginação<br>- Ordenação (data, popularidade, preço)<br>- Loading states e skeleton screens | | | |
-| **S4-T5** | **Página Pública do Evento** | Frontend | 5 | 🟠 Alta | S3-T7 |
-| | - Endpoint GET /eventos/:slug<br>- Exibição completa de dados<br>- Lista de lotes disponíveis<br>- Botão "Comprar Ingressos"<br>- Compartilhamento social | | | |
-| **S4-T6** | **Otimização de Cache** | Backend | 5 | 🟠 Alta | S4-T2 |
-| | - Cache de listagens por chave semântica<br>- TTL de 60-300s<br>- Invalidação por evento/lote<br>- Warm-up de cache para consultas frequentes | | | |
+| **S4-T3** | **Interface de Busca e Filtros** | Frontend | 8 | 🟠 Q2 - Alta | S4-T1, S4-T2 |
+| | - Campo de busca com autocompletar<br>- Filtros por localização, categoria e data<br>- Persistência de filtros na URL (simplificado)<br>- Botão "limpar filtros"<br>- Debounce para otimização | | | |
+| **S4-T4** | **Página de Listagem de Eventos** | Frontend | 5 | 🟠 Q2 - Alta | S4-T2 |
+| | - Grid/Lista de eventos<br>- Cards com informações principais<br>- Paginação<br>- Ordenação básica (data, preço) - *sem popularidade no MVP*<br>- Loading states e skeleton screens | | | |
+| **S4-T5** | **Página Pública do Evento** | Frontend | 5 | 🟠 Q2 - Alta | S3-T7 |
+| | - Endpoint GET /eventos/:slug<br>- Exibição completa de dados<br>- Lista de lotes disponíveis<br>- Botão "Comprar Ingressos"<br>- Compartilhamento social básico | | | |
+| **S4-T6** | **Otimização de Cache** | Backend | 5 | 🟠 Q2 - Alta | S4-T2 |
+| | - Cache de listagens por chave semântica<br>- TTL de 60-300s<br>- Invalidação por evento/lote<br>- Warm-up básico de cache | | | |
+| **S4-T7** | **URLs Amigáveis (Simplificado)** | Frontend | 3 | 🟢 Q4 - Baixa | S4-T2 |
+| | - Slugs básicos para eventos<br>- Parâmetros de filtro na URL<br>- *Versão simplificada: sem compartilhamento avançado* | | | |
 
 **Definição de Pronto Sprint 4:**
 - [ ] Usuários podem buscar eventos por termo
@@ -236,44 +240,46 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Objetivo:** Implementar fluxo completo de checkout e integração com gateway de pagamento.
 
 **Duração:** 2 semanas (10 dias úteis)  
-**Story Points:** ~50 pontos
+**Story Points:** ~51 pontos
 
-#### Features do Product Backlog
-- E5-F1: Checkout (8 pts)
-- E5-F2: Pagamento PIX (13 pts)
-- E5-F3: Pagamento Cartão (13 pts)
-- E5-F4: Cupom de Influenciador (8 pts)
-- E5-F5: Confirmação/Cancelamento (8 pts)
+#### Features do Product Backlog (Prioridade Q1 - Crítica)
+- E5-F1: Checkout (Q1 - 8 pts)
+- E5-F2: Pagamento PIX (Q1 - 13 pts)
+- E5-F3: Pagamento Cartão (Q1 - 13 pts)
+- E5-F5: Confirmação/Cancelamento (Q1 - 8 pts)
+- E5-F4: Cupom de Influenciador (Q3 - 8 pts) - *Versão simplificada no MVP*
 
 #### Tarefas Técnicas
 
 | ID | Tarefa | Tipo | Story Points | Prioridade | Dependências |
 |---|---|---|---|---|---|
-| **S5-T1** | **Modelagem de Pedidos e Pagamentos** | Backend | 8 | 🔴 Crítica | S4-T5 |
+| **S5-T1** | **Modelagem de Pedidos e Pagamentos** | Backend | 8 | 🔴 Q1 - Crítica | S4-T5 |
 | | - Tabelas: Pedido, ItemPedido, Pagamento<br>- Estados: CRIADO, AGUARDANDO_PAGAMENTO, PAGO, CANCELADO, EXPIRADO<br>- Relacionamentos e constraints<br>- Reserva temporária de estoque | | | |
-| **S5-T2** | **Backend de Checkout** | Backend | 8 | 🔴 Crítica | S5-T1 |
-| | - Endpoint POST /checkout/criar<br>- Validação de disponibilidade<br>- Aplicação de cupom<br>- Cálculo de taxas (8% plataforma)<br>- Limite por CPF (5 ingressos)<br>- Criar pedido com status CRIADO | | | |
-| **S5-T3** | **Sistema de Cupons** | Backend | 8 | 🟠 Alta | S5-T2 |
-| | - Tabela Cupom<br>- Validação de vigência, limites, acúmulo<br>- Cálculo de desconto (percentual/fixo)<br>- Registro de atribuição ao influenciador<br>- Endpoint POST /cupons/validar | | | |
-| **S5-T4** | **Interface de Checkout** | Frontend | 8 | 🔴 Crítica | S5-T2 |
-| | - Resumo do pedido<br>- Seleção de quantidade<br>- Campo de cupom<br>- Cálculo de total em tempo real<br>- Aceite de termos LGPD<br>- Botão "Finalizar Compra" | | | |
-| **S5-T5** | **Integração Gateway Pagar.me** | Backend | 13 | 🔴 Crítica | S5-T2 |
+| **S5-T2** | **Backend de Checkout** | Backend | 8 | 🔴 Q1 - Crítica | S5-T1 |
+| | - Endpoint POST /checkout/criar<br>- Validação de disponibilidade<br>- Aplicação de cupom (opcional)<br>- Cálculo de taxas (8% plataforma)<br>- Limite por CPF (5 ingressos)<br>- Criar pedido com status CRIADO | | | |
+| **S5-T3** | **Sistema de Cupons** | Backend | 5 | 🟡 Q3 - Média | S5-T2 |
+| | - Tabela Cupom<br>- Validação de vigência e limites básicos<br>- Cálculo de desconto (percentual ou fixo - um tipo por vez)<br>- Registro básico de atribuição<br>- Endpoint POST /cupons/validar<br>- *Versão simplificada: sem acúmulo, sem múltiplos tipos* | | | |
+| **S5-T3a** | **Aplicação de Cupom no Checkout** | Frontend | 3 | 🟡 Q3 - Média | S5-T3 |
+| | - Campo de entrada de código<br>- Validação em tempo real<br>- Exibição de desconto aplicado<br>- Mensagens de erro específicas<br>- *Versão simplificada: sem múltiplos cupons* | | | |
+| **S5-T4** | **Interface de Checkout** | Frontend | 8 | 🔴 Q1 - Crítica | S5-T2 |
+| | - Resumo do pedido<br>- Seleção de quantidade<br>- Campo de cupom (opcional)<br>- Cálculo de total em tempo real<br>- Aceite de termos LGPD<br>- Botão "Finalizar Compra" | | | |
+| **S5-T5** | **Integração Gateway Pagar.me** | Backend | 13 | 🔴 Q1 - Crítica | S5-T2 |
 | | - Cliente SDK Pagar.me<br>- Configuração de credenciais (sandbox/prod)<br>- Endpoints de pagamento PIX e Cartão<br>- Webhooks configurados<br>- Idempotência de transações | | | |
-| **S5-T6** | **Pagamento PIX** | Backend | 8 | 🔴 Crítica | S5-T5 |
+| **S5-T6** | **Pagamento PIX** | Backend | 8 | 🔴 Q1 - Crítica | S5-T5 |
 | | - Geração de QR Code dinâmico<br>- Reserva de 10 minutos<br>- Webhook de confirmação<br>- Expiração automática<br>- Liberação de estoque ao expirar | | | |
-| **S5-T7** | **Pagamento Cartão** | Backend | 8 | 🔴 Crítica | S5-T5 |
+| **S5-T7** | **Pagamento Cartão** | Backend | 8 | 🔴 Q1 - Crítica | S5-T5 |
 | | - Tokenização de cartão<br>- 3DS (3D Secure)<br>- Antifraude<br>- Autorização e confirmação<br>- Tratamento de recusas | | | |
-| **S5-T8** | **Interface de Pagamento** | Frontend | 8 | 🔴 Crítica | S5-T6, S5-T7 |
+| **S5-T8** | **Interface de Pagamento** | Frontend | 8 | 🔴 Q1 - Crítica | S5-T6, S5-T7 |
 | | - Seleção de método (PIX/Cartão)<br>- Exibição de QR Code PIX<br>- Formulário de cartão<br>- Validação de dados<br>- Loading states<br>- Redirecionamento após pagamento | | | |
-| **S5-T9** | **Processamento de Webhooks** | Backend | 8 | 🔴 Crítica | S5-T5 |
+| **S5-T9** | **Processamento de Webhooks** | Backend | 8 | 🔴 Q1 - Crítica | S5-T5 |
 | | - Worker para processar webhooks<br>- Validação de assinatura<br>- Idempotência por chave<br>- Atualização de status do pagamento<br>- Emissão de ingressos (próxima sprint) | | | |
-| **S5-T10** | **Gestão de Estoque** | Backend | 5 | 🔴 Crítica | S5-T2 |
+| **S5-T10** | **Gestão de Estoque** | Backend | 5 | 🔴 Q1 - Crítica | S5-T2 |
 | | - Reserva temporária no checkout<br>- Liberação ao expirar/cancelar<br>- Bloqueio definitivo ao confirmar<br>- Validação de disponibilidade | | | |
 
 **Definição de Pronto Sprint 5:**
 - [ ] Clientes podem fazer checkout completo
 - [ ] Pagamentos PIX e cartão funcionando
-- [ ] Cupons de influenciador aplicáveis
+- [ ] Cupons básicos aplicáveis (versão simplificada)
 - [ ] Webhooks processados corretamente
 - [ ] Estoque gerenciado automaticamente
 
@@ -286,11 +292,11 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Duração:** 2 semanas (10 dias úteis)  
 **Story Points:** ~45 pontos
 
-#### Features do Product Backlog
-- E6-F1: Emissão de Ingressos (13 pts)
-- E6-F3: Notificações de Ingresso (8 pts)
-- E7-F1: Validação de Ingressos (13 pts)
-- E6-F2: Validade e Reenvio (5 pts)
+#### Features do Product Backlog (Prioridade Q1 + Q2)
+- E6-F1: Emissão de Ingressos (Q1 - 13 pts)
+- E7-F1: Validação de Ingressos (Q1 - 13 pts)
+- E6-F3: Notificações de Ingresso (Q2 - 8 pts)
+- E6-F2: Validade e Reenvio (Q3 - 5 pts) - *Versão básica no MVP*
 
 #### Tarefas Técnicas
 
@@ -312,10 +318,10 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 | | - Setup PWA (service worker, manifest)<br>- Interface de leitura de QR Code<br>- Câmera do dispositivo<br>- Feedback visual/sonoro<br>- Modo offline básico (IndexedDB) | | | |
 | **S6-T8** | **Backend de Validação** | Backend | 8 | 🔴 Crítica | S6-T7 |
 | | - Endpoint POST /checkin/validar<br>- Validação de assinatura QR<br>- Verificação de status (válido/duplicado/expirado)<br>- Registro de check-in<br>- Latência P95 < 150ms | | | |
-| **S6-T9** | **Sincronização Offline** | Backend | 3 | 🟡 Média | S6-T7 |
-| | - Endpoint GET /checkin/sincronizar/:eventoId<br>- Lista compacta de ingressos válidos<br>- Sincronização posterior de registros<br>- Reconciliação básica de conflitos | | | |
-| **S6-T10** | **Relatórios de Check-in** | Backend | 3 | 🟡 Média | S6-T8 |
-| | - Endpoint GET /checkin/relatorio/:eventoId<br>- Agregações de validações<br>- Exportação CSV<br>- Filtros por período | | | |
+| **S6-T9** | **Sincronização Offline** | Backend | 3 | 🟡 Q3 - Média | S6-T7 |
+| | - Endpoint GET /checkin/sincronizar/:eventoId<br>- Lista compacta de ingressos válidos<br>- Sincronização posterior de registros<br>- Reconciliação básica de conflitos<br>- *Versão simplificada: sem reconciliação avançada* | | | |
+| **S6-T10** | **Relatórios de Check-in** | Backend | 3 | 🟡 Q3 - Média | S6-T8 |
+| | - Endpoint GET /checkin/relatorio/:eventoId<br>- Agregações básicas de validações<br>- Exportação CSV simples<br>- *Versão simplificada: filtros básicos* | | | |
 
 **Definição de Pronto Sprint 6:**
 - [ ] Ingressos emitidos após pagamento confirmado
@@ -333,13 +339,13 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Duração:** 2 semanas (10 dias úteis)  
 **Story Points:** ~42 pontos
 
-#### Features do Product Backlog
-- E8-F1: Iniciar Transferência (13 pts)
-- E8-F2: Aceite e Conclusão (13 pts)
-- E8-F3: Recusa e Expiração (5 pts)
-- E8-F4: Notificações de Transferência (5 pts)
-- E3-F2: Painel do Produtor (8 pts)
-- E9-F1: Painel Admin (13 pts)
+#### Features do Product Backlog (Prioridade Q2 - Alta)
+- E8-F1: Iniciar Transferência (Q2 - 13 pts)
+- E8-F2: Aceite e Conclusão (Q2 - 13 pts)
+- E3-F2: Painel do Produtor (Q2 - 8 pts)
+- E9-F1: Painel Admin (Q2 - 13 pts)
+- E8-F3: Recusa e Expiração (Q3 - 5 pts) - *Versão básica*
+- E8-F4: Notificações de Transferência (Q3 - 5 pts) - *Versão básica*
 
 #### Tarefas Técnicas
 
@@ -353,10 +359,10 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 | | - Seleção de ingresso<br>- Campo de e-mail/CPF do destinatário<br>- Exibição de taxa (10%)<br>- Confirmação de transferência<br>- Feedback de sucesso | | | |
 | **S7-T4** | **Aceite e Conclusão** | Backend | 13 | 🟠 Alta | S7-T2 |
 | | - Endpoint POST /transferencias/:id/aceitar<br>- Validação de janela de tempo<br>- Autenticação/criação de conta do destinatário<br>- Cálculo e cobrança de taxa<br>- Pagamento da taxa (PIX/Cartão)<br>- Transferir ingresso para carteira do destinatário<br>- Invalidar QR original definitivamente<br>- Emitir novo QR assinado<br>- Registrar auditoria completa | | | |
-| **S7-T5** | **Recusa e Expiração** | Backend | 3 | 🟡 Média | S7-T2 |
-| | - Endpoint POST /transferencias/:id/recusar<br>- Job para expiração automática<br>- Retornar ingresso ao remetente<br>- Revalidar QR original<br>- Notificações | | | |
-| **S7-T6** | **Notificações de Transferência** | Backend | 3 | 🟡 Média | S7-T2 |
-| | - Templates de e-mail/WhatsApp<br>- Notificações: criada, aceita, concluída, cancelada<br>- Processamento assíncrono | | | |
+| **S7-T5** | **Recusa e Expiração** | Backend | 3 | 🟡 Q3 - Média | S7-T2 |
+| | - Endpoint POST /transferencias/:id/recusar<br>- Job básico para expiração automática<br>- Retornar ingresso ao remetente<br>- Revalidar QR original<br>- Notificações básicas<br>- *Versão simplificada: sem notificações avançadas* | | | |
+| **S7-T6** | **Notificações de Transferência** | Backend | 3 | 🟡 Q3 - Média | S7-T2 |
+| | - Templates básicos de e-mail<br>- Notificações essenciais: criada, aceita, concluída<br>- Processamento assíncrono<br>- *Versão simplificada: sem WhatsApp, notificações mínimas* | | | |
 | **S7-T7** | **Backend do Painel do Produtor** | Backend | 8 | 🟠 Alta | S6-T10 |
 | | - Endpoint GET /produtor/dashboard<br>- Métricas: vendas, check-ins, repasses, cashback<br>- Filtros por evento e período<br>- Agregações otimizadas<br>- Cache de métricas | | | |
 | **S7-T8** | **Interface do Painel do Produtor** | Frontend | 8 | 🟠 Alta | S7-T7 |
@@ -382,10 +388,10 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 **Duração:** 2 semanas (10 dias úteis)  
 **Story Points:** ~38 pontos
 
-#### Features do Product Backlog
-- E10-F4: Acessibilidade WCAG 2.1 AA (21 pts)
-- E9-F2: Auditoria (8 pts)
-- E10-F6: Observabilidade (8 pts)
+#### Features do Product Backlog (Prioridade Q2 - Alta)
+- E10-F4: Acessibilidade WCAG 2.1 AA (Q2 - 21 pts)
+- E9-F2: Auditoria (Q2 - 8 pts)
+- E10-F6: Observabilidade (Q2 - 8 pts)
 
 #### Tarefas Técnicas
 
@@ -423,18 +429,24 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 
 ## Tabela Consolidada de Sprints
 
-| Sprint | Objetivo | Story Points | Features | Status |
+| Sprint | Objetivo | Story Points | Features (Q1/Q2/Q3/Q4) | Status |
 |---|---|---|---|---|
-| **Sprint 1** | Fundação e Infraestrutura Base | 38 | E1-F1, E1-F2, E10-F3 | Backlog |
-| **Sprint 2** | Mensageria, Cache e Frontend Base | 35 | E10-F5 | Backlog |
-| **Sprint 3** | Gestão de Produtores e Eventos | 42 | E3-F1, E4-F1, E4-F2, E4-F3 | Backlog |
-| **Sprint 4** | Busca e Catálogo de Eventos | 34 | E2-F1, E2-F2, E2-F3, E2-F4, E4-F4, E2-F5 | Backlog |
-| **Sprint 5** | Checkout e Pagamentos | 50 | E5-F1, E5-F2, E5-F3, E5-F4, E5-F5 | Backlog |
-| **Sprint 6** | Ingressos e Check-in | 45 | E6-F1, E6-F3, E7-F1, E6-F2 | Backlog |
-| **Sprint 7** | Transferências e Painéis | 42 | E8-F1, E8-F2, E8-F3, E8-F4, E3-F2, E9-F1 | Backlog |
-| **Sprint 8** | Acessibilidade e Finalização | 38 | E10-F4, E9-F2, E10-F6 | Backlog |
+| **Sprint 1** | Fundação e Infraestrutura Base | 38 | Q1: E1-F1, E1-F2, E10-F3 | Backlog |
+| **Sprint 2** | Mensageria, Cache e Frontend Base | 35 | Q2: E10-F5 | Backlog |
+| **Sprint 3** | Gestão de Produtores e Eventos | 42 | Q1: E3-F1, E4-F1, E4-F2, E4-F3 | Backlog |
+| **Sprint 4** | Busca e Catálogo de Eventos | 37 | Q2: E2-F1, E2-F2, E2-F3, E2-F4, E4-F4<br>Q4: E2-F5 (simplificado) | Backlog |
+| **Sprint 5** | Checkout e Pagamentos | 51 | Q1: E5-F1, E5-F2, E5-F3, E5-F5<br>Q3: E5-F4 (simplificado) | Backlog |
+| **Sprint 6** | Ingressos e Check-in | 45 | Q1: E6-F1, E7-F1<br>Q2: E6-F3<br>Q3: E6-F2 (simplificado) | Backlog |
+| **Sprint 7** | Transferências e Painéis | 42 | Q2: E8-F1, E8-F2, E3-F2, E9-F1<br>Q3: E8-F3, E8-F4 (simplificados) | Backlog |
+| **Sprint 8** | Acessibilidade e Finalização | 38 | Q2: E10-F4, E9-F2, E10-F6 | Backlog |
 
-**Total:** 324 Story Points | **Duração:** 16 semanas (4 meses) | **Features:** 27 features do MVP
+**Total:** 326 Story Points | **Duração:** 16 semanas (4 meses) | **Features:** 27 features do MVP
+
+**Distribuição por Quadrante:**
+- **Q1 (Crítica):** 12 features nos Sprints 1, 3, 5, 6
+- **Q2 (Alta):** 18 features distribuídas ao longo dos sprints
+- **Q3 (Média):** Versões simplificadas integradas nos sprints principais
+- **Q4 (Baixa):** URLs amigáveis simplificadas no Sprint 4
 
 ---
 
@@ -463,3 +475,4 @@ Para uma tarefa ser considerada **"Pronta"**, deve atender:
 |---|---|---|---|
 | 1.0 | Criação inicial do sprint backlog com 7 sprints (14 semanas), detalhando tarefas técnicas, estimativas e dependências baseadas no backlog de produto | Gabriel Lima | 30/10/2025 |
 | 2.0 | Reorganização para 8 sprints (16 semanas = 4 meses), otimizando distribuição de tarefas e priorizando MVP crítico | Gabriel Lima | 30/10/2025 |
+| 3.0 | Aplicação do método First Things First na priorização: Q1 (Crítica) primeiro, Q2 (Alta) em seguida, Q3 (Média) e Q4 (Baixa) com versões simplificadas. Ajustes em estimativas e distribuição de features conforme quadrantes | Gabriel Lima | 30/10/2025 |
