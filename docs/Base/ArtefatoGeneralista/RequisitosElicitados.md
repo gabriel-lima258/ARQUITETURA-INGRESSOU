@@ -20,7 +20,7 @@
 
 Este documento consolida os requisitos funcionais e não funcionais do **Ingressou**.
 
-A versão **1.5** incorpora expansão significativa dos requisitos de **acessibilidade** para pessoas com deficiência, além das três alterações centrais da versão 1.4:
+A versão **1.6** incorpora novas funcionalidades identificadas no diagrama de classes do sistema: **produtos e serviços além de ingressos**, **sistema de notificações detalhado**, **rastreamento de transações de cashback**, **check-in aprimorado com detecção de fraude** e **suporte a cartão de débito** nos pagamentos. Além disso, mantém todas as funcionalidades da versão **1.5** incluindo expansão significativa dos requisitos de **acessibilidade** para pessoas com deficiência:
 * **Cobertura nacional** com ênfase em **busca, filtros por localização (cidade/UF) e categorização** de eventos;
 * **Transferência de ingressos entre usuários** (carteira → transferência com aceite do destinatário e reemissão do QR);
 * Manutenção das decisões anteriores: **evento criado exclusivamente pelo Administrador**, **lote encerra por tempo** ou **quantidade (o que vier primeiro)**, **cupom de influenciador**, **mensageria + cache**, **cashback destinado ao produtor** e **vinculação Produtor↔Evento** para acesso de leitura.
@@ -28,7 +28,7 @@ A versão **1.5** incorpora expansão significativa dos requisitos de **acessibi
 
 ## Visão Geral
 
-Plataforma nacional para **venda e validação de ingressos** com pagamentos via **PIX e cartão**, **QR Code antifraude**, **cupons de influenciadores**, **cashback ao produtor**, **busca e filtros nacionais (cidade/UF/categorias/data)** e **transferência de ingressos** controlada e auditável.
+Plataforma nacional para **venda e validação de ingressos e produtos/serviços** com pagamentos via **PIX, cartão de crédito e débito**, **QR Code antifraude**, **cupons de influenciadores**, **cashback ao produtor rastreável**, **busca e filtros nacionais (cidade/UF/categorias/data)**, **sistema de notificações completo** e **transferência de ingressos** controlada e auditável.
 
 ## Objetivos do Projeto
 
@@ -41,7 +41,7 @@ Plataforma nacional para **venda e validação de ingressos** com pagamentos via
 
 ## Personas
 
-* **Usuário Comprador** — busca por cidade/UF/categoria, filtra por data, compra via PIX/cartão, aplica cupom, transfere ingresso quando permitido.
+* **Usuário Comprador** — busca por cidade/UF/categoria, filtra por data, compra ingressos e produtos via PIX/cartão, aplica cupom, transfere ingresso quando permitido, recebe notificações sobre suas compras e transferências.
 * **Produtor** — não cria eventos; acompanha vendas, check-ins, repasses e cashback *apenas* dos eventos vinculados.
 * **Staff (Check-in)** — valida ingressos com baixa latência, inclusive offline.
 * **Administrador** — cadastra produtores, cria/publica eventos, define lotes, categorias, políticas, cupons e **vincula produtores a eventos**.
@@ -56,12 +56,14 @@ Plataforma nacional para **venda e validação de ingressos** com pagamentos via
 * **Taxonomia de categorias** (Admin mantém).
 * Catálogo nacional com **busca** e **filtros por cidade, UF, categoria e faixa de data**.
 * Lotes por evento; encerramento por **tempo** ou **quantidade**.
-* Vendas online; pagamentos PIX/cartão.
-* Emissão de **QR Code antifraude**; check-in web (online/offline).
+* **Produtos e serviços** vendidos junto com eventos (merchandising, serviços adicionais).
+* Vendas online; pagamentos PIX/cartão de crédito/débito.
+* Emissão de **QR Code antifraude**; check-in web (online/offline) com detecção de fraude.
 * Painel do **Produtor (somente leitura)**.
 * **Cupom de influenciador** no checkout.
-* **Cashback ao produtor**.
+* **Cashback ao produtor** com rastreamento de transações (créditos/débitos/ajustes).
 * **Transferência de ingressos** com aceite do destinatário (tempo-limite configurável).
+* **Sistema de notificações** completo (e-mail/WhatsApp) com tipos específicos e controle de leitura.
 * **Mensageria** (e-mails/WhatsApp/webhooks/exports) e **cache** (catálogo/listagens/estatísticas).
 * Painel administrativo e trilha de auditoria.
 
@@ -117,22 +119,32 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 
 | ID | Requisito | Descrição | Prioridade |
 | :--- | :--- | :--- | :--- |
-| RF21 | Criação de Lotes (Admin) | Lote com nome, preço, quantidade total, janela de venda (início/fim) e status. | Alta |
+| RF21 | Criação de Lotes (Admin) | Lote com nome, preço, quantidade total, janela de venda (início/fim) e status (SCHEDULED, ACTIVE, SOLD_OUT, EXPIRED, CANCELLED). | Alta |
 | RF22 | Encerramento por Limite | Encerrar automaticamente quando ocorrer primeiro: **esgotar quantidade** ou atingir fim da janela de venda. | Alta |
 | RF23 | Tipos de Ingressos | Inteira, meia, VIP, cortesia; sempre vinculados a um lote. | Alta |
 | RF24 | Limite por CPF | Máximo de 5 ingressos por CPF por evento (configurável). | Alta |
 | RF25 | Meia-entrada | Declarar no checkout; flag registrada para verificação no check-in. | Média |
 
+### 5.1. Produtos e Serviços
+
+| ID | Requisito | Descrição | Prioridade |
+| :--- | :--- | :--- | :--- |
+| RF53 | Criação de Produtos (Admin) | Admin cria produtos/serviços vinculados a eventos com: nome, descrição, tipo (SERVICE, MERCH, etc.), preço, quantidade total, quantidade vendida e status ativo. | Alta |
+| RF54 | Gestão de Produtos | Editar, ativar/desativar produtos; controlar estoque e vendas; produtos aparecem no checkout junto com ingressos. | Alta |
+| RF55 | Tipos de Item no Pedido | Pedido pode conter itens do tipo **TICKET** (ingressos) ou **PRODUCT** (produtos/serviços); OrderItem diferencia entre ingressos e produtos. | Alta |
+| RF56 | Estoque de Produtos | Controlar disponibilidade de produtos; impedir venda quando esgotado; sincronizar com pedidos. | Alta |
+
 ### 6. Pagamentos, Cupons e Checkout
 
 | ID | Requisito | Descrição | Prioridade |
 | :--- | :--- | :--- | :--- |
-| RF26 | Checkout | Resumo de itens, taxas e total; aceite de termos e política de reembolso. | Alta |
-| RF27 | PIX | QR dinâmico; **reserva 10 min**; confirmação via webhook; liberar estoque ao expirar/cancelar. | Alta |
-| RF28 | Cartão | Gateway homologado (ex.: Pagar.me) com 3DS/antifraude; callbacks assíncronos. | Alta |
-| RF29 | Confirmação | Em pagamento confirmado, pedido “Pago” e emissão de ingressos. | Alta |
-| RF30 | Falha/Cancelamento | Cancelar pedido e liberar estoque. | Alta |
-| RF31 | Cupom de Influenciador | Código por evento/lote (valor fixo/percentual), vigência, limite de uso, acúmulo configurável e **registro de atribuição** ao influenciador. | Alta |
+| RF26 | Checkout | Resumo de itens (ingressos e produtos), taxas e total; aceite de termos e política de reembolso. | Alta |
+| RF27 | PIX | QR dinâmico; **reserva 10 min**; confirmação via webhook; liberar estoque ao expirar/cancelar. Status: PENDING, PROCESSING, APPROVED, REFUSED, CANCELLED, REFUNDED, EXPIRED. | Alta |
+| RF28 | Cartão de Crédito | Gateway homologado (ex.: Pagar.me) com 3DS/antifraude; callbacks assíncronos; suporte a parcelamento. | Alta |
+| RF28.1 | Cartão de Débito | Suporte a pagamento via cartão de débito; processamento via gateway homologado. | Alta |
+| RF29 | Confirmação | Em pagamento confirmado, pedido muda para "PAID" e emissão de ingressos; produtos confirmados no pedido. | Alta |
+| RF30 | Falha/Cancelamento | Cancelar pedido e liberar estoque de ingressos e produtos; status REFUNDED quando reembolsado. | Alta |
+| RF31 | Cupom de Influenciador | Código por evento/lote (valor fixo/percentual), vigência, limite de uso (maxUsed), acúmulo configurável e **registro de atribuição** ao influenciador. | Alta |
 
 ### 7. Ingressos e QR Code
 
@@ -147,10 +159,11 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 
 | ID | Requisito | Descrição | Prioridade |
 | :--- | :--- | :--- | :--- |
-| RF36 | Validação | Ler QR (câmera/leitor) e retornar status: válido/duplicado/expirado. | Alta |
-| RF37 | Registro | Logar data, hora, operador e dispositivo da validação. | Alta |
-| RF38 | Modo Offline | Validar ingressos offline com sincronização posterior. | Média |
-| RF39 | Relatórios Check-in | Total de entradas validadas; exportar CSV. | Média |
+| RF36 | Validação | Ler QR (câmera/leitor) e retornar status: **VALID**, **ALREADY_USED**, **INVALID**, **EXPIRED**, **FRAUD_ATTEMPT**. | Alta |
+| RF37 | Registro Detalhado | Logar data, hora, operador (operatorId), dispositivo (deviceId), IP address, localização geográfica (location), informações do dispositivo (deviceInfo) e modo (online/offline). | Alta |
+| RF38 | Modo Offline | Validar ingressos offline com sincronização posterior; flag isOffline para indicar validações offline. | Média |
+| RF39 | Relatórios Check-in | Total de entradas validadas; exportar CSV com detalhes completos (dispositivo, IP, localização). | Média |
+| RF57 | Detecção de Fraude | Sistema deve identificar tentativas suspeitas (mesmo IP, dispositivo diferente, múltiplas tentativas) e marcar como FRAUD_ATTEMPT. | Média |
 
 ### 9. Transferência de Ingressos (Carteira → Transferir)
 
@@ -166,15 +179,33 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 | RF47 | Notificações | Envio de notificações (e-mail e/ou WhatsApp) para remetente e destinatário em cada etapa: **criada, aceita, concluída ou cancelada**. | Média |
 
 
-### 10. Administração
+### 10. Notificações
 
 | ID | Requisito | Descrição | Prioridade |
 | :--- | :--- | :--- | :--- |
-| RF48 | Painel Admin | Listar usuários, produtores, eventos, lotes, vendas, cupons, cashback e transferências. | Alta |
+| RF58 | Sistema de Notificações | Gerenciar notificações com tipos específicos: ORDER_CONFIRMED, TICKET_ISSUED, TRANSFER_INVITED, TRANSFER_ACCEPTED, TRANSFER_CANCELLED, CHECKIN_SUCCESS, PASSWORD_RESET, EMAIL_VERIFICATION. | Alta |
+| RF59 | Canais de Notificação | Enviar notificações via EMAIL ou WHATSAPP conforme preferência do usuário; suporte a múltiplos canais. | Alta |
+| RF60 | Status de Notificação | Rastrear status de envio (pending, sent, failed) e leitura (read/unread) com timestamps (sentAt, readAt). | Média |
+| RF61 | Histórico de Notificações | Usuário pode visualizar histórico de notificações recebidas; marcar como lidas/não lidas. | Média |
+
+### 11. Cashback e Transações
+
+| ID | Requisito | Descrição | Prioridade |
+| :--- | :--- | :--- | :--- |
+| RF62 | Transações de Cashback | Registrar todas as transações de cashback (CREDIT, DEBIT, ADJUSTMENT) vinculadas a pedidos ou eventos; manter saldo atualizado (balanceAfter). | Alta |
+| RF63 | Extrato de Cashback | Produtor pode visualizar extrato completo de transações com descrição, data, valor e saldo acumulado; filtrar por evento ou período. | Alta |
+| RF64 | Configuração de Percentual | Admin/Produtor pode configurar percentual de cashback por evento (producerCashbackPercent); usar percentual padrão do produtor (defaultCashbackPercent) quando não especificado. | Média |
+
+### 12. Administração
+
+| ID | Requisito | Descrição | Prioridade |
+| :--- | :--- | :--- | :--- |
+| RF48 | Painel Admin | Listar usuários, produtores, eventos, lotes, produtos, vendas, cupons, cashback, transações e transferências. | Alta |
 | RF49 | Auditoria | Registrar logs de criar/editar/publicar/cancelar/validar/transferir; trilha completa com usuário/timestamp. | Alta |
-| RF50 | Fraudes | Bloquear usuários/eventos suspeitos; travar transferências quando necessário. | Alta |
-| RF51 | Parâmetros Globais | Configurar taxas, **regras de cashback**, **política de transferência** (janela, restrições, taxa), limites, cupons, mensagens padrão. | Média |
+| RF50 | Fraudes | Bloquear usuários/eventos suspeitos; travar transferências quando necessário; identificar tentativas de fraude no check-in. | Alta |
+| RF51 | Parâmetros Globais | Configurar taxas, **regras de cashback**, **política de transferência** (janela, restrições, taxa), limites, cupons, mensagens padrão, percentual de cashback por evento. | Média |
 | RF52 | Categorias (Taxonomia) | Manter categorias oficiais e atribuí-las aos eventos. | Média |
+| RF65 | Gestão de Localização | CRUD de localizações com foto (photoUrl), complemento, CEP (postalCode) e coordenadas geográficas; reutilizar localizações entre eventos. | Média |
 
 ## Requisitos Não Funcionais
 
@@ -214,37 +245,46 @@ Organização por módulos. Onde aplicável, reforça-se o `RBAC` (Admin/Produto
 | ID | Regra | Descrição |
 | :--- | :--- | :--- |
 | RB01 | Taxa da Plataforma | 8% sobre cada ingresso vendido. |
-| RB02 | Cashback do Produtor | 2% do **líquido** das vendas (parâmetro) creditado como **saldo de cashback** ao produtor (exibido no painel). |
+| RB02 | Cashback do Produtor | 2% do **líquido** das vendas (parâmetro) creditado como **saldo de cashback** ao produtor; percentual configurável por evento (producerCashbackPercent) ou usa padrão do produtor (defaultCashbackPercent); todas as transações são registradas (ProducerCashbackTransaction). |
 | RB03 | Limite por CPF | Máximo de 5 ingressos por CPF por evento (configurável). |
-| RB04 | Reserva PIX | Reserva expira em 10 minutos sem confirmação. |
-| RB05 | Estorno | Estornos até 7 dias antes do evento, conforme política do evento. |
+| RB04 | Reserva PIX | Reserva expira em 10 minutos sem confirmação; pedido muda para status EXPIRED. |
+| RB05 | Estorno | Estornos até 7 dias antes do evento, conforme política do evento; pagamento muda para status REFUNDED. |
 | RB06 | Meia-entrada | Sujeita a comprovação no check-in; **opcionalmente não transferível** (configurável por evento). |
 | RB07 | Split/Repasses | Repasses automáticos D+X conforme contrato e KYC. |
 | RB08 | NFS-e | Emissão de NFS-e apenas sobre a **taxa de serviço** da plataforma. |
 | RB09 | Termos/Privacidade | Aceite obrigatório dos termos e da política de privacidade (LGPD). |
-| RB10 | Check-in Único | Cada ingresso (QR) pode ser validado uma única vez; tentativas repetidas são bloqueadas. |
-| RB11 | Lote por Tempo/Quantidade | O lote encerra pelo primeiro limite atingido: esgotamento ou término da janela. |
-| RB12 | Cupom de Influenciador | Desconto percentual/fixo com vigência e limites; registrar atribuição ao influenciador. |
-| RB13 | Criação de Evento (Admin) | **Somente o Administrador** cria e publica eventos/lotes; produtores não criam. |
+| RB10 | Check-in Único | Cada ingresso (QR) pode ser validado uma única vez; tentativas repetidas retornam status ALREADY_USED ou FRAUD_ATTEMPT; registro detalhado (deviceId, IP, location, deviceInfo). |
+| RB11 | Lote por Tempo/Quantidade | O lote encerra pelo primeiro limite atingido: esgotamento ou término da janela; status: SCHEDULED, ACTIVE, SOLD_OUT, EXPIRED, CANCELLED. |
+| RB12 | Cupom de Influenciador | Desconto percentual/fixo com vigência e limites (maxUsed); registrar atribuição ao influenciador. |
+| RB13 | Criação de Evento (Admin) | **Somente o Administrador** cria e publica eventos/lotes/produtos; produtores não criam. Eventos podem ter status DRAFT, PUBLISHED, CANCELLED, FINISHED. |
 | RB14 | RBAC por Papel | **Admin** (CRUD global); **Produtor** (leitura dos eventos vinculados); **Comprador**(compra/carteira/transferência quando permitida); **Staff** (check-in). |
-| RB15 | Política de Transferência | Transferência **permitida/negada** por evento; **janela-limite** (ex.: até 24h antes); pode haver **taxa**; requer aceite do destinatário; **meia-entrada pode ser bloqueada**. |
+| RB15 | Política de Transferência | Transferência **permitida/negada** por evento; **janela-limite** (ex.: até 24h antes); pode haver **taxa**; requer aceite do destinatário; **meia-entrada pode ser bloqueada**. Status: PENDING, ACCEPTED, REFUSED, CANCELLED, EXPIRED, COMPLETED. |
 | RB16 | Taxonomia Oficial de Categorias | Eventos devem possuir **ao menos 1 categoria** válida (mantida pelo Admin). |
-| RB17 | Localização Obrigatória | Eventos devem registrar **cidade e UF** válidas (p/ filtros nacionais). |
+| RB17 | Localização Obrigatória | Eventos devem registrar **cidade e UF** válidas (p/ filtros nacionais); localização pode incluir foto, complemento e CEP. |
+| RB18 | Produtos em Eventos | Produtos/serviços podem ser vendidos junto com ingressos; OrderItem diferencia entre TICKET e PRODUCT; produtos têm controle de estoque (totalQuantity, soldQuantity). |
+| RB19 | Status de Pedido | Pedido pode ter status: PENDING, AWAITING_PAYMENT, PAID, CANCELLED, EXPIRED, REFUNDED. |
+| RB20 | Status de Pagamento | Pagamento pode ter status: PENDING, PROCESSING, APPROVED, REFUSED, CANCELLED, REFUNDED, EXPIRED. Método: CREDIT_CARD, DEBIT_CARD, PIX. |
+| RB21 | Status de Ticket | Ingresso pode ter status: ACTIVE, TRANSFERRED, VALIDATED, CANCELLED, EXPIRED. |
+| RB22 | Notificações | Todas as ações críticas geram notificações (ORDER_CONFIRMED, TICKET_ISSUED, TRANSFER_INVITED, TRANSFER_ACCEPTED, TRANSFER_CANCELLED, CHECKIN_SUCCESS, PASSWORD_RESET, EMAIL_VERIFICATION); suporte a EMAIL e WHATSAPP; rastreamento de leitura (read/unread). |
 
 ## Critérios de Aceitação
 
-* **Busca & Filtros:** ao aplicar cidade=“São Paulo”, UF=“SP”, categoria=“Show” e data=“próximo fim de semana”, a lista retorna *apenas* eventos correspondentes; a URL preserva os parâmetros; limpar filtros restaura a listagem.
-* **Publicação de evento (Admin):** publicar somente com ≥ 1 lote válido e categoria atribuída; página pública acessível via slug.
-* **Encerramento de lote:** ao vender a última unidade *ou* atingir a hora final, o lote muda para **“encerrado”** e some do checkout.
-* **Cupom de influenciador:** desconto aplicado quando código válido; registrar **atribuição**; respeitar vigência/limites e regras de acúmulo.
-* **PIX com reserva:** se o webhook não confirmar em 10 min, pedido → **“cancelado”** e estoque retorna.
+* **Busca & Filtros:** ao aplicar cidade="São Paulo", UF="SP", categoria="Show" e data="próximo fim de semana", a lista retorna *apenas* eventos correspondentes; a URL preserva os parâmetros; limpar filtros restaura a listagem.
+* **Publicação de evento (Admin):** publicar somente com ≥ 1 lote válido e categoria atribuída; página pública acessível via slug; evento pode ter status DRAFT, PUBLISHED, CANCELLED, FINISHED.
+* **Encerramento de lote:** ao vender a última unidade *ou* atingir a hora final, o lote muda para status **SOLD_OUT** ou **EXPIRED** e some do checkout.
+* **Produtos em eventos:** Admin pode criar produtos/serviços vinculados ao evento; produtos aparecem no checkout junto com ingressos; OrderItem diferencia entre TICKET e PRODUCT.
+* **Cupom de influenciador:** desconto aplicado quando código válido; registrar **atribuição**; respeitar vigência/limites (maxUsed) e regras de acúmulo.
+* **PIX com reserva:** se o webhook não confirmar em 10 min, pedido → status **EXPIRED** e estoque retorna; pagamento muda para EXPIRED.
+* **Pagamentos:** suporte a CREDIT_CARD, DEBIT_CARD e PIX; status: PENDING, PROCESSING, APPROVED, REFUSED, CANCELLED, REFUNDED, EXPIRED.
 * **Transferência de ingresso:**
-    * Remetente inicia; destinatário recebe link com expiração; ao **aceitar dentro da janela**, ingresso migra para a carteira do destinatário; **QR antigo invalida** e **novo QR** é emitido.
-    * Se recusar/expirar, ingresso retorna ao remetente.
+    * Remetente inicia; destinatário recebe link com expiração; ao **aceitar dentro da janela**, ingresso migra para a carteira do destinatário; **QR antigo invalida** e **novo QR** é emitido; status muda para COMPLETED.
+    * Se recusar/expirar, ingresso retorna ao remetente; status CANCELLED ou EXPIRED.
     * Ingresso já validado **não pode** ser transferido; se a política do evento bloquear meia-entrada, a tentativa falha com mensagem.
-* **Cashback do produtor:** ao encerrar o período do evento, creditar 2% do líquido (ou parâmetro) no saldo do produtor; refletir em painel/extrato.
+* **Check-in:** validação retorna status VALID, ALREADY_USED, INVALID, EXPIRED ou FRAUD_ATTEMPT; registra deviceId, IP address, location, deviceInfo, modo online/offline.
+* **Cashback do produtor:** ao encerrar o período do evento, creditar percentual configurável (producerCashbackPercent ou defaultCashbackPercent) do líquido no saldo do produtor; criar transação tipo CREDIT; refletir em painel/extrato com histórico completo (ProducerCashbackTransaction).
+* **Notificações:** ações críticas geram notificações específicas (ORDER_CONFIRMED, TICKET_ISSUED, TRANSFER_INVITED, TRANSFER_ACCEPTED, TRANSFER_CANCELLED, CHECKIN_SUCCESS, PASSWORD_RESET, EMAIL_VERIFICATION); envio via EMAIL ou WHATSAPP; rastreamento de status (sentAt, readAt, read).
 * **Mensageria:** e-mails/WhatsApp, emissão de QR, exportações e fluxo de transferência **assíncronos com retries e DLQ**; requisições síncronas não bloqueiam.
-* **Cache:** listagens por cidade/UF/categoria/data com baixa latência; qualquer alteração relevante (evento/lote/transferência) **invalida** caches afetados.
+* **Cache:** listagens por cidade/UF/categoria/data com baixa latência; qualquer alteração relevante (evento/lote/transferência/produto) **invalida** caches afetados.
 
 ## Requisitos Futuros e Extensões
 
@@ -252,7 +292,11 @@ App nativo; Apple/Google Wallet; afiliados avançado; **revenda P2P** (marketpla
 
 ## Considerações Finais
 
-A versão **1.5** destaca a expansão significativa dos **requisitos de acessibilidade** (RNF09-RNF28), garantindo que a plataforma Ingressou seja acessível para pessoas com deficiência visual, auditiva, motora e cognitiva, em conformidade com WCAG 2.1 nível AA. Além disso, mantém as características da versão 1.4: **descoberta nacional** (busca/filtros por cidade/UF/categoria/data), **transferência de ingressos** com aceite e reemissão segura do QR, governança (Admin cria/vincula), controle de acesso (RBAC), robustez (mensageria + cache) e incentivo financeiro ao **produtor** (cashback).
+A versão **1.6** incorpora novas funcionalidades identificadas no diagrama de classes do sistema: **produtos e serviços além de ingressos** (RF53-RF56), **sistema de notificações completo** (RF58-RF61), **rastreamento detalhado de transações de cashback** (RF62-RF64), **check-in aprimorado com detecção de fraude** (RF57), **suporte a cartão de débito** (RF28.1) e **gestão de localizações** (RF65). 
+
+Além disso, mantém todas as funcionalidades da versão **1.5**, incluindo expansão significativa dos **requisitos de acessibilidade** (RNF09-RNF28), garantindo que a plataforma Ingressou seja acessível para pessoas com deficiência visual, auditiva, motora e cognitiva, em conformidade com WCAG 2.1 nível AA. 
+
+O modelo contempla ainda: **descoberta nacional** (busca/filtros por cidade/UF/categoria/data), **transferência de ingressos** com aceite e reemissão segura do QR, governança (Admin cria/vincula), controle de acesso (RBAC), robustez (mensageria + cache) e incentivo financeiro ao **produtor** com rastreamento completo de cashback (transações CREDIT/DEBIT/ADJUSTMENT).
 
 ## Histórico de Versão
 
@@ -264,3 +308,4 @@ A versão **1.5** destaca a expansão significativa dos **requisitos de acessibi
 | 1.3 | Onboarding de produtor pelo Admin; **vinculação Produtor↔Evento**; reforço de RBAC | Gabriel Lima | 16/10/2025 |
 | 1.4 | Busca & filtros nacionais (cidade/UF/categoria/data), **taxonomia de categorias**, e **transferência de ingressos com aceite e reemissão segura de QR** | Gabriel Lima | 16/10/2025 |
 | 1.5 | Expansão significativa dos requisitos não funcionais de **acessibilidade** (RNF09-RNF28): especificações detalhadas para pessoas com deficiência visual, auditiva, motora e cognitiva; conformidade WCAG 2.1 AA; suporte a leitores de tela; navegação por teclado; contraste e legibilidade; acessibilidade mobile e de conteúdo dinâmico | Gabriel Lima | 27/10/2025 |
+| 1.6 | **Nova funcionalidades baseadas no diagrama de classes**: (1) **Módulo de Produtos e Serviços** (RF53-RF56) - produtos/serviços vendidos junto com eventos, OrderItem suporta TICKET ou PRODUCT, controle de estoque; (2) **Sistema de Notificações Completo** (RF58-RF61) - tipos específicos (ORDER_CONFIRMED, TICKET_ISSUED, TRANSFER_INVITED, etc.), canais EMAIL/WHATSAPP, rastreamento de leitura; (3) **Transações de Cashback Rastreáveis** (RF62-RF64) - ProducerCashbackTransaction com tipos CREDIT/DEBIT/ADJUSTMENT, extrato completo, percentual configurável por evento; (4) **Check-in Aprimorado** (RF57) - status detalhados (VALID, ALREADY_USED, INVALID, EXPIRED, FRAUD_ATTEMPT), registro de deviceId/IP/location/deviceInfo; (5) **Suporte a Cartão de Débito** (RF28.1); (6) **Gestão de Localizações** (RF65) - foto, complemento, CEP; (7) Atualizações em status de pedidos, pagamentos, lotes e tickets conforme enums do diagrama | Gabriel Lima | 21/11/2025 |
